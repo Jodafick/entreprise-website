@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHABESY INTERNATIONAL SARL – Équipements Industriels & Solutions Techniques | Cotonou, Bénin</title>
+<meta name="description" content="CHABESY INTERNATIONAL SARL, votre partenaire en équipements industriels, matériels électriques, ascenseurs, solutions hydrauliques et fournitures techniques à Cotonou, Bénin.">
+<meta name="keywords" content="équipements industriels Bénin, matériels électriques Cotonou, ascenseurs Bénin, hydraulique, fournitures industrielles, CHABESY INTERNATIONAL">
+<meta property="og:title" content="CHABESY INTERNATIONAL SARL – Solutions Industrielles au Bénin">
+<meta property="og:description" content="Importation, fourniture et installation d'équipements industriels et électriques à Cotonou, Bénin.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1b3461;
+    --blue: #1e4d8c;
+    --blue-bright: #2563eb;
+    --orange: #f97316;
+    --orange-light: #fb923c;
+    --amber: #f59e0b;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --white: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-primary);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+  /* TYPOGRAPHY */
+  h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; line-height: 1.1; }
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--orange);
+    display: inline-block;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+  nav.scrolled {
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .nav-logo-main {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--white);
+    letter-spacing: 0.03em;
+    line-height: 1;
+  }
+  .nav-logo-main span { color: var(--orange); }
+  .nav-logo-sub {
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 400;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--orange-light) !important; transform: translateY(-1px); }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 1.5rem 5%;
+    z-index: 999;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: block;
+  }
+  .mobile-menu.open { display: flex; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.25);
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.5) 60%, rgba(249,115,22,0.08) 100%);
+  }
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 100%;
+    padding-top: 76px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.3);
+    color: var(--orange-light);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.08;
+    max-width: 820px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.9s ease 0.1s both;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--orange);
+    display: block;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    animation: fadeUp 1.1s ease 0.3s both;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,115,22,0.35); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 1.2s ease 0.4s both;
+  }
+  .hero-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .hero-stat-num span { color: var(--orange); }
+  .hero-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .hero-scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(249,115,22,0.7), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine { 0%,100%{opacity:0.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(0.6)} }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+  /* SECTIONS */
+  section { padding: 7rem 5%; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .section-header { margin-bottom: 4rem; }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.15;
+    max-width: 700px;
+  }
+  .section-title span { color: var(--orange); }
+
+  /* ABOUT */
+  #about { background: var(--gray-50); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-main {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .about-img-main-placeholder {
+    width: 100%;
+    height: 480px;
+    background: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80') center/cover;
+    border-radius: 8px;
+  }
+  .about-badge-card {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--navy);
+    color: var(--white);
+    padding: 1.5rem 1.8rem;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(10,22,40,0.35);
+  }
+  .about-badge-year {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .about-badge-text { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .about-accent-line {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    width: 80px;
+    height: 80px;
+    border-left: 3px solid var(--orange);
+    border-top: 3px solid var(--orange);
+  }
+  .about-text p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .about-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .about-highlight-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(249,115,22,0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .about-highlight-icon svg { width: 18px; height: 18px; stroke: var(--orange); fill: none; stroke-width: 1.8; }
+  .about-highlight-text strong { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); display: block; }
+  .about-highlight-text span { font-size: 0.8rem; color: var(--text-secondary); }
+
+  /* SERVICES */
+  #services { background: var(--navy); position: relative; overflow: hidden; }
+  #services::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #services .section-title { color: var(--white); }
+  #services .section-label { color: var(--orange); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: rgba(10, 22, 40, 0.8);
+    padding: 2.5rem;
+    transition: all 0.35s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover { background: rgba(17, 34, 64, 0.95); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.4); }
+  .service-icon svg { width: 24px; height: 24px; stroke: var(--orange); fill: none; stroke-width: 1.6; }
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .service-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+  .service-num {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.04);
+  }
+
+  /* WHY US */
+  #why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .why-visual-side {
+    background: url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80') center/cover;
+    height: 560px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.9) 0%, transparent 60%);
+  }
+  .why-visual-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem;
+  }
+  .why-stat-row {
+    display: flex;
+    gap: 2rem;
+  }
+  .why-stat { }
+  .why-stat-n {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .why-stat-n span { color: var(--orange); }
+  .why-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
+  .why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .why-point {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.4rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  .why-point:hover { background: var(--gray-50); border-color: var(--gray-200); }
+  .why-point-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .why-point:hover .why-point-icon { background: var(--orange); }
+  .why-point-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 1.6; }
+  .why-point h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+  }
+  .why-point p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; font-weight: 300; }
+
+  /* GALLERY */
+  #gallery { background: var(--gray-50); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:hover .gallery-img { transform: scale(1.07); }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-caption { color: var(--white); font-size: 0.85rem; font-weight: 500; }
+
+  /* CONTACT */
+  #contact { background: var(--navy); }
+  #contact .section-title { color: var(--white); }
+  #contact .section-label { color: var(--orange); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+  }
+  .contact-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .contact-info p { color: rgba(255,255,255,0.55); line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; font-weight: 300; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .contact-item-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(249,115,22,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-item-icon svg { width: 18px; height: 18px; stroke: var(--orange); fill: none; stroke-width: 1.8; }
+  .contact-item-label { font-size: 0.72rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+  .contact-item-value { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+  .contact-item-value a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .contact-item-value a:hover { color: var(--orange); }
+  .contact-form {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 2.5rem;
+  }
+  .contact-form h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: rgba(249,115,22,0.5); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group select option { background: var(--navy-mid); color: var(--white); }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--orange);
+    font-size: 1rem;
+  }
+  .map-container {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 220px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .map-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+  }
+  .map-placeholder svg { width: 32px; height: 32px; stroke: var(--orange); fill: none; stroke-width: 1.5; margin-bottom: 0.5rem; }
+
+  /* FOOTER */
+  footer {
+    background: #06101d;
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .footer-brand-name span { color: var(--orange); }
+  .footer-brand-sub { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; max-width: 260px; margin-bottom: 1.5rem; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social a {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .footer-social a:hover { background: var(--orange); }
+  .footer-social a svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 2; }
+  .footer-social a:hover svg { stroke: var(--white); }
+  .footer-col-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 1.2rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { font-size: 0.83rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-contact-item { display: flex; gap: 8px; margin-bottom: 0.8rem; }
+  .footer-contact-item svg { width: 14px; height: 14px; stroke: var(--orange); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 3px; }
+  .footer-contact-item span { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .footer-legal {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-legal p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+  .footer-legal-links { display: flex; gap: 1.5rem; }
+  .footer-legal-links a { font-size: 0.78rem; color: rgba(255,255,255,0.25); text-decoration: none; }
+  .footer-registrations { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .footer-reg { font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+  .footer-reg strong { color: rgba(255,255,255,0.35); font-weight: 500; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .wa-btn {
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: all 0.25s;
+    animation: waPulse 3s infinite;
+  }
+  .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.5); animation: none; }
+  .wa-btn svg { width: 28px; height: 28px; fill: var(--white); }
+  @keyframes waPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.6), 0 0 0 8px rgba(37,211,102,0.1)} }
+  .wa-tooltip {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.78rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.25s;
+    pointer-events: none;
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+  /* REVEAL ANIMATION */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* COUNTER */
+  .count-up { display: inline-block; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-visual-side { height: 320px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 4.5rem 5%; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .about-badge-card { position: relative; bottom: auto; right: auto; margin-top: 1rem; display: inline-block; }
+    .footer-legal { flex-direction: column; text-align: center; }
+    .footer-legal-links { justify-content: center; }
+    .about-highlights { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-main">CHABESY <span>INT'L</span></span>
+      <span class="nav-logo-sub">SARL – Cotonou, Bénin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Pourquoi nous</a></li>
+      <li><a href="#gallery">Projets</a></li>
+      <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">À propos</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Pourquoi nous choisir</a>
+  <a href="#gallery" onclick="toggleMenu()">Projets</a>
+  <a href="#contact" onclick="toggleMenu()">Nous contacter</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Cotonou, Bénin · Depuis 2020</div>
+    <h1 class="hero-title">
+      Votre partenaire en<br>
+      <em>solutions industrielles</em>
+      au Bénin
+    </h1>
+    <p class="hero-subtitle">
+      CHABESY INTERNATIONAL accompagne entreprises et professionnels avec des équipements fiables, des solutions électriques et hydrauliques modernes, ainsi que des services techniques de qualité pour vos projets les plus ambitieux.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Nous contacter
+      </a>
+      <a href="#services" class="btn-outline">
+        Nos services
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num"><span class="count-up" data-target="5">0</span><span>+</span></div>
+        <div class="hero-stat-label">Années d'expertise</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="count-up" data-target="120">0</span><span>+</span></div>
+        <div class="hero-stat-label">Projets réalisés</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="count-up" data-target="80">0</span><span>+</span></div>
+        <div class="hero-stat-label">Clients professionnels</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="count-up" data-target="6">0</span><span></span></div>
+        <div class="hero-stat-label">Secteurs d'activité</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-accent-line"></div>
+        <div class="about-img-main-placeholder"></div>
+        <div class="about-badge-card">
+          <div class="about-badge-year">2020</div>
+          <div class="about-badge-text">Fondée à<br>Cotonou</div>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <div class="section-label">À propos de nous</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Une entreprise béninoise<br>au service de <span>l'industrie</span></h2>
+        <p>Créée le 19 février 2020, <strong>CHABESY INTERNATIONAL SARL</strong> est une société à responsabilité limitée basée à Cotonou, Bénin. Depuis notre création, nous nous sommes imposés comme un acteur incontournable dans l'importation et la distribution d'équipements industriels de haute qualité en Afrique de l'Ouest.</p>
+        <p>Notre mission est simple : fournir aux entreprises, chantiers et professionnels du Bénin et de la sous-région des équipements fiables, performants et adaptés à leurs besoins spécifiques. Nous mettons notre expertise technique au service de votre réussite.</p>
+        <p>Enracinés dans le tissu économique béninois, nous combinons la rigueur internationale avec la réactivité locale pour vous offrir un service de proximité exemplaire et des solutions techniques à la hauteur de vos ambitions.</p>
+        <div class="about-highlights">
+          <div class="about-highlight">
+            <div class="about-highlight-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="about-highlight-text">
+              <strong>Enregistrée au RCCM</strong>
+              <span>RB/COT/20 B 26275</span>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="about-highlight-text">
+              <strong>IFU officiel</strong>
+              <span>3202011264319</span>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="about-highlight-text">
+              <strong>Import/Export agréé</strong>
+              <span>Fournisseur B2B certifié</span>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="about-highlight-text">
+              <strong>Service technique</strong>
+              <span>Installation & maintenance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Ce que nous faisons</div>
+      <h2 class="section-title" style="color:var(--white);">Des solutions techniques <span>complètes</span><br>pour vos projets</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+        </div>
+        <h3>Matériels Électriques</h3>
+        <p>Importation et fourniture de matériels électriques professionnels : câbles, tableaux de distribution, disjoncteurs, transformateurs et accessoires certifiés pour tous vos chantiers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+        </div>
+        <h3>Installation d'Ascenseurs</h3>
+        <p>Fourniture et installation d'ascenseurs et monte-charges pour immeubles résidentiels, centres commerciaux, hôtels et bâtiments industriels. Solutions adaptées à chaque contexte.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3>Équipements Hydrauliques</h3>
+        <p>Systèmes hydrauliques complets : pompes, vérins, circuits de fluides, vannes et accessoires haute pression pour l'industrie, l'agriculture et les travaux publics.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+        </div>
+        <h3>Fourniture Industrielle</h3>
+        <p>Distribution de pièces mécaniques, outillage industriel, équipements de protection et consommables techniques. Un large catalogue pour répondre à tous vos besoins de production.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <h3>Tuyaux & Accessoires</h3>
+        <p>Gamme complète de tuyaux industriels, raccords, flexibles et accessoires hydrauliques en acier, inox, PVC et polyéthylène. Normes internationales garanties pour toutes applications.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+        </div>
+        <h3>Solutions Techniques</h3>
+        <p>Conseil, ingénierie et accompagnement technique pour vos projets industriels complexes. De l'étude à la mise en service, nos experts vous guident à chaque étape.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal-left">
+        <div class="why-visual-side">
+          <div class="why-visual-overlay"></div>
+          <div class="why-visual-bottom">
+            <div class="why-stat-row">
+              <div class="why-stat">
+                <div class="why-stat-n"><span>100</span>%</div>
+                <div class="why-stat-l">Satisfaction client</div>
+              </div>
+              <div class="why-stat">
+                <div class="why-stat-n"><span>5</span>+</div>
+                <div class="why-stat-l">Ans d'expertise</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Pourquoi nous choisir</div>
+        <h2 class="section-title" style="margin-bottom:2rem;">Ce qui fait la différence<br>chez <span>CHABESY</span></h2>
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-point-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <div>
+              <h4>Expertise technique avérée</h4>
+              <p>Notre équipe possède une connaissance approfondie des équipements industriels, électriques et hydrauliques, acquise sur le terrain au fil de nombreux projets réussis.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <h4>Produits certifiés et fiables</h4>
+              <p>Nous sélectionnons rigoureusement nos fournisseurs internationaux pour vous garantir des équipements conformes aux normes les plus exigeantes du secteur.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div>
+              <h4>Accompagnement personnalisé</h4>
+              <p>De la consultation initiale à l'installation finale, nous sommes à vos côtés pour vous offrir un suivi sur mesure, adapté à la réalité de vos projets.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <h4>Réactivité et disponibilité</h4>
+              <p>Nous comprenons les impératifs du monde industriel. Notre équipe répond rapidement à vos demandes pour minimiser vos délais et maximiser votre productivité.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div>
+              <h4>Rapport qualité-prix imbattable</h4>
+              <p>Grâce à nos partenariats directs avec les fabricants, nous vous proposons des équipements de première qualité à des prix compétitifs, sans compromis sur la performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="section-label">Nos réalisations</div>
+        <h2 class="section-title">Projets & <span>Équipements</span></h2>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;">Discuter d'un projet</a>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=75" alt="Installation électrique industrielle" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">⚡ Installations Électriques</div></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Ascenseur moderne" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">🏗️ Ascenseurs Modernes</div></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75" alt="Équipements hydrauliques" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">💧 Hydraulique Industrielle</div></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=75" alt="Chantier industriel" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">🏭 Chantiers Industriels</div></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&q=75" alt="Tuyaux et accessoires" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">🔧 Tuyaux & Accessoires</div></div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75" alt="Solutions techniques" loading="lazy">
+        <div class="gallery-overlay"><div class="gallery-caption">⚙️ Solutions Techniques</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Travaillons ensemble</div>
+      <h2 class="section-title" style="color:var(--white);margin:0 auto;text-align:center;">Contactez <span>CHABESY</span><br>pour votre prochain projet</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="contact-info">
+          <h3>Nos coordonnées</h3>
+          <p>Nous sommes disponibles pour étudier vos besoins et vous proposer les meilleures solutions techniques. N'hésitez pas à nous contacter.</p>
+        </div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Adresse</div>
+              <div class="contact-item-value">Carrefour Cica Toyota – Cotonou, Bénin</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Téléphones</div>
+              <div class="contact-item-value">
+                <a href="tel:+22991590056">+229 91 59 00 56</a><br>
+                <a href="tel:+22996467415">+229 96 46 74 15</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value"><a href="mailto:chbesyinternational@gmail.com">chbesyinternational@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">WhatsApp direct</div>
+              <div class="contact-item-value"><a href="https://wa.me/22991590056" target="_blank">+229 91 59 00 56 · Cliquer pour chatter</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value"><a href="https://www.linkedin.com/in/glas-lausyl-benin-23a385354/" target="_blank">Suivre sur LinkedIn</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <div class="map-placeholder">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <p>Carrefour Cica Toyota<br>Cotonou, Bénin</p>
+            <a href="https://maps.google.com/?q=Cica+Toyota+Cotonou+Benin" target="_blank" style="color:var(--orange);font-size:0.8rem;margin-top:0.5rem;display:inline-block;">Ouvrir dans Google Maps →</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <h3>Envoyez-nous un message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" placeholder="Jean">
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" placeholder="Koudossou">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email professionnel</label>
+          <input type="email" placeholder="votre@entreprise.com">
+        </div>
+        <div class="form-group">
+          <label>Téléphone / WhatsApp</label>
+          <input type="tel" placeholder="+229 ...">
+        </div>
+        <div class="form-group">
+          <label>Type de demande</label>
+          <select>
+            <option value="">Sélectionner...</option>
+            <option>Demande de devis</option>
+            <option>Information produit</option>
+            <option>Installation ascenseur</option>
+            <option>Équipements électriques</option>
+            <option>Équipements hydrauliques</option>
+            <option>Partenariat commercial</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Décrivez votre projet</label>
+          <textarea placeholder="Décrivez vos besoins, la nature du projet, les équipements recherchés..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="submitForm()" style="width:100%;justify-content:center;font-size:1rem;padding:1rem 2rem;">
+          Envoyer le message
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+        <div class="form-success" id="form-success">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" style="margin-bottom:1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <p style="color:var(--white);font-size:1.1rem;font-family:'Syne',sans-serif;font-weight:700;">Message envoyé !</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-top:0.5rem;">Notre équipe vous contactera dans les plus brefs délais.</p>
+          <a href="https://wa.me/22991590056" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:1.5rem;color:var(--orange);text-decoration:none;font-size:0.9rem;">
+            Ou contactez-nous via WhatsApp →
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:1rem;">
+          Réponse garantie sous 24h · Ou appelez le +229 91 59 00 56
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">CHABESY <span>INT'L</span></div>
+      <div class="footer-brand-sub">SARL · Cotonou, Bénin</div>
+      <p class="footer-desc">Votre partenaire de confiance pour les équipements industriels, électriques et hydrauliques en Afrique de l'Ouest. Qualité, fiabilité et expertise depuis 2020.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/glas-lausyl-benin-23a385354/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://wa.me/22991590056" target="_blank" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
+        </a>
+        <a href="mailto:chbesyinternational@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#why">Pourquoi nous</a></li>
+        <li><a href="#gallery">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Activités</div>
+      <ul class="footer-links">
+        <li><a href="#services">Matériels électriques</a></li>
+        <li><a href="#services">Ascenseurs</a></li>
+        <li><a href="#services">Hydraulique</a></li>
+        <li><a href="#services">Fournitures industrielles</a></li>
+        <li><a href="#services">Tuyaux & raccords</a></li>
+        <li><a href="#services">Solutions techniques</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span>Carrefour Cica Toyota<br>Cotonou, Bénin</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>+229 91 59 00 56<br>+229 96 46 74 15</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>chbesyinternational@gmail.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <div>
+      <p>© 2024 CHABESY INTERNATIONAL SARL · Tous droits réservés</p>
+      <div class="footer-registrations">
+        <span class="footer-reg"><strong>RCCM :</strong> RB/COT/20 B 26275</span>
+        <span class="footer-reg"><strong>IFU :</strong> 3202011264319</span>
+        <span class="footer-reg"><strong>Créée le :</strong> 19 février 2020</span>
+      </div>
+    </div>
+    <div class="footer-legal-links">
+      <a href="#about">Mentions légales</a>
+      <a href="#contact">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <span class="wa-tooltip">Chatter sur WhatsApp</span>
+  <a href="https://wa.me/22991590056" target="_blank" class="wa-btn" aria-label="WhatsApp CHABESY INTERNATIONAL">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
+  </a>
+</div>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// COUNT UP
+function animateCount(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.round(current);
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+const counters = document.querySelectorAll('.count-up');
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
+}, { threshold: 0.5 });
+counters.forEach(c => countObs.observe(c));
+
+// FORM
+function submitForm() {
+  const btn = event.currentTarget;
+  btn.textContent = 'Envoi en cours...';
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }, 1500);
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
