@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIRTROUP INTERIOR DESIGN — Design d'Intérieur Premium à Cotonou</title>
+  <link rel="icon" type="image/png" href="airtroup-icone.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F97316',
+              red: '#DC2626',
+              'orange-light': '#FB923C',
+              'red-dark': '#B91C1C',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --orange: #F97316;
+      --red: #DC2626;
+      --orange-light: #FB923C;
+      --red-dark: #B91C1C;
+      --gold: #D97706;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body { font-family: 'DM Sans', sans-serif; background: #fafafa; overflow-x: hidden; }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0a0a0a;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-logo {
+      animation: logoFade 2s ease forwards;
+    }
+    .loader-logo img { height: 56px; width: auto; object-fit: contain; }
+    .brand-logo {
+      height: auto; width: auto; object-fit: contain; display: block;
+    }
+    #navbar .brand-logo { max-height: 44px; max-width: min(200px, 52vw); }
+    footer .brand-logo { max-height: 52px; max-width: 220px; }
+    .loader-bar {
+      width: 200px; height: 2px; background: #222; border-radius: 2px; overflow: hidden;
+    }
+    .loader-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+      border-radius: 2px;
+      animation: fillBar 1.8s ease forwards;
+    }
+    @keyframes logoFade { 0%{opacity:0;transform:translateY(10px)} 40%{opacity:1;transform:none} 100%{opacity:1} }
+    @keyframes fillBar { 0%{width:0} 100%{width:100%} }
+
+    /* ── GRADIENT UTILITIES ── */
+    .grad-text {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .grad-bg { background: linear-gradient(135deg, var(--orange), var(--red)); }
+    .grad-bg-r { background: linear-gradient(135deg, var(--red), var(--orange)); }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 24px 0;
+      transition: all .4s ease;
+    }
+    .nav-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .nav-logo-link {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      text-decoration: none;
+    }
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 1.75rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: nowrap;
+    }
+    #navbar.scrolled {
+      padding: 14px 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0,0,0,.08);
+    }
+    .nav-link {
+      position: relative; font-size: .85rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: #fff; transition: color .3s;
+    }
+    #navbar.scrolled .nav-link { color: #1a1a1a; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+      transition: width .3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900; font-size: 1.3rem; letter-spacing: .05em;
+      color: #fff; transition: color .4s;
+    }
+    #navbar.scrolled .nav-logo-text { color: #1a1a1a; }
+    .btn-cta {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      color: #fff; font-size: .8rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 11px 22px; border-radius: 3px;
+      transition: all .3s ease; box-shadow: 0 4px 20px rgba(249,115,22,.3);
+    }
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(249,115,22,.45);
+    }
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      z-index: 1002;
+    }
+    .ham-line {
+      width: 26px; height: 2px; background: #fff;
+      transition: all .3s ease; border-radius: 2px;
+      pointer-events: none;
+    }
+    #navbar.scrolled .ham-line { background: #1a1a1a; }
+    body.menu-open { overflow: hidden; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=80');
+      background-size: cover; background-position: center;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,10,.82) 0%, rgba(30,10,5,.65) 60%, rgba(220,38,38,.18) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(249,115,22,.4);
+      backdrop-filter: blur(10px);
+      padding: 6px 16px; border-radius: 50px;
+      font-size: .75rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #ffd6a0; margin-bottom: 28px;
+    }
+    .hero-badge span.dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:.7} }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900; line-height: 1.08;
+      color: #fff; margin-bottom: 24px;
+    }
+    .hero-title em { font-style: italic; color: #fb923c; }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      letter-spacing: .25em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 1rem; line-height: 1.75;
+      color: rgba(255,255,255,.7); max-width: 500px; margin-bottom: 40px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      grad-bg; background: linear-gradient(135deg, var(--orange), var(--red));
+      color: #fff; font-weight: 600; font-size: .9rem;
+      padding: 15px 32px; border-radius: 4px;
+      transition: all .3s ease;
+      box-shadow: 0 8px 32px rgba(249,115,22,.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(249,115,22,.55);
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: #fff; font-weight: 500; font-size: .9rem;
+      padding: 14px 32px; border-radius: 4px;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.06);
+      transition: all .3s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.7);
+      transform: translateY(-3px);
+    }
+
+    /* Stat cards */
+    .stat-card {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 20px;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--orange-light), var(--orange));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .stat-label { font-size: .75rem; color: rgba(255,255,255,.55); letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
+
+    /* Floating shapes */
+    .float-shape {
+      position: absolute; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(249,115,22,.18), rgba(220,38,38,.1));
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+    .scroll-line {
+      width: 1px; height: 60px;
+      background: linear-gradient(180deg, rgba(255,255,255,.6), transparent);
+    }
+
+    /* ── SECTIONS GENERAL ── */
+    section { padding: 120px 0; }
+
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(249,115,22,.1), rgba(220,38,38,.08));
+      border: 1px solid rgba(249,115,22,.25);
+      padding: 5px 16px; border-radius: 50px;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 900; line-height: 1.15; color: #111;
+      margin-bottom: 20px;
+    }
+    .section-title.light { color: #fff; }
+    .section-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; color: #666; line-height: 1.8;
+    }
+    .divider {
+      width: 60px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+      margin: 18px 0 28px;
+    }
+
+    /* ── ABOUT ── */
+    .about-img-wrap {
+      position: relative; border-radius: 12px; overflow: hidden;
+    }
+    .about-img-wrap img { width: 100%; height: 520px; object-fit: cover; }
+    .about-img-accent {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 160px; height: 160px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      opacity: .12; z-index: -1;
+    }
+    .about-img-frame {
+      position: absolute; top: 20px; left: 20px;
+      right: 20px; bottom: 20px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 8px; pointer-events: none;
+    }
+    .experience-badge-float {
+      position: absolute; bottom: 30px; left: -30px;
+      background: #fff;
+      border-radius: 12px; padding: 20px 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      text-align: center; min-width: 130px;
+    }
+
+    /* Feature cards */
+    .feature-card {
+      padding: 28px 24px; border-radius: 12px;
+      background: #fff; border: 1px solid #f0f0f0;
+      transition: all .35s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,.04);
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(249,115,22,.12);
+      border-color: rgba(249,115,22,.2);
+    }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(249,115,22,.12), rgba(220,38,38,.08));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--orange);
+      margin-bottom: 16px;
+      transition: all .3s ease;
+    }
+    .feature-card:hover .feature-icon {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      color: #fff;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: #0f0f0f; }
+    .service-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px; padding: 36px 30px;
+      transition: all .4s ease; cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(249,115,22,.08), rgba(220,38,38,.04));
+      opacity: 0; transition: opacity .4s ease;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      border-color: rgba(249,115,22,.35);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(249,115,22,.15);
+    }
+    .service-card-icon {
+      font-size: 2rem; margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: block; transition: transform .3s ease;
+    }
+    .service-card:hover .service-card-icon { transform: scale(1.15); }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: #fff; margin-bottom: 12px;
+    }
+    .service-card p { font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.7; }
+    .service-arrow {
+      margin-top: 20px; display: flex; align-items: center; gap: 8px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      opacity: 0; transform: translateX(-8px);
+      transition: all .3s ease;
+    }
+    .service-card:hover .service-arrow { opacity: 1; transform: none; }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-filter {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 50px;
+    }
+    .filter-btn {
+      padding: 9px 22px; border-radius: 50px;
+      font-size: .8rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      border: 1.5px solid #e0e0e0; color: #666;
+      background: transparent; cursor: pointer;
+      transition: all .3s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      border-color: transparent; color: #fff;
+      box-shadow: 0 6px 20px rgba(249,115,22,.35);
+    }
+    .portfolio-item {
+      position: relative; border-radius: 12px; overflow: hidden; cursor: pointer;
+    }
+    .portfolio-item img {
+      width: 100%; height: 280px; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .portfolio-item:hover img { transform: scale(1.08); }
+    .portfolio-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.85));
+      opacity: 0; transition: opacity .4s ease;
+      display: flex; align-items: flex-end;
+      padding: 24px;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-cat {
+      font-size: .7rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--orange-light); margin-bottom: 6px;
+    }
+    .portfolio-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+
+    /* ── PROCESS ── */
+    #process { background: linear-gradient(170deg, #fafafa 0%, #fff5f0 100%); }
+    .process-step {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 32px 28px; border-radius: 14px;
+      background: #fff; border: 1px solid #f0ece8;
+      box-shadow: 0 6px 30px rgba(0,0,0,.04);
+      transition: all .35s ease; position: relative;
+    }
+    .process-step:hover {
+      transform: translateX(6px);
+      box-shadow: 0 16px 50px rgba(249,115,22,.1);
+      border-color: rgba(249,115,22,.2);
+    }
+    .process-num {
+      width: 54px; height: 54px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 900; color: #fff;
+    }
+    .process-connector {
+      width: 2px; height: 40px;
+      background: linear-gradient(180deg, var(--orange), transparent);
+      margin: 6px 0 6px 26px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: #0f0f0f; }
+    .testi-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px; padding: 36px 32px;
+      transition: all .35s ease;
+    }
+    .testi-card:hover {
+      border-color: rgba(249,115,22,.25);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(249,115,22,.1);
+    }
+    .testi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-style: italic;
+      color: rgba(255,255,255,.8); line-height: 1.8; margin-bottom: 24px;
+    }
+    .testi-avatar {
+      width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(249,115,22,.4);
+    }
+    .testi-name {
+      font-weight: 600; font-size: .95rem; color: #fff;
+    }
+    .testi-role { font-size: .8rem; color: rgba(255,255,255,.4); }
+    .stars { color: var(--orange); font-size: .9rem; letter-spacing: 2px; margin-bottom: 20px; }
+
+    /* ── CTA ── */
+    #cta {
+      background: linear-gradient(135deg, #c2410c 0%, var(--orange) 35%, var(--red) 70%, #7f1d1d 100%);
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #080808; color: rgba(255,255,255,.7); }
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900; font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .footer-link {
+      display: block; color: rgba(255,255,255,.55);
+      font-size: .88rem; margin-bottom: 10px;
+      transition: color .3s; text-decoration: none;
+    }
+    .footer-link:hover { color: var(--orange-light); }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.1);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6); font-size: .95rem;
+      transition: all .3s ease;
+    }
+    .social-btn:hover {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      border-color: transparent; color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(249,115,22,.3);
+    }
+    .newsletter-input {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 6px 0 0 6px; padding: 12px 18px;
+      color: #fff; font-size: .9rem; outline: none;
+      transition: border-color .3s;
+    }
+    .newsletter-input:focus { border-color: rgba(249,115,22,.5); }
+    .newsletter-input::placeholder { color: rgba(255,255,255,.35); }
+    .newsletter-btn {
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      color: #fff; font-weight: 600; font-size: .82rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 12px 20px; border-radius: 0 6px 6px 0;
+      border: none; cursor: pointer; transition: all .3s ease;
+      white-space: nowrap;
+    }
+    .newsletter-btn:hover { filter: brightness(1.1); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* ── COUNTER ANIMATION ── */
+    .counter { display: inline-block; }
+
+    /* ── MOBILE MENU ── */
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 1001;
+      background: rgba(10,10,10,.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px;
+      padding: 80px 24px 40px;
+      overflow-y: auto;
+    }
+    #mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      transition: color .3s; text-decoration: none;
+    }
+    .mobile-nav-link:hover { color: var(--orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 1024px) {
+      .nav-desktop { display: flex; }
+      .nav-toggle { display: none; }
+    }
+    @media (max-width: 1023px) {
+      #navbar { padding: 16px 0; }
+      #navbar.scrolled { padding: 12px 0; }
+      #navbar .brand-logo { max-height: 38px; }
+      .nav-inner { padding: 0 1rem; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 80px 0; }
+      .hero-title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+      .portfolio-item img { height: 220px; }
+      .mobile-nav-link { font-size: 1.6rem; }
+      #mobile-menu { gap: 22px; }
+    }
+
+    /* Particle canvas */
+    #particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ LOADER ═══════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-logo"><img src="airtroup-logo.png" alt="AIRTROUP Interior Design" /></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo-link">
+      <img src="airtroup-logo.png" alt="AIRTROUP Interior Design" class="brand-logo" />
+    </a>
+
+    <div class="nav-desktop">
+      <div class="nav-links">
+        <a href="#hero" class="nav-link">Accueil</a>
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#portfolio" class="nav-link">Réalisations</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <a href="#contact" class="btn-cta">Demander un devis</a>
+    </div>
+
+    <button type="button" class="nav-toggle" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <button id="close-menu" style="position:absolute;top:28px;right:28px;color:#fff;font-size:1.6rem;background:none;border:none;cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#hero" class="mobile-nav-link" onclick="closeMobileMenu()">Accueil</a>
+  <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">À propos</a>
+  <a href="#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
+  <a href="#portfolio" class="mobile-nav-link" onclick="closeMobileMenu()">Réalisations</a>
+  <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+  <a href="#contact" class="btn-cta mt-4" onclick="closeMobileMenu()">Demander un devis</a>
+</div>
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section id="hero" class="relative">
+  <canvas id="particles"></canvas>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Floating shapes -->
+  <div class="float-shape" style="width:300px;height:300px;top:10%;right:8%;animation-delay:0s;"></div>
+  <div class="float-shape" style="width:180px;height:180px;top:60%;right:20%;animation-delay:2s;"></div>
+  <div class="float-shape" style="width:120px;height:120px;bottom:20%;left:10%;animation-delay:4s;"></div>
+
+  <div class="hero-content max-w-7xl mx-auto px-6 pb-32 pt-6 w-full">
+    <div class="max-w-3xl">
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        Cabinet d'Architecture d'Intérieur · Cotonou, Bénin
+      </div>
+
+      <h1 class="hero-title reveal" style="transition-delay:.1s">
+        Transformons vos espaces<br>en <em>œuvres d'art</em> vivantes
+      </h1>
+
+      <p class="hero-sub reveal" style="transition-delay:.2s">Concevoir &nbsp;·&nbsp; Rénover &nbsp;·&nbsp; Meubler</p>
+
+      <p class="hero-desc reveal" style="transition-delay:.3s">
+        Design d'intérieur unique, élégant et sur mesure pour maisons, bureaux et espaces professionnels au Bénin et dans toute l'Afrique de l'Ouest.
+      </p>
+
+      <div class="flex flex-wrap gap-4 reveal" style="transition-delay:.4s">
+        <a href="#portfolio" class="btn-primary">
+          <i class="fa-solid fa-images"></i> Voir nos projets
+        </a>
+        <a href="#contact" class="btn-outline">
+          <i class="fa-solid fa-phone"></i> Nous contacter
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-8 mt-16 reveal" style="transition-delay:.5s; max-width:480px;">
+        <div class="stat-card">
+          <div class="stat-num"><span class="counter" data-target="150">0</span>+</div>
+          <div class="stat-label">Projets réalisés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num"><span class="counter" data-target="98">0</span>%</div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num"><span class="counter" data-target="8">0</span>+</div>
+          <div class="stat-label">Années d'expérience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <i class="fa-solid fa-chevron-down" style="color:rgba(255,255,255,.5);font-size:.8rem;"></i>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section id="about" class="bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Image -->
+      <div class="about-img-wrap reveal-left relative">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80" alt="Design d'intérieur AIRTROUP" style="border-radius:16px;" />
+        <div class="about-img-frame"></div>
+        <div class="about-img-accent"></div>
+
+        <!-- Floating badge -->
+        <div class="experience-badge-float">
+          <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#F97316,#DC2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">8+</div>
+          <div style="font-size:.72rem;color:#666;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">Années<br>d'expertise</div>
+        </div>
+
+        <!-- Award badge -->
+        <div style="position:absolute;top:30px;right:-20px;background:linear-gradient(135deg,#F97316,#DC2626);border-radius:12px;padding:14px 18px;box-shadow:0 16px 40px rgba(249,115,22,.4);text-align:center;">
+          <i class="fa-solid fa-award" style="color:#fff;font-size:1.5rem;display:block;margin-bottom:6px;"></i>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.9);letter-spacing:.1em;text-transform:uppercase;font-weight:600;">Design<br>Premium</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="reveal-right">
+        <div class="section-badge"><i class="fa-solid fa-star-of-david" style="font-size:.7rem;"></i> À propos de nous</div>
+        <h2 class="section-title">L'art du<br><span class="grad-text">design intérieur</span></h2>
+        <div class="divider"></div>
+
+        <p class="section-sub mb-6">
+          AIRTROUP INTERIOR DESIGN accompagne particuliers et entreprises dans la transformation de leurs espaces grâce à des concepts élégants, modernes et fonctionnels, pensés pour le marché africain avec une vision internationale.
+        </p>
+        <p style="font-size:.95rem;color:#888;line-height:1.85;margin-bottom:36px;">
+          Basés au cœur de Cotonou, nous fusionnons l'esthétique contemporaine avec les richesses culturelles du Bénin pour créer des intérieurs qui racontent votre histoire, subliment votre quotidien et reflètent votre personnalité.
+        </p>
+
+        <!-- Feature cards -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-paintbrush"></i></div>
+            <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#1a1a1a;margin-bottom:6px;">Créativité</h4>
+            <p style="font-size:.83rem;color:#888;line-height:1.6;">Chaque espace est une toile où s'exprime votre vision unique.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+            <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#1a1a1a;margin-bottom:6px;">Élégance</h4>
+            <p style="font-size:.83rem;color:#888;line-height:1.6;">Des finitions soignées et des matériaux premium pour un résultat raffiné.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
+            <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#1a1a1a;margin-bottom:6px;">Qualité</h4>
+            <p style="font-size:.83rem;color:#888;line-height:1.6;">Standards internationaux, exécution locale d'excellence.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#1a1a1a;margin-bottom:6px;">Innovation</h4>
+            <p style="font-size:.83rem;color:#888;line-height:1.6;">Tendances mondiales adaptées au contexte et aux réalités locales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SERVICES ═══════════════════════════════════ -->
+<section id="services">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="section-badge"><i class="fa-solid fa-list-check" style="font-size:.7rem;"></i> Ce que nous faisons</div>
+      <h2 class="section-title light">Nos <span style="background:linear-gradient(135deg,#fb923c,#fca5a5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">services</span> premium</h2>
+      <div class="divider mx-auto"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.8;">Une gamme complète de services pour transformer chaque espace en une expérience de vie exceptionnelle.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card reveal" style="transition-delay:.05s">
+        <i class="fa-solid fa-drafting-compass service-card-icon"></i>
+        <h3>Architecture d'intérieur</h3>
+        <p>Conception globale et cohérente de vos espaces intérieurs avec plans 3D, spécifications techniques et suivi de projet de A à Z.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <i class="fa-solid fa-hard-hat service-card-icon"></i>
+        <h3>Rénovation</h3>
+        <p>Transformation complète ou partielle de vos espaces existants avec des matériaux de qualité et une exécution soignée.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.15s">
+        <i class="fa-solid fa-couch service-card-icon"></i>
+        <h3>Décoration intérieure</h3>
+        <p>Sélection d'accessoires, textiles, luminaires et éléments décoratifs pour créer une ambiance harmonieuse et personnalisée.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <i class="fa-solid fa-chair service-card-icon"></i>
+        <h3>Mobilier sur mesure</h3>
+        <p>Conception et fabrication de meubles uniques adaptés à vos dimensions, vos goûts et votre mode de vie.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.25s">
+        <i class="fa-solid fa-house-chimney service-card-icon"></i>
+        <h3>Design résidentiel</h3>
+        <p>Aménagement de maisons et appartements pour créer un foyer qui vous ressemble, alliant confort, fonctionnalité et esthétique.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.3s">
+        <i class="fa-solid fa-building service-card-icon"></i>
+        <h3>Design commercial</h3>
+        <p>Conception d'espaces professionnels (bureaux, boutiques, restaurants, hôtels) qui valorisent votre marque et optimisent l'expérience client.</p>
+        <div class="service-arrow"><span>Découvrir</span> <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ PORTFOLIO ═══════════════════════════════════ -->
+<section id="portfolio" class="bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="section-badge"><i class="fa-solid fa-images" style="font-size:.7rem;"></i> Portfolio</div>
+      <h2 class="section-title">Nos <span class="grad-text">réalisations</span></h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-sub" style="max-width:560px;margin:0 auto;">Chaque projet témoigne de notre engagement envers l'excellence et notre passion pour la transformation des espaces.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="residential">Résidentiel</button>
+      <button class="filter-btn" data-filter="bureau">Bureau</button>
+      <button class="filter-btn" data-filter="luxe">Luxe</button>
+      <button class="filter-btn" data-filter="moderne">Moderne</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+      <div class="portfolio-item reveal" data-cat="residential">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80" alt="Villa Résidentielle" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Résidentiel</div>
+            <div class="portfolio-name">Villa Contemporaine</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="bureau" style="transition-delay:.05s">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Bureau Modern" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Bureau</div>
+            <div class="portfolio-name">Open Space Premium</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="luxe" style="transition-delay:.1s">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" alt="Luxe Interior" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Luxe</div>
+            <div class="portfolio-name">Penthouse Élégant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="moderne" style="transition-delay:.15s">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Cuisine Moderne" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Moderne</div>
+            <div class="portfolio-name">Cuisine Épurée</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="residential" style="transition-delay:.2s">
+        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80" alt="Salon Résidentiel" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Résidentiel</div>
+            <div class="portfolio-name">Salon Chaleureux</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="bureau" style="transition-delay:.25s">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80" alt="Salle de Réunion" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Bureau</div>
+            <div class="portfolio-name">Salle de Conférence</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="luxe" style="transition-delay:.3s">
+        <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=700&q=80" alt="Suite Luxe" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Luxe</div>
+            <div class="portfolio-name">Suite Master</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="moderne" style="transition-delay:.35s">
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=700&q=80" alt="Salle de bains moderne" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Moderne</div>
+            <div class="portfolio-name">Salle de Bains Spa</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal" data-cat="residential" style="transition-delay:.4s">
+        <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=700&q=80" alt="Chambre résidentielle" />
+        <div class="portfolio-overlay">
+          <div>
+            <div class="portfolio-cat">Résidentiel</div>
+            <div class="portfolio-name">Chambre Cosy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ PROCESS ═══════════════════════════════════ -->
+<section id="process">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Content -->
+      <div class="reveal-left">
+        <div class="section-badge"><i class="fa-solid fa-route" style="font-size:.7rem;"></i> Notre méthode</div>
+        <h2 class="section-title">Comment nous<br><span class="grad-text">travaillons</span></h2>
+        <div class="divider"></div>
+        <p class="section-sub mb-12">De la première conversation à la livraison finale, nous vous accompagnons à chaque étape avec transparence et rigueur.</p>
+
+        <div style="display:flex;flex-direction:column;">
+          <div class="process-step reveal" style="transition-delay:.05s">
+            <div class="process-num">01</div>
+            <div>
+              <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#111;margin-bottom:8px;">Consultation initiale</h4>
+              <p style="font-size:.88rem;color:#777;line-height:1.7;">Nous écoutons vos besoins, analysons votre espace et définissons ensemble votre vision, vos attentes et votre budget.</p>
+            </div>
+          </div>
+          <div class="process-connector"></div>
+
+          <div class="process-step reveal" style="transition-delay:.1s">
+            <div class="process-num">02</div>
+            <div>
+              <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#111;margin-bottom:8px;">Concept créatif</h4>
+              <p style="font-size:.88rem;color:#777;line-height:1.7;">Développement de moodboards, palettes de couleurs et concepts visuels qui traduisent votre personnalité en esthétique.</p>
+            </div>
+          </div>
+          <div class="process-connector"></div>
+
+          <div class="process-step reveal" style="transition-delay:.15s">
+            <div class="process-num">03</div>
+            <div>
+              <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#111;margin-bottom:8px;">Design & planification</h4>
+              <p style="font-size:.88rem;color:#777;line-height:1.7;">Plans techniques, visualisations 3D réalistes et planning détaillé pour une vision précise du résultat final.</p>
+            </div>
+          </div>
+          <div class="process-connector"></div>
+
+          <div class="process-step reveal" style="transition-delay:.2s">
+            <div class="process-num">04</div>
+            <div>
+              <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#111;margin-bottom:8px;">Réalisation</h4>
+              <p style="font-size:.88rem;color:#777;line-height:1.7;">Coordination de toutes les équipes d'artisans qualifiés avec contrôle qualité à chaque étape de l'exécution.</p>
+            </div>
+          </div>
+          <div class="process-connector"></div>
+
+          <div class="process-step reveal" style="transition-delay:.25s">
+            <div class="process-num">05</div>
+            <div>
+              <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#111;margin-bottom:8px;">Livraison finale</h4>
+              <p style="font-size:.88rem;color:#777;line-height:1.7;">Inspection finale, styling complet et remise des clés de votre espace idéal, prêt à vivre dès le premier jour.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="reveal-right">
+        <div style="position:relative;border-radius:20px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80" alt="Notre processus de travail" style="width:100%;height:680px;object-fit:cover;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(220,38,38,.1));"></div>
+          <div style="position:absolute;bottom:30px;left:30px;right:30px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-radius:14px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.15);">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:50px;height:50px;border-radius:10px;background:linear-gradient(135deg,#F97316,#DC2626);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-shield-check" style="color:#fff;font-size:1.2rem;"></i>
+              </div>
+              <div>
+                <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:#111;margin-bottom:3px;">Satisfaction garantie</div>
+                <div style="font-size:.82rem;color:#888;">Nous travaillons jusqu'à ce que vous soyez pleinement satisfait de votre espace.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TESTIMONIALS ═══════════════════════════════════ -->
+<section id="testimonials">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="section-badge"><i class="fa-solid fa-heart" style="font-size:.7rem;"></i> Témoignages</div>
+      <h2 class="section-title light">Ils nous <span style="background:linear-gradient(135deg,#fb923c,#fca5a5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">font confiance</span></h2>
+      <div class="divider mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="testi-card reveal" style="transition-delay:.05s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"AIRTROUP a complètement transformé notre maison. L'équipe a su saisir parfaitement notre vision et l'a surpassée. Un travail exceptionnel, des finitions irréprochables. Je recommande vivement !"</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80" class="testi-avatar" alt="Adaeze Okonkwo" />
+          <div>
+            <div class="testi-name">Adaeze Okonkwo</div>
+            <div class="testi-role">Directrice, Cotonou</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.1s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"L'aménagement de nos bureaux par AIRTROUP a révolutionné notre productivité et notre image de marque. Nos clients sont impressionnés à chaque visite. Un investissement qui vaut chaque franc CFA !"</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" class="testi-avatar" alt="Kouame Assouma" />
+          <div>
+            <div class="testi-name">Kouame Assouma</div>
+            <div class="testi-role">CEO, Entreprise Tech</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.15s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Service professionnel, écoute attentive et résultats au-delà de nos espérances. Notre villa est devenue une véritable œuvre d'art. L'équipe a respecté les délais et le budget à la lettre."</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" class="testi-avatar" alt="Fatima Djossou" />
+          <div>
+            <div class="testi-name">Fatima Djossou</div>
+            <div class="testi-role">Architecte, Porto-Novo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.2s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"De la conception à la livraison, tout était parfait. Ils ont su créer un espace à la fois fonctionnel et beau, qui correspond exactement à notre style de vie. Bravo à toute l'équipe !"</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" class="testi-avatar" alt="Jean-Pierre Hounkpè" />
+          <div>
+            <div class="testi-name">Jean-Pierre Hounkpè</div>
+            <div class="testi-role">Médecin, Cotonou</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.25s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Un cabinet d'exception qui allie créativité et professionnalisme. Ils ont transformé notre restaurant en un lieu unique et inoubliable. Le chiffre d'affaires a augmenté de 40% depuis la rénovation !"</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="testi-avatar" alt="Mathieu Agossou" />
+          <div>
+            <div class="testi-name">Mathieu Agossou</div>
+            <div class="testi-role">Restaurateur, Cotonou</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.3s">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Je suis subjuguée par le résultat. AIRTROUP a su mêler modernité et authenticité africaine dans ma maison. Chaque recoin est pensé, chaque détail est soigné. Je vis maintenant dans mon rêve !"</p>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" class="testi-avatar" alt="Roseline Akpé" />
+          <div>
+            <div class="testi-name">Roseline Akpé</div>
+            <div class="testi-role">Avocate, Abomey-Calavi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CTA ═══════════════════════════════════ -->
+<section id="cta" class="py-28">
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+    <div class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:5px 16px;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:24px;">
+        <i class="fa-solid fa-wand-magic-sparkles" style="font-size:.7rem;"></i> Commencez votre projet
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;">
+        Donnez vie à votre<br><em style="font-style:italic;color:rgba(255,220,180,.9);">espace idéal</em>
+      </h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(255,255,255,.7);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">
+        Contactez-nous dès aujourd'hui pour une consultation gratuite et commençons ensemble la transformation de votre espace.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:50px;">
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#c2410c;font-weight:700;font-size:.9rem;padding:16px 36px;border-radius:4px;text-decoration:none;transition:all .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.2);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 8px 32px rgba(0,0,0,.2)'">
+          <i class="fa-solid fa-calendar-check"></i> Prendre rendez-vous
+        </a>
+        <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.5);color:#fff;font-weight:500;font-size:.9rem;padding:14px 32px;border-radius:4px;text-decoration:none;transition:all .3s ease;backdrop-filter:blur(8px);background:rgba(255,255,255,.08);" onmouseover="this.style.borderColor='rgba(255,255,255,.9)'" onmouseout="this.style.borderColor='rgba(255,255,255,.5)'">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+
+      <!-- Mini stats -->
+      <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#fff;">150+</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;">Projets</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.2);"></div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#fff;">98%</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;">Satisfaction</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.2);"></div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#fff;">8+</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;">Années</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════════ -->
+<section id="contact" style="background:#fff;padding:120px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20">
+      <!-- Info -->
+      <div class="reveal-left">
+        <div class="section-badge"><i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> Contactez-nous</div>
+        <h2 class="section-title">Parlons de<br><span class="grad-text">votre projet</span></h2>
+        <div class="divider"></div>
+        <p class="section-sub mb-12">Nous sommes à votre disposition pour discuter de vos idées et vous accompagner dans la réalisation de vos rêves.</p>
+
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
+            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-solid fa-location-dot" style="color:#F97316;font-size:1.1rem;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Adresse</div>
+              <div style="font-size:.85rem;color:#888;">Camp Guezo, Cotonou — Bénin</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
+            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-solid fa-phone" style="color:#F97316;font-size:1.1rem;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Téléphone</div>
+              <a href="tel:+22901621515 38" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">(+229) 01 62 15 15 38</a>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
+            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-brands fa-instagram" style="color:#F97316;font-size:1.1rem;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Instagram</div>
+              <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">@airtroup_interior_design</a>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
+            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-brands fa-facebook-f" style="color:#F97316;font-size:1.1rem;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Facebook</div>
+              <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">AIRTROUP Interior Design</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal-right">
+        <div style="background:#fff;border:1px solid #f0ece8;border-radius:20px;padding:44px;box-shadow:0 20px 80px rgba(0,0,0,.06);">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#111;margin-bottom:8px;">Envoyez-nous un message</h3>
+          <p style="font-size:.88rem;color:#999;margin-bottom:30px;">Réponse sous 24 heures — consultation gratuite</p>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div>
+                <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Prénom</label>
+                <input type="text" placeholder="Votre prénom" style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'" />
+              </div>
+              <div>
+                <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Nom</label>
+                <input type="text" placeholder="Votre nom" style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'" />
+              </div>
+            </div>
+
+            <div>
+              <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Email</label>
+              <input type="email" placeholder="votre@email.com" style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'" />
+            </div>
+
+            <div>
+              <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Téléphone</label>
+              <input type="tel" placeholder="+229 00 00 00 00" style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'" />
+            </div>
+
+            <div>
+              <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Type de projet</label>
+              <select style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;appearance:none;background:#fff;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'">
+                <option value="">Sélectionnez un service</option>
+                <option>Architecture d'intérieur</option>
+                <option>Rénovation</option>
+                <option>Décoration intérieure</option>
+                <option>Mobilier sur mesure</option>
+                <option>Design résidentiel</option>
+                <option>Design commercial</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#555;display:block;margin-bottom:8px;">Message</label>
+              <textarea rows="4" placeholder="Décrivez votre projet, vos envies, votre budget..." style="width:100%;padding:12px 16px;border:1.5px solid #e8e4e0;border-radius:8px;font-size:.9rem;color:#333;outline:none;transition:border-color .3s;resize:vertical;font-family:'DM Sans',sans-serif;" onfocus="this.style.borderColor='#F97316'" onblur="this.style.borderColor='#e8e4e0'"></textarea>
+            </div>
+
+            <button onclick="submitForm(event)" style="width:100%;padding:16px;background:linear-gradient(135deg,#F97316,#DC2626);color:#fff;font-weight:700;font-size:.92rem;border:none;border-radius:8px;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 30px rgba(249,115,22,.35);display:flex;align-items:center;justify-content:center;gap:10px;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 14px 45px rgba(249,115,22,.5)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 8px 30px rgba(249,115,22,.35)'">
+              <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer style="padding:80px 0 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16" style="border-bottom:1px solid rgba(255,255,255,.07);">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="#hero" style="display:inline-block;margin-bottom:20px;">
+          <img src="airtroup-logo.png" alt="AIRTROUP Interior Design" class="brand-logo" />
+        </a>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8;max-width:380px;margin-bottom:24px;">
+          Nous proposons une gamme complète de services de design d'intérieur et de décoration pour créer des espaces uniques, inspirants et à votre image au Bénin et en Afrique de l'Ouest.
+        </p>
+        <div style="display:flex;gap:10px;margin-bottom:28px;">
+          <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#contact" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.83rem;">
+          <i class="fa-solid fa-location-dot" style="color:#F97316;"></i>
+          Camp Guezo, Cotonou — Bénin
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:20px;">Liens rapides</h4>
+        <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
+        <a href="#hero" class="footer-link">Accueil</a>
+        <a href="#about" class="footer-link">À propos</a>
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#portfolio" class="footer-link">Réalisations</a>
+        <a href="#process" class="footer-link">Notre processus</a>
+        <a href="#testimonials" class="footer-link">Témoignages</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:20px;">Newsletter</h4>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:20px;">Recevez nos dernières réalisations et tendances design directement dans votre boîte mail.</p>
+        <div style="display:flex;">
+          <input type="email" class="newsletter-input" placeholder="Votre email" style="flex:1;" />
+          <button class="newsletter-btn" onclick="subscribeNewsletter(event)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.3);margin-top:10px;">Pas de spam. Désabonnement à tout moment.</p>
+
+        <div style="margin-top:28px;">
+          <h5 style="font-size:.8rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;">Horaires</h5>
+          <div style="font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.8;">
+            Lun – Ven : 8h00 – 18h00<br>
+            Sam : 9h00 – 15h00<br>
+            Dim : Sur rendez-vous
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="padding:24px 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+      <div style="font-size:.82rem;color:rgba(255,255,255,.3);">
+        &copy; 2025 AIRTROUP INTERIOR DESIGN. Tous droits réservés.
+      </div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,.25);display:flex;gap:20px;">
+        <a href="#" style="color:rgba(255,255,255,.3);text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Politique de confidentialité</a>
+        <a href="#" style="color:rgba(255,255,255,.3);text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Mentions légales</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════ SCRIPTS ═══════════════════════════════════ -->
+<script>
+/* ── LOADER ── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    document.getElementById('heroBg').classList.add('loaded');
+    startCounters();
+  }, 2000);
+});
+
+/* ── NAVBAR ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+/* ── HAMBURGER ── */
+const mobileMenu = document.getElementById('mobile-menu');
+const hamburger = document.getElementById('hamburger');
+
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  document.body.classList.add('menu-open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'Fermer le menu');
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+}
+
+hamburger.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) closeMobileMenu();
+  else openMobileMenu();
+});
+document.getElementById('close-menu').addEventListener('click', closeMobileMenu);
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024) closeMobileMenu();
+});
+
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+/* ── COUNTERS ── */
+function startCounters() {
+  document.querySelectorAll('.counter').forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      counter.textContent = Math.floor(current);
+    }, 16);
+  });
+}
+
+/* ── PORTFOLIO FILTER ── */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.getAttribute('data-filter');
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      if (filter === 'all' || item.getAttribute('data-cat') === filter) {
+        item.style.display = 'block';
+        item.style.animation = 'fadeIn .4s ease forwards';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+/* ── PARTICLES ── */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const particles = [];
+for (let i = 0; i < 55; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.8 + .4,
+    dx: (Math.random() - .5) * .4,
+    dy: (Math.random() - .5) * .4,
+    alpha: Math.random() * .5 + .1,
+    color: Math.random() > .5 ? '#F97316' : '#DC2626'
+  });
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.alpha;
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ── PARALLAX ── */
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const heroBg = document.getElementById('heroBg');
+  if (heroBg) {
+    heroBg.style.transform = `translateY(${scrolled * .25}px)`;
+  }
+});
+
+/* ── FORM ── */
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Message envoyé !';
+  btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer ma demande';
+    btn.style.background = 'linear-gradient(135deg,#F97316,#DC2626)';
+  }, 3000);
+}
+
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+  btn.style.background = '#16a34a';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+    btn.style.background = 'linear-gradient(135deg,#F97316,#DC2626)';
+  }, 3000);
+}
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+<style>
+@keyframes fadeIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:none} }
+</style>
+</body>
+</html>
