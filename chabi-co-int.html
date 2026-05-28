@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHABI INTERNATIONAL & CO SARL — Import · Export · Négoce International</title>
+<meta name="description" content="CHABI INTERNATIONAL & CO SARL — Import-export, négoce international et produits agricoles depuis le Bénin.">
+<meta property="og:title" content="CHABI INTERNATIONAL & CO SARL">
+<meta property="og:description" content="Commerce international depuis le Bénin.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root {
+    --navy: #1e5f74;
+    --navy-deep: #123d4d;
+    --navy-soft: #3a8fa8;
+    --gold: #e85d04;
+    --gold-light: #fb923c;
+    --gold-bg: #fff7ed;
+    --white: #ffffff;
+    --bg: #f0f7f9;
+    --bg-alt: #e2eef2;
+    --text: #1a2e36;
+    --muted: #5c7280;
+    --border: #cdd9de;
+    --radius: 8px;
+    --shadow: 0 4px 24px rgba(18, 61, 77, 0.1);
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --card-min-h: 220px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 3px; }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--navy-deep);
+  }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.85rem;
+  }
+  .tag i { font-size: 0.7rem; }
+
+  .title-section {
+    font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+    margin-bottom: 0.65rem;
+  }
+  .lead {
+    font-size: 1.02rem; color: var(--muted); max-width: 560px; line-height: 1.75;
+  }
+  .lead.center { margin-inline: auto; text-align: center; }
+  .block-head { margin-bottom: 2.75rem; }
+  .block-head.center { text-align: center; }
+
+  /* Grilles équilibrées */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  /* 5 cartes : 3 + 2 centrées */
+  .grid-5-balanced {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
+  }
+  .grid-5-balanced > * { grid-column: span 2; }
+  .grid-5-balanced > :nth-child(4) { grid-column: 2 / span 2; }
+  .grid-5-balanced > :nth-child(5) { grid-column: 4 / span 2; }
+
+  .icon-box {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--gold-bg);
+    border: 1px solid rgba(232, 93, 4, 0.22);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.05rem; flex-shrink: 0;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.8rem 1.6rem; border-radius: var(--radius);
+    font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .btn-gold { background: var(--gold); color: var(--white); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-navy { background: var(--navy-deep); color: var(--white); }
+  .btn-navy:hover { background: var(--navy); }
+  .btn-line {
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+  .btn-line:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+  .btn-outline {
+    background: var(--white); color: var(--navy-deep);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--navy-soft); }
+
+  /* HEADER */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--white);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .header.is-scrolled {
+    border-color: var(--border);
+    box-shadow: var(--shadow);
+  }
+  .header-inner {
+    max-width: 1180px; margin: 0 auto; padding: 0 1.5rem;
+    height: 72px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-link {
+    display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
+  }
+  .logo-box {
+    width: 42px; height: 42px; background: var(--navy-deep);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold-light); font-weight: 700; font-size: 0.8rem;
+  }
+  .logo-title { font-weight: 700; font-size: 0.88rem; color: var(--navy-deep); line-height: 1.2; }
+  .logo-sub { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .nav { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav a {
+    font-size: 0.88rem; font-weight: 500; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav a:hover { color: var(--navy-deep); }
+  .nav .nav-btn {
+    padding: 0.5rem 1.15rem; background: var(--navy-deep); color: var(--white);
+    border-radius: var(--radius);
+  }
+  .nav .nav-btn:hover { background: var(--navy); color: var(--white); }
+
+  .nav-toggle {
+    display: none; width: 42px; height: 42px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--white); color: var(--navy-deep); cursor: pointer;
+  }
+  .nav-panel {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: var(--navy-deep); flex-direction: column;
+    align-items: center; justify-content: center; gap: 1.5rem;
+  }
+  .nav-panel.is-open { display: flex; }
+  .nav-panel a {
+    font-family: var(--serif); font-size: 1.65rem; color: var(--white);
+    text-decoration: none;
+  }
+  .nav-panel-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; color: var(--white);
+    font-size: 1.25rem; cursor: pointer;
+  }
+
+  /* HERO corporate */
+  .hero {
+    margin-top: 72px;
+    position: relative;
+    min-height: 88vh;
+    display: flex; align-items: flex-end;
+    background: var(--navy-deep);
+  }
+  .hero-media {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1920&q=80') center/cover no-repeat;
+  }
+  .hero-media::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(18,61,77,0.93) 0%, rgba(18,61,77,0.68) 55%, rgba(18,61,77,0.42) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    width: 100%; padding: 4rem 0 5rem;
+  }
+  .hero-content .container { max-width: 680px; }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.35rem);
+    color: var(--white); margin-bottom: 1.25rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold-light); }
+  .hero-text {
+    color: rgba(255,255,255,0.82); font-size: 1.05rem;
+    line-height: 1.8; margin-bottom: 2rem; max-width: 520px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 1180px;
+    margin: 0 auto;
+    transform: translateY(50%);
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow);
+  }
+  .hero-stats-wrap { padding-bottom: 4.5rem; background: var(--bg); }
+  .stat-item {
+    background: var(--white);
+    padding: 1.35rem 1.25rem;
+    display: flex; align-items: flex-start; gap: 0.85rem;
+  }
+  .stat-item .icon-box { width: 40px; height: 40px; font-size: 0.95rem; }
+  .stat-value {
+    font-family: var(--serif); font-size: 1.65rem; font-weight: 700;
+    color: var(--navy-deep); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem;
+  }
+
+  /* Bandeau */
+  .strip {
+    background: var(--navy-deep);
+    padding: 0.75rem 0;
+    overflow: hidden;
+  }
+  .strip-track {
+    display: flex; gap: 2.5rem;
+    animation: scroll-strip 35s linear infinite;
+    white-space: nowrap;
+  }
+  .strip-item {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.55);
+  }
+  .strip-item i { color: var(--gold-light); font-size: 0.65rem; }
+  @keyframes scroll-strip { to { transform: translateX(-50%); } }
+
+  /* Sections */
+  .section { padding: 5rem 0; }
+  .section-alt { background: var(--bg); }
+  .section-navy { background: var(--navy-deep); color: var(--white); }
+  .section-navy h2, .section-navy .title-section { color: var(--white); }
+  .section-navy .lead { color: rgba(255,255,255,0.65); }
+  .section-navy .tag { color: var(--gold-light); }
+
+  /* About */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .about-copy .lead { margin-bottom: 1.5rem; }
+  .legal-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.45rem 0.9rem; background: var(--gold-bg);
+    border: 1px solid rgba(232, 93, 4, 0.28);
+    border-radius: var(--radius);
+    font-size: 0.78rem; font-weight: 600; color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .about-para {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.35rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .section-alt .about-para { background: var(--white); }
+  .about-para p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; }
+  .about-para strong { color: var(--navy-deep); font-weight: 600; }
+
+  .value-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.25rem;
+    display: flex; align-items: center; gap: 0.85rem;
+    font-size: 0.88rem; font-weight: 600; color: var(--navy-deep);
+    min-height: 72px;
+  }
+
+  /* Carte générique */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: var(--card-min-h);
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+  .card:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(232, 93, 4, 0.38);
+  }
+  .section-alt .card { background: var(--white); }
+  .card .icon-box { margin-bottom: 1rem; }
+  .card h3 {
+    font-family: var(--sans);
+    font-size: 1.02rem; font-weight: 700;
+    margin-bottom: 0.5rem; color: var(--navy-deep);
+  }
+  .card p {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+    flex: 1;
+  }
+
+  /* Citation */
+  .quote-box {
+    background: var(--navy-deep);
+    border-radius: var(--radius);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    margin: 0 0 5rem;
+  }
+  .quote-box .icon-box {
+    margin: 0 auto 1.25rem;
+    background: rgba(232, 93, 4, 0.14);
+    border-color: rgba(251, 146, 60, 0.32);
+    color: var(--gold-light);
+  }
+  .quote-box blockquote {
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    color: var(--white);
+    max-width: 700px; margin: 0 auto 0.75rem;
+  }
+  .quote-box blockquote strong { color: var(--gold-light); font-weight: 600; }
+  .quote-box p { color: rgba(255,255,255,0.6); font-size: 0.92rem; max-width: 580px; margin: 0 auto; }
+
+  /* Produits */
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: var(--card-min-h);
+    transition: box-shadow 0.25s;
+  }
+  .product-card:hover { box-shadow: var(--shadow); }
+  .product-card img { width: 100%; height: 168px; object-fit: cover; }
+  .product-card-body {
+    padding: 1.25rem 1.35rem 1.35rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-cat {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .product-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem; margin-bottom: 0.35rem;
+  }
+  .product-card p { font-size: 0.84rem; color: var(--muted); flex: 1; }
+
+  .products-foot {
+    text-align: center; margin-top: 2.5rem;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .products-foot p { color: var(--muted); margin-bottom: 1rem; font-size: 0.92rem; }
+
+  /* Why - même hauteur */
+  .why-card .icon-box { margin-bottom: 0.85rem; }
+  .why-card .card-num {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+
+  /* Galerie 3x2 */
+  .gallery-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+    aspect-ratio: 4/3;
+  }
+  .gallery-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .gallery-card:hover img { transform: scale(1.04); }
+  .gallery-label {
+    position: absolute; inset: auto 0 0 0;
+    padding: 0.85rem 1rem;
+    background: linear-gradient(transparent, rgba(18,61,77,0.88));
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem; font-weight: 600; color: var(--white);
+  }
+  .gallery-label i { color: var(--gold-light); font-size: 0.75rem; }
+
+  /* Contact */
+  .contact-split {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .form-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+  .form-box h3 {
+    font-size: 1.2rem; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .form-box h3 i { color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .field { margin-bottom: 1rem; }
+  .field label {
+    display: block; font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); margin-bottom: 0.35rem;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    font-family: var(--sans); font-size: 0.9rem; color: var(--text);
+    outline: none; transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--navy-soft);
+  }
+  .form-msg {
+    display: none; margin-top: 1rem; padding: 0.9rem;
+    background: #e8f5e9; border: 1px solid #a5d6a7;
+    border-radius: var(--radius); color: #2e7d32;
+    font-size: 0.88rem; text-align: center;
+  }
+  .form-msg i { margin-right: 0.35rem; }
+
+  .info-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .section-navy .info-box {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .info-box h4 {
+    font-family: var(--sans); font-size: 0.95rem; font-weight: 700;
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.45rem;
+  }
+  .section-navy .info-box h4 { color: var(--white); }
+  .info-box h4 i { color: var(--gold-light); }
+  .info-line {
+    display: flex; gap: 0.85rem; padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .section-navy .info-line { border-color: rgba(255,255,255,0.08); }
+  .info-line:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-line a { color: var(--gold); text-decoration: none; display: block; }
+  .section-navy .info-line a { color: var(--gold-light); }
+  .info-line a:hover { text-decoration: underline; }
+  .info-line .txt { color: var(--muted); line-height: 1.6; }
+  .section-navy .info-line .txt { color: rgba(255,255,255,0.6); }
+
+  .wa-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.15rem 1.25rem; text-decoration: none;
+    background: rgba(37,211,102,0.1);
+    border: 1px solid rgba(37,211,102,0.25);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+  }
+  .wa-link:hover { background: rgba(37,211,102,0.15); }
+  .wa-link .wa-ico {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .wa-link strong { display: block; font-size: 0.9rem; color: var(--white); }
+  .wa-link span { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+  .map-frame {
+    border-radius: var(--radius); overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .map-frame iframe { width: 100%; height: 200px; border: 0; display: block; }
+
+  /* Footer */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.55);
+    padding: 3rem 0 1.75rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .footer-grid .logo-title { color: var(--white); }
+  .footer-desc { font-size: 0.85rem; line-height: 1.75; margin: 1rem 0; max-width: 300px; }
+  .social { display: flex; gap: 0.5rem; }
+  .social a {
+    width: 38px; height: 38px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .social a:hover { background: var(--gold); color: var(--white); }
+  .foot-menu h5 {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35);
+    margin-bottom: 0.85rem;
+  }
+  .foot-menu a {
+    display: block; font-size: 0.85rem; color: rgba(255,255,255,0.55);
+    text-decoration: none; padding: 0.3rem 0;
+  }
+  .foot-menu a:hover { color: var(--gold-light); }
+  .footer-bar {
+    padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  #wa-float {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 900;
+    width: 52px; height: 52px; border-radius: var(--radius);
+    background: #25D366; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+  }
+  #back-top {
+    position: fixed; bottom: 5rem; right: 1.5rem; z-index: 900;
+    width: 40px; height: 40px; border-radius: var(--radius);
+    background: var(--white); border: 1px solid var(--border);
+    color: var(--navy-deep); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    box-shadow: var(--shadow);
+  }
+  #back-top.is-visible { opacity: 1; pointer-events: auto; }
+
+  .fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 1024px) {
+    .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-5-balanced { grid-template-columns: repeat(2, 1fr); }
+    .grid-5-balanced > *, .grid-5-balanced > :nth-child(4),
+    .grid-5-balanced > :nth-child(5) { grid-column: span 1; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .about-split, .contact-split { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav { display: none; }
+    .nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; transform: translateY(2rem); }
+    .hero-stats-wrap { padding-bottom: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero { min-height: 75vh; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo-link">
+      <div class="logo-box">CI</div>
+      <div>
+        <div class="logo-title">CHABI INTERNATIONAL</div>
+        <div class="logo-sub">&amp; CO SARL · Bénin</div>
+      </div>
+    </a>
+    <ul class="nav">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Produits</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact" class="nav-btn">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<nav class="nav-panel" id="nav-panel">
+  <button class="nav-panel-close" id="nav-close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#about" data-close>À propos</a>
+  <a href="#services" data-close>Services</a>
+  <a href="#products" data-close>Produits</a>
+  <a href="#gallery" data-close>Galerie</a>
+  <a href="#contact" data-close>Contact</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-media" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="container">
+      <p class="tag" style="color:var(--gold-light);"><i class="fa-solid fa-location-dot"></i> Depuis 2017 · Abomey-Calavi</p>
+      <h1>Import-export &amp;<br><em>négoce international</em></h1>
+      <p class="hero-text">CHABI INTERNATIONAL &amp; CO SARL — partenaire de confiance pour vos échanges commerciaux, la logistique et le développement à l'international depuis le Bénin.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-envelope"></i> Nous contacter</a>
+        <a href="https://wa.me/22998666382" target="_blank" class="btn btn-line"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hero-stats-wrap">
+  <div class="container">
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+        <div>
+          <div class="stat-value" data-n="2017" data-year>2017</div>
+          <div class="stat-label">Fondée en</div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+        <div>
+          <div class="stat-value" data-n="50" data-sfx="+">0</div>
+          <div class="stat-label">Partenaires</div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="icon-box"><i class="fa-solid fa-box-open"></i></div>
+        <div>
+          <div class="stat-value" data-n="6">0</div>
+          <div class="stat-label">Produits exportés</div>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="icon-box"><i class="fa-solid fa-earth-africa"></i></div>
+        <div>
+          <div class="stat-value" data-n="8">0</div>
+          <div class="stat-label">Pays desservis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="strip-track">
+    <span class="strip-item"><i class="fa-solid fa-ship"></i> Import · Export</span>
+    <span class="strip-item"><i class="fa-solid fa-seedling"></i> Soja · Cajou · Karité</span>
+    <span class="strip-item"><i class="fa-solid fa-lemon"></i> Ananas · Sésame</span>
+    <span class="strip-item"><i class="fa-solid fa-truck-fast"></i> Logistique</span>
+    <span class="strip-item"><i class="fa-solid fa-handshake"></i> Partenariats</span>
+    <span class="strip-item"><i class="fa-solid fa-location-dot"></i> Abomey-Calavi · Bénin</span>
+    <span class="strip-item"><i class="fa-solid fa-ship"></i> Import · Export</span>
+    <span class="strip-item"><i class="fa-solid fa-seedling"></i> Soja · Cajou · Karité</span>
+    <span class="strip-item"><i class="fa-solid fa-lemon"></i> Ananas · Sésame</span>
+    <span class="strip-item"><i class="fa-solid fa-truck-fast"></i> Logistique</span>
+    <span class="strip-item"><i class="fa-solid fa-handshake"></i> Partenariats</span>
+    <span class="strip-item"><i class="fa-solid fa-location-dot"></i> Abomey-Calavi · Bénin</span>
+  </div>
+</div>
+
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-copy fade-in">
+        <p class="tag"><i class="fa-solid fa-building"></i> Notre histoire</p>
+        <h2 class="title-section">Vision africaine, rayonnement mondial</h2>
+        <p class="lead">Intermédiaire de confiance entre producteurs béninois et marchés internationaux.</p>
+        <span class="legal-tag"><i class="fa-solid fa-file-contract"></i> RCCM RB/ABC/17 B 2030</span>
+        <div class="grid-2" style="margin-bottom:1.75rem;">
+          <div class="value-card"><span class="icon-box"><i class="fa-solid fa-bullseye"></i></span> Mission claire</div>
+          <div class="value-card"><span class="icon-box"><i class="fa-solid fa-globe"></i></span> Vision globale</div>
+          <div class="value-card"><span class="icon-box"><i class="fa-solid fa-handshake"></i></span> Partenariats durables</div>
+          <div class="value-card"><span class="icon-box"><i class="fa-solid fa-certificate"></i></span> Qualité garantie</div>
+        </div>
+        <a href="#contact" class="btn btn-navy"><i class="fa-solid fa-arrow-right"></i> Travailler avec nous</a>
+      </div>
+      <div>
+        <div class="about-para fade-in">
+          <p>Fondée le <strong>14 décembre 2017</strong> à Abomey-Calavi, CHABI INTERNATIONAL &amp; CO SARL valorise le potentiel agricole et commercial de l'Afrique de l'Ouest.</p>
+        </div>
+        <div class="about-para fade-in">
+          <p>Enregistrée sous le RCCM <strong>RB/ABC/17 B 2030</strong>, nous facilitons les flux commerciaux et sécurisons les transactions à chaque étape.</p>
+        </div>
+        <div class="about-para fade-in">
+          <p>Basée sur la RNIE1 de Cotonou, notre équipe maîtrise douanes, logistique et négociation avec des partenaires fiables dans le monde entier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="block-head center fade-in">
+      <p class="tag" style="justify-content:center;"><i class="fa-solid fa-briefcase"></i> Services</p>
+      <h2 class="title-section">Nos domaines d'expertise</h2>
+      <p class="lead center">Six piliers pour couvrir l'ensemble de vos besoins en commerce international.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-ship"></i></div>
+        <h3>Import / Export</h3>
+        <p>De la sourcing à la livraison — procédures douanières et réglementations internationales maîtrisées.</p>
+      </article>
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+        <h3>Négoce International</h3>
+        <p>Opportunités commerciales mondiales, identification d'acheteurs et vendeurs fiables.</p>
+      </article>
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <h3>Distribution</h3>
+        <p>Distribution locale et internationale optimisée pour fiabilité et ponctualité.</p>
+      </article>
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-wheat-awn"></i></div>
+        <h3>Produits Agricoles</h3>
+        <p>Soja, cajou, karité, ananas, sésame — sourcés et exportés vers les marchés mondiaux.</p>
+      </article>
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3>Logistique &amp; Supply Chain</h3>
+        <p>Entreposage, transport multimodal et orchestration de votre chaîne logistique.</p>
+      </article>
+      <article class="card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Partenariats</h3>
+        <p>Réseau Afrique, Europe, Asie, Amériques — ponts durables pour votre croissance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="quote-box fade-in">
+    <div class="icon-box"><i class="fa-solid fa-quote-left"></i></div>
+    <blockquote>Nous construisons des ponts entre <strong>l'Afrique et le monde</strong>, une transaction à la fois.</blockquote>
+    <p>Chaque partenariat est traité avec rigueur, transparence et respect de vos produits sur les marchés internationaux.</p>
+  </div>
+</div>
+
+<section class="section section-alt" id="products">
+  <div class="container">
+    <div class="block-head fade-in" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.25rem;">
+      <div>
+        <p class="tag"><i class="fa-solid fa-leaf"></i> Produits</p>
+        <h2 class="title-section">Nos produits d'exportation</h2>
+        <p class="lead">Six filières phares — sélection selon des standards internationaux.</p>
+      </div>
+      <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-file-invoice"></i> Demander un devis</a>
+    </div>
+    <div class="grid-3">
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&q=80" alt="Soja">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-seedling"></i> Produit phare</p>
+          <h3>Soja</h3>
+          <p>Haute teneur en protéines · Export international</p>
+        </div>
+      </article>
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Cajou">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-tree"></i> Produit phare</p>
+          <h3>Noix de Cajou</h3>
+          <p>Qualité premium · Marchés asiatiques &amp; européens</p>
+        </div>
+      </article>
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80" alt="Karité">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-spa"></i> Cosmétique</p>
+          <h3>Karité</h3>
+          <p>Beurre pur · Industrie cosmétique mondiale</p>
+        </div>
+      </article>
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&q=80" alt="Ananas">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-lemon"></i> Fruits</p>
+          <h3>Ananas</h3>
+          <p>Variétés sucrées · Export frais &amp; transformé</p>
+        </div>
+      </article>
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=600&q=80" alt="Sésame">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-mortar-pestle"></i> Oléagineux</p>
+          <h3>Sésame</h3>
+          <p>Graines naturelles · Marchés moyen-orient</p>
+        </div>
+      </article>
+      <article class="product-card fade-in">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Agricoles">
+        <div class="product-card-body">
+          <p class="product-cat"><i class="fa-solid fa-basket-shopping"></i> Sur commande</p>
+          <h3>Autres produits</h3>
+          <p>Productions saisonnières selon vos besoins</p>
+        </div>
+      </article>
+    </div>
+    <div class="products-foot fade-in">
+      <p>Un produit spécifique ? Contactez-nous pour une offre personnalisée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why-us">
+  <div class="container">
+    <div class="block-head center fade-in">
+      <p class="tag" style="justify-content:center;"><i class="fa-solid fa-shield-halved"></i> Avantages</p>
+      <h2 class="title-section">Pourquoi nous choisir</h2>
+      <p class="lead center">Cinq engagements qui font la différence au quotidien.</p>
+    </div>
+    <div class="grid-5-balanced">
+      <article class="card why-card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+        <p class="card-num">01 — Expertise</p>
+        <h3>Expertise sectorielle</h3>
+        <p>7+ ans de commerce international depuis le Bénin — marchés et risques maîtrisés.</p>
+      </article>
+      <article class="card why-card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
+        <p class="card-num">02 — Réseau</p>
+        <h3>Réseau international</h3>
+        <p>Partenariats Afrique, Europe, Asie, Amériques — accès aux marchés dynamiques.</p>
+      </article>
+      <article class="card why-card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+        <p class="card-num">03 — Confiance</p>
+        <h3>Fiabilité &amp; transparence</h3>
+        <p>Opérations documentées, conformes RCCM RB/ABC/17 B 2030.</p>
+      </article>
+      <article class="card why-card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+        <p class="card-num">04 — Service</p>
+        <h3>Accompagnement dédié</h3>
+        <p>Disponibles lun–sam — réponse rapide à chaque demande.</p>
+      </article>
+      <article class="card why-card fade-in">
+        <div class="icon-box"><i class="fa-solid fa-clipboard-check"></i></div>
+        <p class="card-num">05 — Qualité</p>
+        <h3>Contrôle qualité</h3>
+        <p>Supervision du producteur à l'acheteur — standards internationaux.</p>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:2.5rem;" class="fade-in">
+      <a href="https://wa.me/22998666382" target="_blank" class="btn btn-gold"><i class="fa-brands fa-whatsapp"></i> Discuter de votre projet</a>
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt" id="gallery">
+  <div class="container">
+    <div class="block-head center fade-in">
+      <p class="tag" style="justify-content:center;"><i class="fa-solid fa-images"></i> Galerie</p>
+      <h2 class="title-section">Notre activité en images</h2>
+      <p class="lead center">Six volets — logistique, agriculture et partenariats commerciaux.</p>
+    </div>
+    <div class="grid-3">
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Logistique">
+        <figcaption class="gallery-label"><i class="fa-solid fa-ship"></i> Logistique maritime</figcaption>
+      </figure>
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&q=80" alt="Commerce">
+        <figcaption class="gallery-label"><i class="fa-solid fa-globe"></i> Commerce global</figcaption>
+      </figure>
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Agriculture">
+        <figcaption class="gallery-label"><i class="fa-solid fa-tractor"></i> Agriculture</figcaption>
+      </figure>
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Partenariats">
+        <figcaption class="gallery-label"><i class="fa-solid fa-handshake"></i> Partenariats</figcaption>
+      </figure>
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1494961104209-3c223057bd26?w=600&q=80" alt="Transport">
+        <figcaption class="gallery-label"><i class="fa-solid fa-truck"></i> Transport</figcaption>
+      </figure>
+      <figure class="gallery-card fade-in">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Marché">
+        <figcaption class="gallery-label"><i class="fa-solid fa-store"></i> Marché producteurs</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy" id="contact">
+  <div class="container">
+    <div class="block-head center fade-in">
+      <p class="tag" style="justify-content:center;"><i class="fa-solid fa-envelope"></i> Contact</p>
+      <h2 class="title-section">Parlons de votre projet</h2>
+      <p class="lead center">Disponibles du lundi au samedi pour vos opportunités commerciales.</p>
+    </div>
+    <div class="contact-split">
+      <div class="form-box fade-in">
+        <h3><i class="fa-solid fa-paper-plane"></i> Envoyer un message</h3>
+        <form id="form" onsubmit="sendForm(event)">
+          <div class="form-row">
+            <div class="field">
+              <label>Nom complet *</label>
+              <input type="text" required placeholder="Votre nom">
+            </div>
+            <div class="field">
+              <label>Entreprise</label>
+              <input type="text" placeholder="Votre société">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Email *</label>
+              <input type="email" required placeholder="votre@email.com">
+            </div>
+            <div class="field">
+              <label>Téléphone</label>
+              <input type="tel" placeholder="+229 XX XX XX XX">
+            </div>
+          </div>
+          <div class="field">
+            <label>Sujet *</label>
+            <select required>
+              <option value="">Choisir un sujet</option>
+              <option>Demande d'exportation</option>
+              <option>Demande d'importation</option>
+              <option>Négoce international</option>
+              <option>Logistique &amp; transport</option>
+              <option>Partenariat commercial</option>
+              <option>Demande de devis</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Message *</label>
+            <textarea rows="5" required placeholder="Décrivez votre projet..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;"><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+          <div id="form-msg" class="form-msg"><i class="fa-solid fa-circle-check"></i> Message envoyé — réponse sous 24h.</div>
+        </form>
+      </div>
+      <div class="fade-in">
+        <div class="info-box">
+          <h4><i class="fa-solid fa-address-card"></i> Coordonnées</h4>
+          <div class="info-line">
+            <span class="icon-box"><i class="fa-solid fa-location-dot"></i></span>
+            <span class="txt">RNIE1, Cotonou<br>Abomey-Calavi — Bénin</span>
+          </div>
+          <div class="info-line">
+            <span class="icon-box"><i class="fa-solid fa-phone"></i></span>
+            <span>
+              <a href="tel:+22995247645">+229 95 24 76 45</a>
+              <a href="tel:+22998666382">+229 98 66 63 82</a>
+            </span>
+          </div>
+          <div class="info-line">
+            <span class="icon-box"><i class="fa-solid fa-clock"></i></span>
+            <span class="txt">Lun — Sam : 08h00 – 18h30 · Dimanche fermé</span>
+          </div>
+          <div class="info-line">
+            <span class="icon-box"><i class="fa-solid fa-building"></i></span>
+            <span class="txt">SARL · RCCM RB/ABC/17 B 2030 · Fondée en 2017</span>
+          </div>
+        </div>
+        <a href="https://wa.me/22998666382" target="_blank" class="wa-link">
+          <div class="wa-ico"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>+229 98 66 63 82</span>
+          </div>
+          <i class="fa-solid fa-arrow-right" style="margin-left:auto;color:rgba(255,255,255,0.4);"></i>
+        </a>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126892.37609087!2d2.2921!3d6.3703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023552a15f3dbbf%3A0x3a21ee3ef67c04e8!2sAbomey-Calavi%2C%20B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1706000000000!5m2!1sfr!2sfr" loading="lazy" title="Carte"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a href="#hero" class="logo-link">
+        <div class="logo-box">CI</div>
+        <div>
+          <div class="logo-title">CHABI INTERNATIONAL</div>
+          <div class="logo-sub" style="color:rgba(255,255,255,0.4);">&amp; CO SARL</div>
+        </div>
+      </a>
+      <p class="footer-desc">Partenaire en import-export depuis le Bénin. Fiabilité et réseau international depuis 2017.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/ChabInterCoSarl/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/chabi-international-sarl-660309246/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/22998666382" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="foot-menu">
+      <h5>Navigation</h5>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#products">Produits</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="foot-menu">
+      <h5>Contact</h5>
+      <a href="tel:+22995247645">+229 95 24 76 45</a>
+      <a href="tel:+22998666382">+229 98 66 63 82</a>
+      <a href="https://wa.me/22998666382" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+  <div class="container footer-bar">
+    <span>© 2026 CHABI INTERNATIONAL &amp; CO SARL</span>
+    <span>RCCM RB/ABC/17 B 2030</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/22998666382" id="wa-float" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="back-top" aria-label="Haut"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+document.getElementById('header').classList.toggle('is-scrolled', scrollY > 20);
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('is-scrolled', scrollY > 20);
+  document.getElementById('back-top').classList.toggle('is-visible', scrollY > 400);
+});
+document.getElementById('back-top').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+
+const panel = document.getElementById('nav-panel');
+document.getElementById('nav-toggle').onclick = () => panel.classList.add('is-open');
+document.getElementById('nav-close').onclick = () => panel.classList.remove('is-open');
+document.querySelectorAll('[data-close]').forEach(a => a.onclick = () => panel.classList.remove('is-open'));
+
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+document.querySelectorAll('.stat-value[data-n]').forEach(el => {
+  const obs = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    const n = +el.dataset.n;
+    if (el.dataset.year) { el.textContent = n; obs.unobserve(el); return; }
+    const sfx = el.dataset.sfx || '';
+    let t0; const dur = 1400;
+    const run = ts => {
+      if (!t0) t0 = ts;
+      const p = Math.min((ts - t0) / dur, 1);
+      el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * n) + sfx;
+      if (p < 1) requestAnimationFrame(run);
+      else el.textContent = n + sfx;
+    };
+    requestAnimationFrame(run);
+    obs.unobserve(el);
+  }, { threshold: 0.5 });
+  obs.observe(el);
+});
+
+function sendForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi...';
+  setTimeout(() => {
+    document.getElementById('form-msg').style.display = 'block';
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Envoyé';
+    e.target.reset();
+  }, 1100);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); scrollTo({ top: t.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>

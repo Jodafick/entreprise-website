@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -168,9 +169,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.15rem;
     color: #a5b4fc;
+  }
+  .card-icon i { line-height: 1; }
+  .card-icon--chabi {
+    background: linear-gradient(135deg, rgba(30, 95, 116, 0.35), rgba(232, 93, 4, 0.15));
+    border-color: rgba(232, 93, 4, 0.28);
+    color: #fb923c;
+  }
+  .card:has(.card-icon--chabi):hover {
+    border-color: rgba(58, 143, 168, 0.4);
+  }
+  .card:has(.card-icon--chabi):hover::before {
+    background: linear-gradient(90deg, #1e5f74, #e85d04);
   }
   .card-arrow {
     width: 36px;
@@ -186,15 +198,12 @@
   .card:hover .card-arrow {
     background: var(--accent);
   }
-  .card-arrow svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--muted);
-    fill: none;
-    stroke-width: 2;
-    transition: stroke 0.2s;
+  .card-arrow i {
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.2s;
   }
-  .card:hover .card-arrow svg { stroke: white; }
+  .card:hover .card-arrow i { color: white; }
 
   .card h2 {
     font-size: 1.1rem;
@@ -271,9 +280,9 @@
 
     <a href="chabesy-international.html" class="card">
       <div class="card-top">
-        <div class="card-icon">C</div>
+        <div class="card-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></div>
         <div class="card-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </div>
       </div>
       <h2>CHABESY INTERNATIONAL</h2>
@@ -285,9 +294,25 @@
       </div>
     </a>
 
+    <a href="chabi-co-int.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--chabi"><i class="fa-solid fa-ship" aria-hidden="true"></i></div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>CHABI INTERNATIONAL &amp; CO</h2>
+      <p class="card-loc">Abomey-Calavi · Bénin</p>
+      <p class="card-desc">Import-export, négoce international et produits agricoles d'excellence.</p>
+      <div class="card-tags">
+        <span class="tag">Commerce</span>
+        <span class="tag">Agro</span>
+      </div>
+    </a>
+
     <div class="card is-soon">
       <div class="card-top">
-        <div class="card-icon">+</div>
+        <div class="card-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
       </div>
       <h2>Prochainement</h2>
       <p class="card-loc">Nouvelle entreprise</p>
