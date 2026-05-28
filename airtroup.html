@@ -547,14 +547,72 @@
       transition: color .3s; text-decoration: none;
     }
     .footer-link:hover { color: var(--orange-light); }
+    .footer-link--whatsapp:hover { color: #25D366; }
+    .footer-link--instagram:hover { color: #E4405F; }
+    .footer-link--facebook:hover { color: #1877F2; }
+
+    /* ── CONTACT CARDS ── */
+    .contact-cards { display: flex; flex-direction: column; gap: 20px; }
+    .contact-card {
+      display: flex; align-items: center; gap: 18px;
+      padding: 20px; border-radius: 12px;
+      background: #fafafa; border: 1px solid #f0ece8;
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .contact-card--address:hover { border-color: rgba(249, 115, 22, 0.25); }
+    .contact-card--whatsapp:hover { border-color: rgba(37, 211, 102, 0.4); box-shadow: 0 4px 20px rgba(37, 211, 102, 0.08); }
+    .contact-card--instagram:hover { border-color: rgba(225, 48, 108, 0.35); box-shadow: 0 4px 20px rgba(225, 48, 108, 0.08); }
+    .contact-card--facebook:hover { border-color: rgba(24, 119, 242, 0.35); box-shadow: 0 4px 20px rgba(24, 119, 242, 0.08); }
+    .contact-card__icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-card__icon--address { background: linear-gradient(135deg, rgba(249,115,22,.12), rgba(220,38,38,.08)); }
+    .contact-card__icon--address i { color: #F97316; font-size: 1.1rem; }
+    .contact-card__icon--whatsapp { background: linear-gradient(135deg, rgba(37,211,102,.15), rgba(18,140,126,.08)); }
+    .contact-card__icon--whatsapp i { color: #25D366; font-size: 1.25rem; }
+    .contact-card__icon--instagram { background: linear-gradient(135deg, rgba(240,148,51,.18), rgba(220,39,67,.15), rgba(188,24,136,.12)); }
+    .contact-card__icon--instagram i { color: #E4405F; font-size: 1.25rem; }
+    .contact-card__icon--facebook { background: linear-gradient(135deg, rgba(24,119,242,.15), rgba(66,103,178,.1)); }
+    .contact-card__icon--facebook i { color: #1877F2; font-size: 1.25rem; }
+    .contact-card__label { font-weight: 600; font-size: .88rem; color: #111; margin-bottom: 2px; }
+    .contact-card__value { font-size: .85rem; color: #888; }
+    .contact-card__link {
+      font-size: .85rem; color: #888; text-decoration: none; transition: color .3s;
+    }
+    .contact-card__link--whatsapp:hover { color: #25D366; }
+    .contact-card__link--instagram:hover { color: #E4405F; }
+    .contact-card__link--facebook:hover { color: #1877F2; }
+
     .social-btn {
       width: 40px; height: 40px; border-radius: 8px;
       border: 1px solid rgba(255,255,255,.1);
       display: inline-flex; align-items: center; justify-content: center;
       color: rgba(255,255,255,.6); font-size: .95rem;
-      transition: all .3s ease;
+      transition: all .3s ease; text-decoration: none;
     }
-    .social-btn:hover {
+    .social-btn--whatsapp:hover {
+      background: rgba(37, 211, 102, 0.18);
+      border-color: rgba(37, 211, 102, 0.5);
+      color: #25D366;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    }
+    .social-btn--instagram:hover {
+      background: linear-gradient(135deg, rgba(240,148,51,.22), rgba(220,39,67,.2), rgba(188,24,136,.18));
+      border-color: rgba(225, 48, 108, 0.5);
+      color: #E4405F;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(225, 48, 108, 0.25);
+    }
+    .social-btn--facebook:hover {
+      background: rgba(24, 119, 242, 0.18);
+      border-color: rgba(24, 119, 242, 0.5);
+      color: #1877F2;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);
+    }
+    .social-btn--email:hover {
       background: linear-gradient(135deg, var(--orange), var(--red));
       border-color: transparent; color: #fff;
       transform: translateY(-3px);
@@ -1197,44 +1255,44 @@
         <div class="divider"></div>
         <p class="section-sub mb-12">Nous sommes à votre disposition pour discuter de vos idées et vous accompagner dans la réalisation de vos rêves.</p>
 
-        <div style="display:flex;flex-direction:column;gap:20px;">
-          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
-            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fa-solid fa-location-dot" style="color:#F97316;font-size:1.1rem;"></i>
+        <div class="contact-cards">
+          <div class="contact-card contact-card--address">
+            <div class="contact-card__icon contact-card__icon--address">
+              <i class="fa-solid fa-location-dot"></i>
             </div>
             <div>
-              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Adresse</div>
-              <div style="font-size:.85rem;color:#888;">Camp Guezo, Cotonou — Bénin</div>
+              <div class="contact-card__label">Adresse</div>
+              <div class="contact-card__value">Camp Guezo, Cotonou — Bénin</div>
             </div>
           </div>
 
-          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
-            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fa-solid fa-phone" style="color:#F97316;font-size:1.1rem;"></i>
+          <div class="contact-card contact-card--whatsapp">
+            <div class="contact-card__icon contact-card__icon--whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
             </div>
             <div>
-              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Téléphone</div>
-              <a href="tel:+22901621515 38" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">(+229) 01 62 15 15 38</a>
+              <div class="contact-card__label">WhatsApp</div>
+              <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="contact-card__link contact-card__link--whatsapp">(+229) 01 62 15 15 38</a>
             </div>
           </div>
 
-          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
-            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fa-brands fa-instagram" style="color:#F97316;font-size:1.1rem;"></i>
+          <div class="contact-card contact-card--instagram">
+            <div class="contact-card__icon contact-card__icon--instagram">
+              <i class="fa-brands fa-instagram"></i>
             </div>
             <div>
-              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Instagram</div>
-              <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">@airtroup_interior_design</a>
+              <div class="contact-card__label">Instagram</div>
+              <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" rel="noopener noreferrer" class="contact-card__link contact-card__link--instagram">@airtroup_interior_design</a>
             </div>
           </div>
 
-          <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:12px;background:#fafafa;border:1px solid #f0ece8;transition:all .3s;" onmouseover="this.style.borderColor='rgba(249,115,22,.2)'" onmouseout="this.style.borderColor='#f0ece8'">
-            <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(220,38,38,.08));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fa-brands fa-facebook-f" style="color:#F97316;font-size:1.1rem;"></i>
+          <div class="contact-card contact-card--facebook">
+            <div class="contact-card__icon contact-card__icon--facebook">
+              <i class="fa-brands fa-facebook-f"></i>
             </div>
             <div>
-              <div style="font-weight:600;font-size:.88rem;color:#111;margin-bottom:2px;">Facebook</div>
-              <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" style="font-size:.85rem;color:#888;text-decoration:none;transition:color .3s;" onmouseover="this.style.color='#F97316'" onmouseout="this.style.color='#888'">AIRTROUP Interior Design</a>
+              <div class="contact-card__label">Facebook</div>
+              <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" rel="noopener noreferrer" class="contact-card__link contact-card__link--facebook">AIRTROUP Interior Design</a>
             </div>
           </div>
         </div>
@@ -1310,10 +1368,10 @@
           Nous proposons une gamme complète de services de design d'intérieur et de décoration pour créer des espaces uniques, inspirants et à votre image au Bénin et en Afrique de l'Ouest.
         </p>
         <div style="display:flex;gap:10px;margin-bottom:28px;">
-          <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#contact" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/airtroup_interior_design/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/airtroupInteriorDesign/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#contact" class="social-btn social-btn--email" title="Contact"><i class="fa-solid fa-envelope"></i></a>
         </div>
         <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.83rem;">
           <i class="fa-solid fa-location-dot" style="color:#F97316;"></i>
@@ -1324,7 +1382,7 @@
       <!-- Links -->
       <div>
         <h4 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:20px;">Liens rapides</h4>
-        <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
+        <a href="https://wa.me/2290162151538" target="_blank" rel="noopener noreferrer" class="footer-link footer-link--whatsapp"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a>
         <a href="#hero" class="footer-link">Accueil</a>
         <a href="#about" class="footer-link">À propos</a>
         <a href="#services" class="footer-link">Services</a>
