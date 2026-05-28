@@ -184,6 +184,22 @@
   .card:has(.card-icon--chabi):hover::before {
     background: linear-gradient(90deg, #1e5f74, #e85d04);
   }
+  .card-icon--airtroup {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(220, 38, 38, 0.15));
+    border-color: rgba(249, 115, 22, 0.3);
+    padding: 6px;
+  }
+  .card-icon--airtroup img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .card:has(.card-icon--airtroup):hover {
+    border-color: rgba(249, 115, 22, 0.4);
+  }
+  .card:has(.card-icon--airtroup):hover::before {
+    background: linear-gradient(90deg, #F97316, #DC2626);
+  }
   .card-arrow {
     width: 36px;
     height: 36px;
@@ -266,7 +282,7 @@
 
   <header class="top">
     <span class="brand">Accueil</span>
-    <span class="pill" id="count">1 entreprise</span>
+    <span class="pill" id="count">3 entreprises</span>
   </header>
 
   <section class="hero">
@@ -277,6 +293,24 @@
   <p class="grid-label">Disponibles</p>
 
   <div class="grid">
+
+    <a href="airtroup.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--airtroup">
+          <img src="airtroup-icone.png" alt="" width="32" height="32" />
+        </div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>AIRTROUP INTERIOR DESIGN</h2>
+      <p class="card-loc">Cotonou · Bénin</p>
+      <p class="card-desc">Design d'intérieur premium, architecture intérieure, décoration et mobilier sur mesure.</p>
+      <div class="card-tags">
+        <span class="tag">Design</span>
+        <span class="tag">Intérieur</span>
+      </div>
+    </a>
 
     <a href="chabesy-international.html" class="card">
       <div class="card-top">
