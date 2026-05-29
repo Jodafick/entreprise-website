@@ -200,6 +200,25 @@
   .card:has(.card-icon--airtroup):hover::before {
     background: linear-gradient(90deg, #F97316, #DC2626);
   }
+  .card-icon--capri {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(255, 69, 0, 0.15));
+    border-color: rgba(249, 115, 22, 0.35);
+    padding: 4px;
+    overflow: hidden;
+  }
+  .card-icon--capri img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    border-radius: 8px;
+  }
+  .card:has(.card-icon--capri):hover {
+    border-color: rgba(249, 115, 22, 0.45);
+  }
+  .card:has(.card-icon--capri):hover::before {
+    background: linear-gradient(90deg, #F97316, #FF4500);
+  }
   .card-arrow {
     width: 36px;
     height: 36px;
@@ -282,7 +301,7 @@
 
   <header class="top">
     <span class="brand">Accueil</span>
-    <span class="pill" id="count">3 entreprises</span>
+    <span class="pill" id="count">4 entreprises</span>
   </header>
 
   <section class="hero">
@@ -309,6 +328,24 @@
       <div class="card-tags">
         <span class="tag">Design</span>
         <span class="tag">Intérieur</span>
+      </div>
+    </a>
+
+    <a href="capri-decor.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--capri">
+          <img src="capri-logo.png" alt="" width="32" height="32" />
+        </div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>CAPRI DECOR PLUS</h2>
+      <p class="card-loc">Cotonou · Bénin</p>
+      <p class="card-desc">Enseignes lumineuses, signalétique, branding visuel et supports publicitaires pour entreprises.</p>
+      <div class="card-tags">
+        <span class="tag">Enseignes</span>
+        <span class="tag">Signalétique</span>
       </div>
     </a>
 
