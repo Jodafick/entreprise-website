@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEII SUNKYY SERVICES — Votre passerelle logistique vers le monde</title>
+  <meta name="description" content="LEII SUNKYY SERVICES (LSS) — Agence logistique spécialisée en fret aérien, expédition rapide et réception de colis à Cotonou, Bénin. Rapidité. Sécurité. Fiabilité." />
+  <meta name="keywords" content="logistique Cotonou, fret aérien Bénin, expédition colis Bénin, livraison internationale, LSS, Leii Sunkyy Services, e-commerce logistique Bénin" />
+  <meta property="og:title" content="LEII SUNKYY SERVICES — Passerelle logistique internationale" />
+  <meta property="og:description" content="Fret aérien, expédition rapide, réception de marchandises. Basé à Cotonou, Bénin." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* ── Palette image LSS : bleu ciel + blanc ── */
+            night:   '#020C10',   /* fond quasi-noir, teal profond      */
+            navy:    '#041620',   /* fond sections alternées            */
+            'navy-2':'#07222E',   /* cartes et surfaces                 */
+            'brand-blue': '#0098B8', /* bleu ciel/teal moyen           */
+            'brand-teal': '#00C4E8', /* bleu ciel vif — couleur LSS    */
+            'teal-light': '#4DDCF5', /* teal clair hover/gradients     */
+            'teal-glow':  'rgba(0,196,232,0.22)',
+          },
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            heading: ['Rajdhani', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      /* ── Palette image LSS : bleu ciel & blanc ── */
+      --night:        #020C10;  /* fond principal — quasi-noir teal    */
+      --navy:         #041620;  /* fond sections alternées             */
+      --navy2:        #07222E;  /* surfaces, cartes                    */
+      --blue:         #0098B8;  /* bleu ciel moyen (accents, badges)   */
+      --orange:       #00C4E8;  /* bleu ciel vif — couleur principale  */
+      --orange-light: #4DDCF5;  /* bleu ciel clair hover               */
+      --orange-glow:  rgba(0,196,232,0.20);
+      --white: #FFFFFF;
+      --gray:  #6BAEC2;
+      --gray-light: #EEF8FB;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--night); color: var(--white); overflow-x: hidden; }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--night);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 24px;
+      transition: opacity .6s ease, visibility .6s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5rem; font-weight: 800; letter-spacing: 0.2em;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: logoFade 1.5s ease forwards;
+    }
+    .loader-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .85rem; letter-spacing: .35em; color: var(--gray);
+      text-transform: uppercase; animation: logoFade 1.8s ease forwards;
+    }
+    .loader-bar { width: 220px; height: 2px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+    .loader-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      animation: fillBar 2s ease forwards;
+    }
+    @keyframes logoFade { 0%{opacity:0;transform:translateY(12px)} 50%{opacity:1;transform:none} 100%{opacity:1} }
+    @keyframes fillBar { 0%{width:0} 100%{width:100%} }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.1rem 0;
+      transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(2,12,16,0.96);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0,196,232,.15);
+      padding: .7rem 0;
+    }
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem; font-weight: 800; letter-spacing: .15em;
+      color: var(--white);
+    }
+    .nav-logo-text span { color: var(--orange); }
+    .nav-link {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .95rem; font-weight: 600; letter-spacing: .08em;
+      color: rgba(255,255,255,.75); text-decoration: none;
+      transition: color .25s;
+    }
+    .nav-link:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff; font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; font-size: .9rem; letter-spacing: .08em;
+      padding: .55rem 1.4rem; border-radius: 4px;
+      text-decoration: none; transition: background .25s, transform .2s;
+      border: none; cursor: pointer; display: inline-block;
+    }
+    .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,152,184,0.40) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 45% at 10% 80%, rgba(0,196,232,0.08) 0%, transparent 65%),
+        linear-gradient(160deg, #020C10 0%, #041620 55%, #07222E 100%);
+      display: flex; align-items: center; position: relative; overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,196,232,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,196,232,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,196,232,0.12) 0%, transparent 70%);
+      top: -100px; right: 10%;
+    }
+    .hero-orb-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(0,152,184,0.4) 0%, transparent 70%);
+      bottom: 0; left: 5%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,196,232,.1); border: 1px solid rgba(0,196,232,.3);
+      border-radius: 100px; padding: .35rem 1rem;
+      font-family: 'Rajdhani', sans-serif; font-size: .8rem;
+      font-weight: 600; letter-spacing: .12em; color: var(--orange-light);
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      font-weight: 800; line-height: .95;
+      letter-spacing: .02em; text-transform: uppercase;
+    }
+    .hero-title .accent { color: var(--orange); }
+    .hero-title .italic { font-style: italic; color: rgba(255,255,255,.55); }
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.1rem); color: rgba(255,255,255,.65);
+      max-width: 480px; line-height: 1.7;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange);
+      color: #fff; font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: .08em;
+      padding: .9rem 2rem; border-radius: 6px; text-decoration: none;
+      transition: all .3s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,196,232,.35); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      color: #fff; font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: .08em;
+      padding: .9rem 2rem; border-radius: 6px; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.3); transition: all .3s;
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+    /* hero plane float */
+    .hero-plane { animation: floatPlane 4s ease-in-out infinite; }
+    @keyframes floatPlane {
+      0%,100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-18px) rotate(-3deg); }
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+    }
+    .hero-stat-card .num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem; font-weight: 800; color: var(--orange);
+    }
+    .hero-stat-card .lbl {
+      font-size: .8rem; color: rgba(255,255,255,.5); letter-spacing: .05em; margin-top: 2px;
+    }
+
+    /* route line animation */
+    .route-line { stroke-dasharray: 300; stroke-dashoffset: 300; animation: drawLine 3s ease forwards 1s; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+    .pulse-dot { animation: pulseDot 1.5s ease-in-out infinite; }
+    @keyframes pulseDot { 0%,100%{opacity:1;r:5} 50%{opacity:.5;r:8} }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-tag {
+      font-family: 'Rajdhani', sans-serif; font-size: .8rem; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase; color: var(--orange);
+      display: flex; align-items: center; gap: 10px; margin-bottom: .75rem;
+    }
+    .section-tag::before { content:''; display:block; width:30px; height:2px; background:var(--orange); }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800;
+      line-height: 1.05; text-transform: uppercase; letter-spacing: .03em;
+    }
+    .section-title .accent { color: var(--orange); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--navy); }
+    .service-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px; padding: 2rem;
+      transition: all .4s; position: relative; overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,196,232,.08) 0%, transparent 60%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .service-card:hover { border-color: rgba(0,196,232,.4); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(0,196,232,.12); border: 1px solid rgba(0,196,232,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--orange); margin-bottom: 1.25rem;
+      transition: all .4s;
+    }
+    .service-card:hover .service-icon { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .service-card h3 {
+      font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700;
+      margin-bottom: .5rem; letter-spacing: .04em;
+    }
+    .service-card p { font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.65; }
+    .service-arrow {
+      position: absolute; bottom: 1.5rem; right: 1.5rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(0,196,232,.1); display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: .8rem; transition: all .3s; opacity: 0;
+    }
+    .service-card:hover .service-arrow { opacity: 1; transform: translate(2px,-2px); }
+
+    /* ── POURQUOI LSS ── */
+    #why { background: var(--night); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media(max-width:768px){ .why-grid { grid-template-columns: 1fr; } }
+    .stat-box {
+      background: linear-gradient(135deg, rgba(0,152,184,.4) 0%, rgba(2,12,16,.6) 100%);
+      border: 1px solid rgba(0,196,232,.2); border-radius: 16px;
+      padding: 2rem; display: flex; align-items: center; gap: 1.25rem;
+    }
+    .stat-icon {
+      width: 60px; height: 60px; flex-shrink: 0; border-radius: 12px;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: #fff;
+    }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.4rem; font-weight: 800; color: var(--white); line-height: 1;
+    }
+    .stat-num span { color: var(--orange); }
+    .stat-label { font-size: .85rem; color: rgba(255,255,255,.55); margin-top: 4px; }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; padding: .6rem 1rem;
+      font-size: .85rem; color: rgba(255,255,255,.7);
+    }
+    .trust-badge i { color: var(--orange); }
+
+    /* ── PROCESSUS ── */
+    #process { background: var(--navy); }
+    .process-step {
+      display: flex; gap: 1.5rem; align-items: flex-start; position: relative;
+    }
+    .step-num-wrap {
+      flex-shrink: 0; position: relative; display: flex; flex-direction: column; align-items: center;
+    }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800;
+      color: #fff; position: relative; z-index: 1;
+      box-shadow: 0 0 0 6px rgba(0,196,232,.15);
+    }
+    .step-line {
+      width: 2px; flex: 1; min-height: 40px;
+      background: linear-gradient(to bottom, var(--orange), rgba(0,196,232,.1));
+      margin-top: 8px;
+    }
+    .step-content {
+      padding-top: 8px; padding-bottom: 2.5rem;
+    }
+    .step-content h3 {
+      font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700;
+      letter-spacing: .04em; margin-bottom: .4rem;
+    }
+    .step-content p { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+    .step-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(0,196,232,.12); color: var(--orange); font-size: 1rem;
+      margin-bottom: .75rem;
+    }
+
+    /* ── GALERIE ── */
+    #gallery { background: var(--night); }
+    .gallery-masonry {
+      columns: 3; column-gap: 1rem;
+    }
+    @media(max-width:900px){ .gallery-masonry { columns: 2; } }
+    @media(max-width:560px){ .gallery-masonry { columns: 1; } }
+    .gallery-item {
+      break-inside: avoid; margin-bottom: 1rem;
+      border-radius: 12px; overflow: hidden; position: relative;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    }
+    .gallery-placeholder {
+      width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: rgba(255,255,255,.3); font-size: .85rem;
+      transition: all .3s;
+    }
+    .gallery-placeholder i { font-size: 2.5rem; color: rgba(0,196,232,.4); }
+    .gallery-item:hover .gallery-placeholder { color: rgba(255,255,255,.6); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,196,232,.15) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    /* ── TEMOIGNAGES ── */
+    #testimonials { background: var(--navy); }
+    .testimonial-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px; padding: 2rem;
+      transition: all .3s; position: relative; overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute; top: 1rem; right: 1.5rem;
+      font-size: 5rem; line-height: 1; color: rgba(0,196,232,.08);
+      font-family: Georgia, serif; font-weight: 900;
+    }
+    .testimonial-card:hover { border-color: rgba(0,196,232,.3); transform: translateY(-4px); }
+    .stars { color: var(--orange); font-size: .9rem; margin-bottom: .75rem; }
+    .testimonial-text { font-size: .92rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 1.25rem; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1rem;
+      color: #fff; flex-shrink: 0;
+    }
+    .reviewer-name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: .95rem; }
+    .reviewer-role { font-size: .78rem; color: rgba(255,255,255,.45); }
+
+    /* ── CTA WHATSAPP ── */
+    #cta-wa {
+      background: linear-gradient(135deg, #07222E 0%, #020C10 100%);
+      position: relative; overflow: hidden;
+    }
+    #cta-wa::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,196,232,.08) 0%, transparent 70%);
+    }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #25D366; color: #fff;
+      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: .06em;
+      padding: 1rem 2.2rem; border-radius: 8px; text-decoration: none;
+      transition: all .3s; border: none; cursor: pointer;
+    }
+    .wa-btn:hover { background: #20BD5C; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,211,102,.3); }
+    .cta-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      text-transform: uppercase; line-height: 1.05; letter-spacing: .03em;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #010A0E; border-top: 1px solid rgba(0,196,232,.14); }
+    .footer-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem; font-weight: 800; letter-spacing: .15em; color: var(--white);
+    }
+    .footer-logo-text span { color: var(--orange); }
+    .footer-link {
+      font-size: .88rem; color: rgba(255,255,255,.5); text-decoration: none; transition: color .25s;
+      display: block; margin-bottom: .5rem;
+    }
+    .footer-link:hover { color: var(--orange); }
+    .footer-heading {
+      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: .9rem;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,.06); display: inline-flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6); text-decoration: none; font-size: .95rem; transition: all .3s;
+    }
+    .social-btn:hover { background: var(--orange); color: #fff; transform: translateY(-2px); }
+
+    /* ── CONTACT SECTION ── */
+    #contact { background: var(--night); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
+    }
+    .contact-info-item {
+      display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem;
+      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px; transition: border-color .3s;
+    }
+    .contact-info-item:hover { border-color: rgba(0,196,232,.3); }
+    .contact-info-icon {
+      width: 42px; height: 42px; flex-shrink: 0; border-radius: 10px;
+      background: rgba(0,196,232,.12); display: flex; align-items: center; justify-content: center;
+      color: var(--orange); font-size: 1rem;
+    }
+    .contact-info-label { font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.35); font-family:'Rajdhani',sans-serif; }
+    .contact-info-value { font-size:.9rem; color:rgba(255,255,255,.8); margin-top:.15rem; line-height:1.5; }
+    .contact-form-wrap {
+      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+    .form-label { font-family:'Rajdhani',sans-serif; font-size:.82rem; font-weight:700; letter-spacing:.1em; color:rgba(255,255,255,.55); text-transform:uppercase; }
+    .form-input, .form-select, .form-textarea {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; padding: .85rem 1rem; color: #fff;
+      font-family:'Inter',sans-serif; font-size: .9rem; outline: none; width: 100%;
+      transition: border-color .3s, background .3s;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,.25); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--orange); background: rgba(0,196,232,.05);
+    }
+    .form-select { cursor: pointer; -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300C4E8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center;
+    }
+    .form-select option { background: #07222E; color:#fff; }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      width: 100%; padding: 1rem; border-radius: 8px; border: none; cursor: pointer;
+      background: var(--orange); color: #fff;
+      font-family:'Rajdhani',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:.1em;
+      text-transform:uppercase; transition: all .3s; display:flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .btn-submit:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,196,232,.3); }
+    .btn-submit:active { transform: translateY(0); }
+
+    /* ── GALERIE IMAGES ── */
+    .gallery-item img {
+      width: 100%; display: block; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: .75rem 1rem;
+      background: linear-gradient(to top, rgba(2,12,16,.9) 0%, transparent 100%);
+      font-family: 'Rajdhani', sans-serif; font-size: .82rem; font-weight: 700;
+      letter-spacing: .06em; color: rgba(255,255,255,.85);
+      transform: translateY(4px); opacity: 0; transition: all .3s;
+    }
+    .gallery-item:hover .gallery-label { opacity: 1; transform: none; }
+
+    /* ── SERVICE CARD IMAGE ── */
+    .service-card-img {
+      width: 100%; height: 160px; object-fit: cover; border-radius: 10px;
+      margin-bottom: 1.25rem; display: block;
+      transition: transform .4s;
+    }
+    .service-card:hover .service-card-img { transform: scale(1.03); }
+    .service-card-img-wrap {
+      border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; height: 160px;
+    }
+
+    /* ── WHY IMAGE ── */
+    .why-image-wrap {
+      border-radius: 16px; overflow: hidden; position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    .why-image-wrap img { width:100%; display:block; object-fit:cover; height: 420px; }
+    .why-image-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,196,232,.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* ── MOBILE MENU ── */
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 990;
+      background: rgba(2,12,16,.98); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.8);
+      text-decoration: none; transition: color .25s;
+    }
+    #mobile-menu a:hover { color: var(--orange); }
+
+    /* ── ANIMATIONS SCROLL ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* stagger children */
+    .stagger > * { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s }
+    .stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s }
+    .stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s }
+
+    /* divider */
+    .orange-divider { width: 50px; height: 3px; background: var(--orange); border-radius: 2px; }
+
+    /* glow text */
+    .glow-orange { text-shadow: 0 0 40px rgba(0,196,232,.4); }
+
+    /* counter */
+    .counter { display: inline-block; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media(max-width:900px){
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media(max-width:768px){
+      section { padding: 3.5rem 0; }
+      .hero-title { font-size: 2.5rem; }
+      .container { padding: 0 1rem; }
+      .why-image-wrap img { height: 280px; }
+      .contact-form-wrap { padding: 1.5rem; }
+    }
+    @media(max-width:480px){
+      .hero-title { font-size: 2rem; }
+      section { padding: 3rem 0; }
+      .section-title { font-size: 1.8rem; }
+      .cta-title { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ LOADER ══════════════════════════════ -->
+<div id="loader">
+  <div class="loader-logo-text">LSS</div>
+  <div class="loader-sub">Leii Sunkyy Services</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ══════════════════════════════ MOBILE MENU ══════════════════════════════ -->
+<div id="mobile-menu">
+  <button onclick="toggleMenu()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Pourquoi LSS</a>
+  <a href="#process" onclick="toggleMenu()">Processus</a>
+  <a href="#gallery" onclick="toggleMenu()">Galerie</a>
+  <a href="#testimonials" onclick="toggleMenu()">Témoignages</a>
+  <a href="#contact" onclick="toggleMenu()" style="color:var(--orange)">Contact</a>
+</div>
+
+<!-- ══════════════════════════════ NAVBAR ══════════════════════════════ -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <a href="#hero" style="text-decoration:none;">
+      <div class="nav-logo-text">LEII <span>SUNKYY</span></div>
+      <div style="font-size:.65rem;letter-spacing:.25em;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif;margin-top:-2px;">SERVICES</div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden md:flex">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#why" class="nav-link">Pourquoi LSS</a>
+      <a href="#process" class="nav-link">Processus</a>
+      <a href="#gallery" class="nav-link">Galerie</a>
+      <a href="#testimonials" class="nav-link">Témoignages</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="https://wa.me/22901975197" class="nav-cta" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <button onclick="toggleMenu()" style="background:none;border:1.5px solid rgba(255,255,255,.2);color:#fff;padding:.5rem .75rem;border-radius:6px;cursor:pointer;font-size:1.1rem;" class="md:hidden">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <div class="container" style="padding-top:7rem;padding-bottom:5rem;position:relative;z-index:1;">
+    <div class="hero-inner-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="hero-badge">
+          <i class="fa-solid fa-circle" style="font-size:.5rem;"></i>
+          Logistique Internationale — Cotonou, Bénin
+        </div>
+        <h1 class="hero-title" style="margin-bottom:1.25rem;">
+          <span class="italic">Votre</span><br>
+          Passerelle<br>
+          <span class="accent glow-orange">Logistique</span><br>
+          Vers Le Monde
+        </h1>
+        <p class="hero-sub" style="margin-bottom:2rem;">
+          Fret aérien, expéditions express, réception de marchandises — LSS achemine vos colis avec rapidité, sécurité et fiabilité vers et depuis le monde entier.
+        </p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;">
+          <a href="https://wa.me/22901975197?text=Bonjour%20LSS%2C%20je%20souhaite%20expédier%20un%20colis." class="btn-primary" target="_blank">
+            <i class="fa-solid fa-box-open"></i> Expédier un colis
+          </a>
+          <a href="https://wa.me/22901975197" class="btn-outline" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+        <!-- Stats row -->
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card">
+            <div class="num">500+</div>
+            <div class="lbl">Colis livrés</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="num">48h</div>
+            <div class="lbl">Livraison express</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="num">100%</div>
+            <div class="lbl">Sécurisé</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — illustration SVG -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;" class="hidden md:flex">
+        <!-- Plane SVG -->
+        <div class="hero-plane" style="width:100%;max-width:460px;">
+          <svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;filter:drop-shadow(0 20px 60px rgba(0,196,232,0.2));">
+            <!-- World map simplified dots -->
+            <g opacity="0.15">
+              <circle cx="80" cy="100" r="2.5" fill="#00C4E8"/>
+              <circle cx="130" cy="80" r="2" fill="#00C4E8"/>
+              <circle cx="200" cy="70" r="2.5" fill="#00C4E8"/>
+              <circle cx="260" cy="90" r="2" fill="#00C4E8"/>
+              <circle cx="330" cy="75" r="2.5" fill="#00C4E8"/>
+              <circle cx="380" cy="95" r="2" fill="#00C4E8"/>
+              <circle cx="60" cy="150" r="2" fill="#00C4E8"/>
+              <circle cx="110" cy="140" r="2.5" fill="#00C4E8"/>
+              <circle cx="170" cy="130" r="2" fill="#00C4E8"/>
+              <circle cx="220" cy="155" r="2.5" fill="#00C4E8"/>
+              <circle cx="290" cy="135" r="2" fill="#00C4E8"/>
+              <circle cx="350" cy="145" r="2.5" fill="#00C4E8"/>
+              <circle cx="410" cy="130" r="2" fill="#00C4E8"/>
+              <circle cx="90" cy="200" r="2.5" fill="#00C4E8"/>
+              <circle cx="150" cy="185" r="2" fill="#00C4E8"/>
+              <circle cx="210" cy="200" r="2.5" fill="#00C4E8"/>
+              <circle cx="270" cy="190" r="2" fill="#00C4E8"/>
+              <circle cx="340" cy="200" r="2.5" fill="#00C4E8"/>
+              <circle cx="400" cy="180" r="2" fill="#00C4E8"/>
+            </g>
+
+            <!-- Route path animated -->
+            <path d="M 60 180 Q 180 40 380 100" stroke="rgba(0,196,232,0.5)" stroke-width="1.5" fill="none" stroke-dasharray="6,4" class="route-line"/>
+            <path d="M 380 100 Q 300 160 200 210" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="4,4"/>
+
+            <!-- Plane body -->
+            <g transform="translate(220,90) rotate(-20)">
+              <!-- fuselage -->
+              <ellipse cx="0" cy="0" rx="65" ry="14" fill="#0098B8"/>
+              <ellipse cx="30" cy="-2" rx="35" ry="11" fill="#07222E"/>
+              <!-- cockpit -->
+              <ellipse cx="58" cy="-1" rx="12" ry="9" fill="#00C4E8"/>
+              <ellipse cx="62" cy="-1" rx="7" ry="6" fill="#4DDCF5" opacity="0.8"/>
+              <!-- left wing -->
+              <polygon points="-10,-14 40,-14 20,14 -30,14" fill="#00C4E8" opacity="0.9"/>
+              <!-- right wing small -->
+              <polygon points="10,-14 40,-14 30,-28 0,-28" fill="#00C4E8" opacity="0.7"/>
+              <!-- tail -->
+              <polygon points="-60,-14 -45,-14 -50,-30 -65,-30" fill="#0098B8"/>
+              <polygon points="-60,0 -45,0 -55,14 -68,14" fill="#0098B8"/>
+              <!-- engine pods -->
+              <ellipse cx="5" cy="18" rx="16" ry="5" fill="#07222E"/>
+              <ellipse cx="5" cy="18" rx="10" ry="3" fill="#00C4E8" opacity="0.5"/>
+            </g>
+
+            <!-- Pulsing destination dots -->
+            <circle cx="60" cy="180" r="5" fill="rgba(0,196,232,0.8)" class="pulse-dot"/>
+            <circle cx="380" cy="100" r="5" fill="rgba(0,196,232,0.8)" style="animation-delay:.7s" class="pulse-dot"/>
+
+            <!-- Location label Cotonou -->
+            <text x="30" y="200" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Rajdhani" font-weight="700" letter-spacing="1">COTONOU</text>
+            <text x="360" y="90" font-size="9" fill="rgba(255,255,255,0.4)" font-family="Rajdhani" font-weight="600" letter-spacing="1">MONDE</text>
+
+            <!-- cargo box -->
+            <g transform="translate(140,200)">
+              <rect x="0" y="0" width="40" height="30" rx="4" fill="#0098B8" stroke="rgba(0,196,232,0.4)" stroke-width="1"/>
+              <rect x="0" y="0" width="40" height="8" rx="4" fill="#00C4E8" opacity="0.8"/>
+              <line x1="20" y1="8" x2="20" y2="30" stroke="rgba(0,196,232,0.3)" stroke-width="1"/>
+              <line x1="0" y1="19" x2="40" y2="19" stroke="rgba(0,196,232,0.3)" stroke-width="1"/>
+            </g>
+            <g transform="translate(300,195)">
+              <rect x="0" y="0" width="35" height="25" rx="3" fill="#07222E" stroke="rgba(0,196,232,0.3)" stroke-width="1"/>
+              <rect x="0" y="0" width="35" height="7" rx="3" fill="#4DDCF5" opacity="0.6"/>
+            </g>
+
+            <!-- Speed lines -->
+            <line x1="140" y1="105" x2="165" y2="105" stroke="rgba(0,196,232,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="148" y1="113" x2="168" y2="113" stroke="rgba(0,196,232,0.25)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="143" y1="97" x2="160" y2="97" stroke="rgba(0,196,232,0.2)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Feature badges -->
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
+          <div style="background:rgba(0,196,232,.1);border:1px solid rgba(0,196,232,.25);border-radius:100px;padding:.35rem .9rem;font-size:.78rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.08em;color:var(--orange-light);">
+            <i class="fa-solid fa-plane"></i> Fret Aérien
+          </div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.35rem .9rem;font-size:.78rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.7);">
+            <i class="fa-solid fa-shield-halved"></i> Sécurisé
+          </div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.35rem .9rem;font-size:.78rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.7);">
+            <i class="fa-solid fa-bolt"></i> Express 48h
+          </div>
+          <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.2);border-radius:100px;padding:.35rem .9rem;font-size:.78rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.08em;color:rgba(255,139,56,.9);">
+            <i class="fa-solid fa-globe"></i> International
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- scroll indicator -->
+  <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.5;">
+    <div style="font-size:.7rem;letter-spacing:.2em;font-family:'Rajdhani',sans-serif;">SCROLL</div>
+    <div style="width:1px;height:30px;background:linear-gradient(to bottom,var(--orange),transparent);animation:scrollBlink 1.5s ease-in-out infinite;"></div>
+  </div>
+  <style>@keyframes scrollBlink{0%,100%{opacity:.3}50%{opacity:1}}</style>
+</section>
+
+<!-- ══════════════════════════════ SERVICES ══════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="section-tag" style="justify-content:center;">Nos expertises</div>
+      <h2 class="section-title">Ce que nous <span class="accent">faisons</span></h2>
+      <p style="margin-top:1rem;color:rgba(255,255,255,.5);max-width:500px;margin-left:auto;margin-right:auto;font-size:.95rem;line-height:1.7;">
+        De la réception à la livraison, LSS prend en charge toute la chaîne logistique avec un niveau de service premium.
+      </p>
+    </div>
+
+    <div class="services-grid stagger">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=75&auto=format&fit=crop" alt="Fret aérien" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h3>Fret Aérien</h3>
+        <p>Transport de marchandises par voie aérienne, rapide et fiable. Nous gérons vos frets vers et depuis les principales destinations mondiales.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1566576912321-d680b1990d20?w=600&q=75&auto=format&fit=crop" alt="Expédition rapide" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Expédition Rapide</h3>
+        <p>Service express avec livraison garantie en 48 à 72 heures. Idéal pour les commandes urgentes et les produits e-commerce.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=75&auto=format&fit=crop" alt="Réception colis" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3>Réception de Colis</h3>
+        <p>Centre de réception sécurisé à Cotonou. Nous réceptionnons, stockons et vous notifions dès l'arrivée de vos marchandises.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=600&q=75&auto=format&fit=crop" alt="Logistique e-commerce" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h3>Logistique E-Commerce</h3>
+        <p>Solutions dédiées aux boutiques en ligne, vendeurs TikTok, revendeurs mode et textiles. Gestion des retours et expéditions en masse.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+      <!-- Card 5 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=75&auto=format&fit=crop" alt="Suivi temps réel" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Suivi en Temps Réel</h3>
+        <p>Suivez l'acheminement de vos colis en temps réel. Notifications automatiques à chaque étape du processus logistique.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+      <!-- Card 6 -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=75&auto=format&fit=crop" alt="Livraison sécurisée" class="service-card-img" loading="lazy">
+        </div>
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Livraison Sécurisée</h3>
+        <p>Chaque colis est traité avec le plus grand soin. Emballage renforcé, assurance et garantie de livraison pour votre tranquillité.</p>
+        <div class="service-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ POURQUOI LSS ══════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner-grid">
+
+      <!-- LEFT -->
+      <div class="reveal-left">
+        <div class="section-tag">Pourquoi nous choisir</div>
+        <h2 class="section-title" style="margin-bottom:1.25rem;">LSS, la <span class="accent">référence</span> logistique au Bénin</h2>
+        <div class="orange-divider" style="margin-bottom:1.5rem;"></div>
+        <p style="color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem;font-size:.95rem;">
+          Depuis notre création, nous avons bâti une réputation solide grâce à notre rigueur, notre rapidité et notre engagement client. Que vous soyez boutique e-commerce, importateur ou particulier, LSS est votre partenaire logistique de confiance.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem;">
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> Délais respectés</div>
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> Réseau international</div>
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> Suivi personnalisé</div>
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> Tarifs compétitifs</div>
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> E-commerce spécialisé</div>
+          <div class="trust-badge"><i class="fa-solid fa-check"></i> Support WhatsApp 7j/7</div>
+        </div>
+        <a href="https://wa.me/22901975197" class="btn-primary" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Discuter de votre projet
+        </a>
+      </div>
+
+      <!-- RIGHT stats + image -->
+      <div class="reveal-right">
+        <div class="why-image-wrap" style="margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Opérations logistiques LSS" loading="lazy">
+          <div class="why-image-overlay"></div>
+        </div>
+        <div class="why-stats-grid">
+          <div class="stat-box">
+            <div class="stat-icon"><i class="fa-solid fa-box"></i></div>
+            <div>
+              <div class="stat-num"><span class="counter" data-target="500">0</span>+</div>
+              <div class="stat-label">Colis livrés</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <div class="stat-num"><span class="counter" data-target="150">0</span>+</div>
+              <div class="stat-label">Clients satisfaits</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <div class="stat-num"><span class="counter" data-target="20">0</span>+</div>
+              <div class="stat-label">Pays desservis</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="stat-num">48<span style="font-size:1.2rem;color:rgba(255,255,255,.6);">h</span></div>
+              <div class="stat-label">Livraison express</div>
+            </div>
+          </div>
+        </div><!-- end why-stats-grid -->
+
+        <!-- Partenaires -->
+        <div style="margin-top:1.5rem;padding:1.25rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;">
+          <div style="font-size:.75rem;letter-spacing:.2em;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif;margin-bottom:1rem;text-transform:uppercase;">Nos clients types</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+            <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.15);border-radius:6px;padding:.3rem .7rem;font-size:.8rem;color:rgba(255,139,56,.9);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.05em;">Boutiques e-commerce</div>
+            <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.15);border-radius:6px;padding:.3rem .7rem;font-size:.8rem;color:rgba(255,139,56,.9);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.05em;">Vendeurs TikTok</div>
+            <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.15);border-radius:6px;padding:.3rem .7rem;font-size:.8rem;color:rgba(255,139,56,.9);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.05em;">Mode & Textile</div>
+            <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.15);border-radius:6px;padding:.3rem .7rem;font-size:.8rem;color:rgba(255,139,56,.9);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.05em;">Importateurs</div>
+            <div style="background:rgba(0,196,232,.08);border:1px solid rgba(0,196,232,.15);border-radius:6px;padding:.3rem .7rem;font-size:.8rem;color:rgba(255,139,56,.9);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.05em;">Commerces locaux</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ PROCESSUS ══════════════════════════════ -->
+<section id="process">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="section-tag" style="justify-content:center;">Comment ça marche</div>
+      <h2 class="section-title">Notre <span class="accent">processus</span> d'expédition</h2>
+      <p style="margin-top:1rem;color:rgba(255,255,255,.5);max-width:480px;margin-left:auto;margin-right:auto;font-size:.95rem;line-height:1.7;">
+        5 étapes simples pour acheminer votre colis en toute sécurité, du départ à la livraison finale.
+      </p>
+    </div>
+
+    <div class="process-inner-grid">
+      <!-- Steps -->
+      <div class="reveal-left" style="padding-top:1rem;">
+        <!-- Step 1 -->
+        <div class="process-step">
+          <div class="step-num-wrap">
+            <div class="step-num">01</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-box-open"></i></div>
+            <h3>Réception du colis</h3>
+            <p>Vous nous confiez votre colis ou marchandise à notre agence d'Akpakpa, Cotonou. Nous enregistrons toutes les informations et effectuons un contrôle qualité.</p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="process-step">
+          <div class="step-num-wrap">
+            <div class="step-num">02</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+            <h3>Traitement logistique</h3>
+            <p>Emballage renforcé, documentation douanière, étiquetage international et préparation au transit aérien. Chaque détail compte.</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="process-step">
+          <div class="step-num-wrap">
+            <div class="step-num">03</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-plane-departure"></i></div>
+            <h3>Expédition aérienne</h3>
+            <p>Votre colis prend son envol. Nous travaillons avec les meilleures compagnies aériennes cargo pour garantir rapidité et fiabilité.</p>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="process-step">
+          <div class="step-num-wrap">
+            <div class="step-num">04</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+            <h3>Arrivée à destination</h3>
+            <p>Dédouanement, inspection et remise aux autorités locales. Vous êtes notifié immédiatement à chaque étape du suivi.</p>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="process-step">
+          <div class="step-num-wrap">
+            <div class="step-num">05</div>
+          </div>
+          <div class="step-content" style="padding-bottom:0;">
+            <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Livraison client</h3>
+            <p>Votre colis est livré entre les mains du destinataire. Confirmation de réception et clôture du dossier logistique.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right visual -->
+      <div class="reveal-right">
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(0,196,232,.2);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,196,232,.1),transparent);border-radius:50%;pointer-events:none;"></div>
+
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.25em;color:rgba(0,196,232,.7);text-transform:uppercase;margin-bottom:1.5rem;">Statut de suivi exemple</div>
+
+          <!-- Mock tracker -->
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:1rem;padding:.9rem 1rem;background:rgba(0,196,232,.1);border:1px solid rgba(0,196,232,.3);border-radius:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(0,196,232,.2);flex-shrink:0;"></div>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;">En transit aérien</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Colis en vol — Arrivée estimée : 48h</div>
+              </div>
+              <div style="margin-left:auto;font-size:.75rem;color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;">EN COURS</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;padding:.9rem 1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;"></div>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;color:rgba(255,255,255,.5);">Arrivée à destination</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.3);">En attente</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;padding:.9rem 1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;"></div>
+              <div>
+                <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;color:rgba(255,255,255,.5);">Livraison finale</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.3);">En attente</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;padding:1rem;background:rgba(0,152,184,.3);border-radius:10px;border:1px solid rgba(255,255,255,.08);">
+            <div style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:.5rem;font-family:'Rajdhani',sans-serif;letter-spacing:.1em;">INFORMATIONS COLIS</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;">
+              <span style="font-size:.82rem;color:rgba(255,255,255,.4);">Référence</span>
+              <span style="font-size:.82rem;color:rgba(255,255,255,.8);font-family:'Rajdhani',sans-serif;font-weight:700;">#LSS-2024-0178</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;">
+              <span style="font-size:.82rem;color:rgba(255,255,255,.4);">Origine</span>
+              <span style="font-size:.82rem;color:rgba(255,255,255,.8);font-family:'Rajdhani',sans-serif;font-weight:700;">Cotonou, BJ</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:.82rem;color:rgba(255,255,255,.4);">Délai estimé</span>
+              <span style="font-size:.82rem;color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;">48 heures</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ GALERIE ══════════════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <div class="section-tag" style="justify-content:center;">Nos opérations</div>
+      <h2 class="section-title">Nos <span class="accent">arrivages</span> & marchandises</h2>
+      <p style="margin-top:1rem;color:rgba(255,255,255,.5);max-width:460px;margin-left:auto;margin-right:auto;font-size:.95rem;line-height:1.7;">
+        Parcourez nos dernières opérations logistiques. Des centaines de colis traités avec soin chaque mois.
+      </p>
+    </div>
+
+    <div class="gallery-masonry">
+      <!-- Item 1 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80&auto=format&fit=crop&h=300" alt="Arrivage colis mode textile" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-boxes-stacked" style="margin-right:.4rem;"></i>Arrivage — Mode & Textile</span>
+      </div>
+      <!-- Item 2 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&auto=format&fit=crop&h=400" alt="Fret aérien international" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-plane-arrival" style="margin-right:.4rem;"></i>Fret Aérien International</span>
+      </div>
+      <!-- Item 3 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80&auto=format&fit=crop&h=280" alt="Réception contrôle qualité" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-box-open" style="margin-right:.4rem;"></i>Réception & Contrôle Qualité</span>
+      </div>
+      <!-- Item 4 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80&auto=format&fit=crop&h=360" alt="Conteneurs maritime fret" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-tags" style="margin-right:.4rem;"></i>Préparation & Étiquetage</span>
+      </div>
+      <!-- Item 5 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1566576912321-d680b1990d20?w=600&q=80&auto=format&fit=crop&h=300" alt="Livraison express client" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-truck" style="margin-right:.4rem;"></i>Livraison Express Client</span>
+      </div>
+      <!-- Item 6 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80&auto=format&fit=crop&h=380" alt="Textile e-commerce" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-shirt" style="margin-right:.4rem;"></i>Arrivage Textile — E-Commerce</span>
+      </div>
+      <!-- Item 7 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=600&q=80&auto=format&fit=crop&h=300" alt="Entrepôt logistique" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-warehouse" style="margin-right:.4rem;"></i>Gestion Entrepôt & Stockage</span>
+      </div>
+      <!-- Item 8 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80&auto=format&fit=crop&h=260" alt="Avion cargo décollage" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-globe" style="margin-right:.4rem;"></i>Réseau International LSS</span>
+      </div>
+      <!-- Item 9 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80&auto=format&fit=crop&h=340" alt="Emballage sécurisé" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-shield-halved" style="margin-right:.4rem;"></i>Emballage Sécurisé Premium</span>
+      </div>
+      <!-- Item 10 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop&h=290" alt="Satisfaction client" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-handshake" style="margin-right:.4rem;"></i>Satisfaction Client</span>
+      </div>
+      <!-- Item 11 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80&auto=format&fit=crop&h=320" alt="Colis emballés préparés" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-box" style="margin-right:.4rem;"></i>Colis Préparés & Prêts</span>
+      </div>
+      <!-- Item 12 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&q=80&auto=format&fit=crop&h=350" alt="Opérations logistiques" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <span class="gallery-label"><i class="fa-solid fa-plane-departure" style="margin-right:.4rem;"></i>Opérations Logistiques</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="https://wa.me/22901975197?text=Bonjour%20LSS%2C%20je%20voudrais%20voir%20vos%20arrivages%20récents." class="btn-outline" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Voir les derniers arrivages
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ TÉMOIGNAGES ══════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="section-tag" style="justify-content:center;">Avis clients</div>
+      <h2 class="section-title">Ce que disent <span class="accent">nos clients</span></h2>
+    </div>
+
+    <div class="testimonials-grid stagger">
+      <!-- T1 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"LSS a géré toute ma commande e-commerce depuis la Chine jusqu'à Cotonou en un temps record. Emballage parfait, aucune casse. Je recommande à 100% !"</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">AM</div>
+          <div>
+            <div class="reviewer-name">Aminata Mensah</div>
+            <div class="reviewer-role">Boutique en ligne — Cotonou</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Je vends sur TikTok et j'avais besoin d'un logisticien fiable pour recevoir mes stocks. LSS s'occupe de tout, je me concentre uniquement sur mes ventes."</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">KD</div>
+          <div>
+            <div class="reviewer-name">Kofi Dossou</div>
+            <div class="reviewer-role">Vendeur TikTok — Mode</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <p class="testimonial-text">"Excellent service ! Mon colis est arrivé en 48h comme promis. L'équipe répond toujours sur WhatsApp. C'est la logistique sérieuse qu'on cherche à Cotonou."</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">RH</div>
+          <div>
+            <div class="reviewer-name">Rachida Hounsou</div>
+            <div class="reviewer-role">Importatrice textile</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T4 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"J'envoie régulièrement des marchandises depuis Paris. LSS coordonne la réception côté Bénin avec un professionnalisme impeccable. Partenaire de confiance !"</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">SG</div>
+          <div>
+            <div class="reviewer-name">Sylvain Gbenou</div>
+            <div class="reviewer-role">Entrepreneur — Paris / Cotonou</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Meilleure agence logistique de Cotonou ! Prix justes, équipe réactive, colis toujours intact. J'ai recommandé LSS à tous mes contacts dans le commerce."</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">FA</div>
+          <div>
+            <div class="reviewer-name">Fatou Agossou</div>
+            <div class="reviewer-role">Commerçante — Akpakpa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Service ultra-professionnel. Ils prennent en photo chaque colis reçu et envoient les photos instantanément. Je ne travaille plus qu'avec LSS pour mes imports."</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="avatar">JK</div>
+          <div>
+            <div class="reviewer-name">Jean Kossou</div>
+            <div class="reviewer-role">Revendeur — Cotonou</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="section-tag" style="justify-content:center;">Nous écrire</div>
+      <h2 class="section-title">Contactez <span class="accent">LSS</span></h2>
+      <p style="margin-top:1rem;color:rgba(255,255,255,.5);max-width:480px;margin-left:auto;margin-right:auto;font-size:.95rem;line-height:1.7;">
+        Une question, un devis ou une demande d'expédition ? Remplissez le formulaire et nous vous recontactons rapidement.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- LEFT — infos -->
+      <div class="reveal-left">
+        <div style="margin-bottom:2rem;">
+          <div class="section-tag">Nos coordonnées</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;text-transform:uppercase;margin-bottom:.5rem;">Parlons de votre <span style="color:var(--orange);">projet</span></h3>
+          <p style="font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.7;">Notre équipe est disponible 7j/7. Nous traitons chaque demande avec soin et rapidité.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;">
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-map-pin"></i></div>
+            <div>
+              <div class="contact-info-label">Adresse</div>
+              <div class="contact-info-value">Akpakpa, Cotonou — Bénin<br>Près du Ciné Concorde</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i></div>
+            <div>
+              <div class="contact-info-label">WhatsApp principal</div>
+              <div class="contact-info-value">
+                <a href="https://wa.me/22901975197" target="_blank" style="color:rgba(255,255,255,.8);text-decoration:none;">+229 01 97 51 97 78</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i></div>
+            <div>
+              <div class="contact-info-label">WhatsApp secondaire</div>
+              <div class="contact-info-value">
+                <a href="https://wa.me/22901669650" target="_blank" style="color:rgba(255,255,255,.8);text-decoration:none;">+229 01 66 96 50 90</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="contact-info-label">Disponibilité</div>
+              <div class="contact-info-value">Lun – Sam : 07h00 – 21h00<br>Urgences : WhatsApp 7j/7</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map embed placeholder -->
+        <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,196,232,.2);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15883.22763948484!2d2.3825!3d6.3654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023552b6b9e0871%3A0x8c1edc7c4e4eca1!2sAkpakpa%2C%20Cotonou%2C%20Benin!5e0!3m2!1sfr!2sfr!4v1700000000000"
+            width="100%" height="200" style="border:0;display:block;filter:grayscale(1) invert(1) hue-rotate(175deg);" allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT — form -->
+      <div class="reveal-right">
+        <div class="contact-form-wrap">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.25em;color:rgba(0,196,232,.7);text-transform:uppercase;margin-bottom:1.5rem;">
+            <i class="fa-solid fa-paper-plane" style="margin-right:.4rem;"></i>Formulaire de contact
+          </div>
+
+          <form id="contact-form" onsubmit="sendToWhatsApp(event)" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-nom">Nom complet *</label>
+                <input class="form-input" id="f-nom" type="text" placeholder="Ex : Kofi Mensah" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-tel">Téléphone / WhatsApp *</label>
+                <input class="form-input" id="f-tel" type="tel" placeholder="+229 ..." required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-sujet">Type de demande</label>
+              <select class="form-select form-input" id="f-sujet">
+                <option value="Expédier un colis">📦 Expédier un colis</option>
+                <option value="Fret aérien">✈️ Fret aérien</option>
+                <option value="Réception de marchandises">🏭 Réception de marchandises</option>
+                <option value="Logistique e-commerce">🛒 Logistique e-commerce</option>
+                <option value="Demande de devis">💰 Demande de devis</option>
+                <option value="Autre demande">💬 Autre demande</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-msg">Votre message *</label>
+              <textarea class="form-textarea form-input" id="f-msg" placeholder="Décrivez votre demande : type de colis, destination, quantité, délai souhaité..." required></textarea>
+            </div>
+
+            <div id="form-error" style="display:none;background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);border-radius:8px;padding:.75rem 1rem;font-size:.85rem;color:#ff8080;margin-bottom:1rem;">
+              <i class="fa-solid fa-circle-exclamation" style="margin-right:.4rem;"></i>
+              Veuillez remplir tous les champs obligatoires (*).
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i>
+              Envoyer via WhatsApp
+            </button>
+            <p style="text-align:center;font-size:.78rem;color:rgba(255,255,255,.3);margin-top:.75rem;">
+              Votre message sera envoyé directement sur notre WhatsApp.
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CTA WHATSAPP ══════════════════════════════ -->
+<section id="cta-wa" style="padding:7rem 0;">
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-tag" style="justify-content:center;">Prêt à expédier ?</div>
+      <h2 class="cta-title" style="margin-bottom:1rem;">
+        Besoin d'expédier un<br>
+        <span style="color:var(--orange);">colis rapidement ?</span>
+      </h2>
+      <p style="color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;font-size:.98rem;">
+        Contactez-nous dès maintenant sur WhatsApp. Notre équipe vous répond en quelques minutes pour organiser votre expédition.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/22901975197?text=Bonjour%20LSS%2C%20je%20souhaite%20expédier%20un%20colis." class="wa-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp" style="font-size:1.4rem;"></i>
+          +229 01 97 51 97 78
+        </a>
+        <a href="https://wa.me/22901669650" class="wa-btn" target="_blank" style="background:#1dad58;">
+          <i class="fa-brands fa-whatsapp" style="font-size:1.4rem;"></i>
+          +229 01 66 96 50 90
+        </a>
+      </div>
+      <div style="margin-top:2.5rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.5);">
+          <i class="fa-solid fa-map-pin" style="color:var(--orange);"></i>
+          Akpakpa, Cotonou — Près du Ciné Concorde
+        </div>
+        <div style="width:1px;height:20px;background:rgba(255,255,255,.15);"></div>
+        <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:rgba(255,255,255,.5);">
+          <i class="fa-solid fa-clock" style="color:var(--orange);"></i>
+          Disponible 7j/7 sur WhatsApp
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer style="padding:4rem 0 2rem;">
+  <div class="container">
+    <div class="footer-grid" style="margin-bottom:3rem;">
+
+      <!-- Brand col -->
+      <div>
+        <div class="footer-logo-text" style="margin-bottom:.25rem;">LEII <span>SUNKYY</span></div>
+        <div style="font-size:.7rem;letter-spacing:.3em;color:rgba(255,255,255,.3);font-family:'Rajdhani',sans-serif;margin-bottom:1.25rem;">SERVICES</div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.5rem;max-width:280px;">
+          Votre passerelle logistique vers le monde. Fret aérien, expédition rapide et réception de colis depuis Cotonou, Bénin.
+        </p>
+        <div style="display:flex;gap:.6rem;">
+          <a href="https://wa.me/22901975197" class="social-btn" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <div class="footer-heading">Services</div>
+        <a href="#services" class="footer-link">Fret aérien</a>
+        <a href="#services" class="footer-link">Expédition rapide</a>
+        <a href="#services" class="footer-link">Réception colis</a>
+        <a href="#services" class="footer-link">Logistique e-commerce</a>
+        <a href="#services" class="footer-link">Livraison sécurisée</a>
+      </div>
+
+      <!-- Liens -->
+      <div>
+        <div class="footer-heading">Liens rapides</div>
+        <a href="#hero" class="footer-link">Accueil</a>
+        <a href="#why" class="footer-link">Pourquoi LSS</a>
+        <a href="#process" class="footer-link">Processus</a>
+        <a href="#gallery" class="footer-link">Galerie</a>
+        <a href="#testimonials" class="footer-link">Témoignages</a>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:.75rem;">
+          <div style="display:flex;gap:.75rem;align-items:flex-start;">
+            <i class="fa-solid fa-map-pin" style="color:var(--orange);margin-top:.15rem;flex-shrink:0;font-size:.85rem;"></i>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;">Akpakpa, Cotonou, Bénin<br>Près du Ciné Concorde</span>
+          </div>
+          <a href="https://wa.me/22901975197" style="display:flex;gap:.75rem;align-items:center;text-decoration:none;">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366;flex-shrink:0;font-size:.9rem;"></i>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.5);transition:color .25s;">+229 01 97 51 97 78</span>
+          </a>
+          <a href="https://wa.me/22901669650" style="display:flex;gap:.75rem;align-items:center;text-decoration:none;">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366;flex-shrink:0;font-size:.9rem;"></i>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.5);transition:color .25s;">+229 01 66 96 50 90</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="font-size:.78rem;color:rgba(255,255,255,.3);">
+        © 2024 LEII SUNKYY SERVICES. Tous droits réservés.
+      </div>
+      <div style="font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Rajdhani',sans-serif;letter-spacing:.1em;">
+        RAPIDITÉ · SÉCURITÉ · FIABILITÉ
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════ JAVASCRIPT ══════════════════════════════ -->
+<script>
+  // ── LOADER
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 2200);
+  });
+
+  // ── NAVBAR SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── MOBILE MENU
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // ── SCROLL REVEAL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // start counters if present
+        e.target.querySelectorAll('.counter').forEach(counter => {
+          if (!counter.dataset.done) {
+            counter.dataset.done = '1';
+            animateCounter(counter);
+          }
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => observer.observe(el));
+
+  // also observe stat boxes for counters
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.counter').forEach(counter => {
+          if (!counter.dataset.done) {
+            counter.dataset.done = '1';
+            animateCounter(counter);
+          }
+        });
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('#why').forEach(el => counterObserver.observe(el));
+
+  // ── COUNTER ANIMATION
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(ease * target);
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ── SMOOTH SCROLL for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── SERVICE CARDS — subtle parallax tilt
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
+      card.style.transform = `translateY(-6px) rotateX(${-y}deg) rotateY(${x}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // ── GALLERY items — stagger reveal
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+        }, i * 80);
+        galleryObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  galleryItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'scale(0.96)';
+    item.style.transition = 'opacity .5s ease, transform .5s ease';
+    galleryObserver.observe(item);
+  });
+
+  // ── CLOSE menu on outside click
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mobile-menu');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !e.target.closest('button')) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // ── CONTACT FORM → WhatsApp
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+    const nom  = document.getElementById('f-nom').value.trim();
+    const tel  = document.getElementById('f-tel').value.trim();
+    const sujet = document.getElementById('f-sujet').value;
+    const msg  = document.getElementById('f-msg').value.trim();
+    const err  = document.getElementById('form-error');
+    if (!nom || !tel || !msg) { err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    const text = `Bonjour LSS 👋\n\n*Nom :* ${nom}\n*Téléphone :* ${tel}\n*Demande :* ${sujet}\n\n*Message :*\n${msg}`;
+    window.open('https://wa.me/22901975197?text=' + encodeURIComponent(text), '_blank');
+  }
+</script>
+
+<!-- ══════════════════════════════ GRIDS & RESPONSIVE ══════════════════════════════ -->
+<style>
+  /* ── Named grid classes ── */
+  .hero-inner-grid   { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+  .hero-stats-grid   { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .services-grid     { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .why-inner-grid    { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .why-stats-grid    { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  .process-inner-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 4rem; align-items:start; }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .footer-grid       { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; }
+  .contact-grid      { display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start; }
+
+  /* ── ≤1024px : tablette ── */
+  @media(max-width:1024px){
+    .hero-inner-grid    { grid-template-columns:1fr; }
+    .why-inner-grid     { grid-template-columns:1fr; }
+    .process-inner-grid { grid-template-columns:1fr; }
+    .footer-grid        { grid-template-columns:1fr 1fr; gap:2rem; }
+    .contact-grid       { grid-template-columns:1fr; gap:2.5rem; }
+    .services-grid      { grid-template-columns:repeat(2,1fr); }
+    .testimonials-grid  { grid-template-columns:repeat(2,1fr); }
+  }
+
+  /* ── ≤768px : mobile large ── */
+  @media(max-width:768px){
+    section { padding:3.5rem 0; }
+    .container { padding:0 1rem; }
+    .services-grid      { grid-template-columns:1fr; }
+    .testimonials-grid  { grid-template-columns:1fr; }
+    .footer-grid        { grid-template-columns:1fr; gap:2rem; }
+    .hero-stats-grid    { grid-template-columns:repeat(2,1fr); }
+    .why-stats-grid     { grid-template-columns:1fr 1fr; }
+    .why-image-wrap img { height:240px; }
+    .contact-form-wrap  { padding:1.5rem; }
+    .form-row           { grid-template-columns:1fr; }
+    #hero > div.container { padding-top:6rem; padding-bottom:3rem; }
+    .hero-stat-card     { padding:.9rem 1rem; }
+    .hero-stat-card .num{ font-size:1.5rem; }
+    .service-card-img-wrap, .service-card-img { height:130px; }
+  }
+
+  /* ── ≤480px : mobile petit ── */
+  @media(max-width:480px){
+    .hero-title  { font-size:2rem; }
+    .hero-sub    { font-size:.9rem; }
+    section      { padding:2.5rem 0; }
+    .section-title { font-size:1.8rem; }
+    .cta-title   { font-size:1.7rem; }
+    .hero-stats-grid { grid-template-columns:1fr 1fr; }
+    .gallery-masonry { columns:2; }
+    .contact-info-item { flex-direction:column; gap:.5rem; }
+    .footer-grid { grid-template-columns:1fr; }
+    .why-stats-grid { grid-template-columns:1fr; }
+  }
+  @media(max-width:360px){
+    .gallery-masonry { columns:1; }
+    .hero-stats-grid { grid-template-columns:1fr; }
+  }
+
+  /* ── Nav hide/show ── */
+  @media(max-width:767px){
+    #navbar .hidden { display:none !important; }
+  }
+  @media(min-width:768px){
+    #navbar .md\\:hidden { display:none !important; }
+    .hidden.md\\:flex    { display:flex !important; }
+  }
+</style>
+
+</body>
+</html>
