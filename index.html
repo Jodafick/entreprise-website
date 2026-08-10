@@ -233,6 +233,17 @@
   .card:has(.card-icon--cagie):hover::before {
     background: linear-gradient(90deg, #0a3d2e, #b8922a);
   }
+  .card-icon--lss {
+    background: linear-gradient(135deg, rgba(0,152,184,0.35), rgba(0,196,232,0.15));
+    border-color: rgba(0,196,232,0.35);
+    color: #00C4E8;
+  }
+  .card:has(.card-icon--lss):hover {
+    border-color: rgba(0,196,232,0.5);
+  }
+  .card:has(.card-icon--lss):hover::before {
+    background: linear-gradient(90deg, #0098B8, #00C4E8);
+  }
   .card-arrow {
     width: 36px;
     height: 36px;
@@ -315,7 +326,7 @@
 
   <header class="top">
     <span class="brand">Accueil</span>
-    <span class="pill" id="count">5 entreprises</span>
+    <span class="pill" id="count">6 entreprises</span>
   </header>
 
   <section class="hero">
@@ -408,6 +419,23 @@
       <div class="card-tags">
         <span class="tag">Commerce</span>
         <span class="tag">Agro</span>
+      </div>
+    </a>
+
+    <a href="leii-sunkyy-services.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--lss"><i class="fa-solid fa-plane-departure" aria-hidden="true"></i></div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>LEII SUNKYY SERVICES</h2>
+      <p class="card-loc">Akpakpa, Cotonou · Bénin</p>
+      <p class="card-desc">Logistique internationale, fret aérien, expédition rapide et réception de colis.</p>
+      <div class="card-tags">
+        <span class="tag">Logistique</span>
+        <span class="tag">Fret aérien</span>
+        <span class="tag">E-commerce</span>
       </div>
     </a>
 
