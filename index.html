@@ -219,6 +219,20 @@
   .card:has(.card-icon--capri):hover::before {
     background: linear-gradient(90deg, #F97316, #FF4500);
   }
+  .card-icon--cagie {
+    background: linear-gradient(135deg, rgba(10, 61, 46, 0.35), rgba(184, 146, 42, 0.2));
+    border-color: rgba(21, 107, 82, 0.35);
+    color: #156b52;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .card:has(.card-icon--cagie):hover {
+    border-color: rgba(21, 107, 82, 0.45);
+  }
+  .card:has(.card-icon--cagie):hover::before {
+    background: linear-gradient(90deg, #0a3d2e, #b8922a);
+  }
   .card-arrow {
     width: 36px;
     height: 36px;
@@ -301,7 +315,7 @@
 
   <header class="top">
     <span class="brand">Accueil</span>
-    <span class="pill" id="count">4 entreprises</span>
+    <span class="pill" id="count">5 entreprises</span>
   </header>
 
   <section class="hero">
@@ -312,6 +326,22 @@
   <p class="grid-label">Disponibles</p>
 
   <div class="grid">
+
+    <a href="cagie.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--cagie" aria-hidden="true">C</div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>CAGIE</h2>
+      <p class="card-loc">Accompagnement entreprises · Afrique</p>
+      <p class="card-desc">Landing page institutionnelle CAGIE — gestion et ingénierie des entreprises.</p>
+      <div class="card-tags">
+        <span class="tag">Conseil</span>
+        <span class="tag">B2B</span>
+      </div>
+    </a>
 
     <a href="airtroup.html" class="card">
       <div class="card-top">
