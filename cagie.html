@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAGIE | Centre Africain de Gestion et d'Ingénierie des Entreprises</title>
 <meta name="description" content="CAGIE — accompagnement professionnel des entreprises et organisations.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23fff' font-family='Arial' font-size='13' font-weight='bold'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="cagie-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -13,14 +13,17 @@
 <style>
 :root{
   --header-h:4.5rem;
-  --navy:#0f172a;
-  --navy-soft:#1e293b;
+  --navy:#1a2b56;
+  --navy-soft:#243a6e;
+  --navy-rgb:26,43,86;
   --text:#334155;
   --muted:#64748b;
   --line:#e2e8f0;
   --white:#ffffff;
-  --accent:#0d9488;
-  --accent-hover:#0f766e;
+  --accent:#e3a33a;
+  --accent-hover:#c9882a;
+  --accent-light:#f0b84d;
+  --accent-soft:#fff7ed;
   --sans:'Inter',system-ui,sans-serif;
   --display:'Playfair Display',Georgia,serif;
 }
@@ -38,13 +41,12 @@ a{color:inherit;text-decoration:none}
   transition:background .3s,box-shadow .3s,border-color .3s;
   border-bottom:1px solid transparent;
 }
-.site-header.on-hero{background:rgba(15,23,42,.35);backdrop-filter:blur(8px);border-bottom-color:rgba(255,255,255,.08)}
-.site-header.solid{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(15,23,42,.04)}
+.site-header.on-hero{background:rgba(var(--navy-rgb),.35);backdrop-filter:blur(8px);border-bottom-color:rgba(255,255,255,.08)}
+.site-header.solid{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(var(--navy-rgb),.04)}
 .header-inner{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:1rem}
 
 .brand{display:flex;align-items:center;gap:.75rem;min-width:0}
-.brand-mark{width:2.5rem;height:2.5rem;border-radius:10px;background:var(--white);color:var(--navy);font-weight:700;font-size:.95rem;display:grid;place-items:center;flex-shrink:0}
-.site-header.solid .brand-mark{background:var(--navy);color:var(--white)}
+.brand-logo{width:2.75rem;height:2.75rem;object-fit:contain;flex-shrink:0;border-radius:8px}
 .brand-text{font-weight:700;font-size:1.05rem;letter-spacing:-.02em;color:var(--white);line-height:1.2}
 .site-header.solid .brand-text{color:var(--navy)}
 .brand-sub{display:none;font-size:.62rem;font-weight:500;color:rgba(255,255,255,.75);max-width:11rem;line-height:1.35}
@@ -90,7 +92,7 @@ a{color:inherit;text-decoration:none}
   position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none;
 }
 .mobile-nav.open{visibility:visible;pointer-events:auto}
-.mobile-nav .shade{position:absolute;inset:0;background:rgba(15,23,42,.55);opacity:0;transition:opacity .3s}
+.mobile-nav .shade{position:absolute;inset:0;background:rgba(var(--navy-rgb),.55);opacity:0;transition:opacity .3s}
 .mobile-nav.open .shade{opacity:1}
 .mobile-nav .sheet{
   position:absolute;top:0;right:0;width:min(300px,100%);height:100%;
@@ -129,19 +131,19 @@ body.no-scroll{overflow:hidden}
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(
     180deg,
-    rgba(15,23,42,.55) 0%,
-    rgba(15,23,42,.72) 40%,
-    rgba(15,23,42,.85) 100%
+    rgba(var(--navy-rgb),.55) 0%,
+    rgba(var(--navy-rgb),.72) 40%,
+    rgba(var(--navy-rgb),.85) 100%
   );
 }
 @media(min-width:992px){
   .hero-scrim{
     background:linear-gradient(
       90deg,
-      rgba(15,23,42,.92) 0%,
-      rgba(15,23,42,.78) 42%,
-      rgba(15,23,42,.45) 68%,
-      rgba(15,23,42,.25) 100%
+      rgba(var(--navy-rgb),.92) 0%,
+      rgba(var(--navy-rgb),.78) 42%,
+      rgba(var(--navy-rgb),.45) 68%,
+      rgba(var(--navy-rgb),.25) 100%
     );
   }
 }
@@ -154,7 +156,7 @@ body.no-scroll{overflow:hidden}
 .hero-copy{max-width:640px;color:var(--white)}
 .hero-kicker{
   display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:#5eead4;margin-bottom:1rem;
+  text-transform:uppercase;color:var(--accent-light);margin-bottom:1rem;
 }
 .hero-copy h1{
   font-family:var(--display);font-weight:600;
@@ -165,7 +167,7 @@ body.no-scroll{overflow:hidden}
 .hero-btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
 .hero-meta{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.15)}
 .hero-meta span{font-size:.8rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.4rem}
-.hero-meta i{color:#5eead4;font-size:.75rem}
+.hero-meta i{color:var(--accent-light);font-size:.75rem}
 .hero-scroll{
   position:relative;z-index:2;text-align:center;padding-bottom:1.25rem;
   color:rgba(255,255,255,.5);font-size:.75rem;
@@ -187,8 +189,8 @@ section.block{padding:5rem 0}
   background:var(--white);border:1px solid var(--line);border-radius:12px;
   padding:1.5rem;transition:box-shadow .25s;
 }
-.card:hover{box-shadow:0 8px 30px rgba(15,23,42,.06)}
-.card i{width:2.5rem;height:2.5rem;border-radius:10px;background:#f0fdfa;color:var(--accent);display:grid;place-items:center;margin-bottom:1rem;font-size:1rem}
+.card:hover{box-shadow:0 8px 30px rgba(var(--navy-rgb),.06)}
+.card i{width:2.5rem;height:2.5rem;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:1rem;font-size:1rem}
 .card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
 .card p{font-size:.875rem;color:var(--muted)}
 
@@ -222,7 +224,7 @@ section.block{padding:5rem 0}
 .form-panel h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
 label{display:block;font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
 input,textarea{width:100%;padding:.7rem .85rem;border:1px solid var(--line);border-radius:8px;font:inherit;margin-bottom:.85rem}
-input:focus,textarea:focus{outline:2px solid rgba(13,148,136,.35);border-color:var(--accent)}
+input:focus,textarea:focus{outline:2px solid rgba(227,163,58,.35);border-color:var(--accent)}
 .form-row{display:grid;gap:.85rem}
 @media(min-width:520px){.form-row.two{grid-template-columns:1fr 1fr}}
 .form-done{display:none;margin-top:.75rem;padding:.75rem;background:#f0fdf4;color:#166534;border-radius:8px;font-size:.875rem}
@@ -231,7 +233,7 @@ input:focus,textarea:focus{outline:2px solid rgba(13,148,136,.35);border-color:v
 footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2.5rem 0 1.25rem;font-size:.875rem}
 .footer-row{display:grid;gap:1.5rem}
 @media(min-width:768px){.footer-row{grid-template-columns:2fr 1fr 1fr}}
-footer h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#5eead4;margin-bottom:.75rem}
+footer h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-light);margin-bottom:.75rem}
 footer a{display:block;color:rgba(255,255,255,.65);margin-bottom:.35rem}
 footer a:hover{color:var(--white)}
 .footer-copy{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.75rem;color:rgba(255,255,255,.4)}
@@ -263,7 +265,7 @@ footer a:hover{color:var(--white)}
 .quote p{font-size:.9rem;color:var(--text);font-style:italic;line-height:1.65}
 .quote footer{margin-top:1rem;font-size:.8rem;color:var(--muted)}
 .quote footer strong{display:block;color:var(--navy);font-style:normal;font-weight:700}
-.quote .tag{font-size:.65rem;font-weight:700;text-transform:uppercase;color:#b45309;margin-top:.5rem}
+.quote .tag{font-size:.65rem;font-weight:700;text-transform:uppercase;color:var(--accent);margin-top:.5rem}
 .insight{display:flex;flex-direction:column;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:var(--white);height:100%}
 .insight img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .insight div{padding:1.25rem;flex:1;display:flex;flex-direction:column}
@@ -294,7 +296,7 @@ footer a:hover{color:var(--white)}
 <header class="site-header on-hero" id="siteHeader">
   <div class="wrap header-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark">C</span>
+      <img src="cagie-logo.png" alt="" class="brand-logo" width="44" height="44">
       <span>
         <span class="brand-text">CAGIE</span>
         <span class="brand-sub">Centre Africain de Gestion et d'Ingénierie des Entreprises</span>
@@ -644,6 +646,7 @@ footer a:hover{color:var(--white)}
 <footer>
   <div class="wrap footer-row">
     <div>
+      <img src="cagie-logo.png" alt="CAGIE" class="brand-logo" width="48" height="48" style="margin-bottom:.75rem">
       <strong style="color:#fff;font-size:1.05rem">CAGIE</strong>
       <p style="margin-top:.5rem;max-width:20rem">Centre Africain de Gestion et d'Ingénierie des Entreprises.</p>
     </div>
