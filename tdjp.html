@@ -113,15 +113,25 @@ body.no-scroll{overflow:hidden}
 /* Hero */
 .hero{position:relative;min-height:100dvh;min-height:100vh;display:flex;flex-direction:column;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:0;background:var(--navy)}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .hero-scrim{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(135deg,rgba(var(--navy-rgb),.88) 0%,rgba(var(--navy-rgb),.72) 45%,rgba(var(--navy-rgb),.55) 100%);
+  background:
+    linear-gradient(180deg,rgba(var(--navy-rgb),.82) 0%,rgba(var(--navy-rgb),.68) 40%,rgba(var(--navy-rgb),.88) 100%);
 }
-.hero-body{position:relative;z-index:2;flex:1;display:flex;align-items:center;padding:calc(var(--header-h) + 2rem) 0 3rem}
-.hero-grid{display:grid;gap:2.5rem;align-items:center;width:100%}
-@media(min-width:992px){.hero-grid{grid-template-columns:1.1fr .9fr}}
-.hero-copy{color:var(--white);max-width:640px}
+@media(min-width:992px){
+  .hero-scrim{
+    background:
+      linear-gradient(105deg,rgba(var(--navy-rgb),.9) 0%,rgba(var(--navy-rgb),.75) 38%,rgba(var(--navy-rgb),.5) 62%,rgba(var(--navy-rgb),.35) 100%);
+  }
+}
+.hero-body{
+  position:relative;z-index:2;flex:1;display:flex;align-items:center;
+  padding:calc(var(--header-h) + 2.5rem) 0 2rem;
+}
+.hero-inner{width:100%;max-width:820px}
+@media(min-width:992px){.hero-inner{max-width:680px}}
+.hero-copy{color:var(--white)}
 .hero-loc{
   display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);
@@ -133,19 +143,28 @@ body.no-scroll{overflow:hidden}
   font-family:var(--display);font-weight:700;
   font-size:clamp(2rem,5vw,3.25rem);line-height:1.12;letter-spacing:-.01em;
 }
-.hero-copy .lead{margin-top:1rem;font-size:1.05rem;color:rgba(255,255,255,.88);max-width:34rem}
+.hero-copy .lead{margin-top:1rem;font-size:1.05rem;color:rgba(255,255,255,.88);max-width:36rem}
 .hero-btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
-.hero-card{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
-  border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px);
+.hero-features{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-top:2.5rem;
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,.15);
 }
-.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;margin-bottom:1rem}
-.hero-card p{font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.55}
-.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
-.hero-pills span{
-  font-size:.72rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;
-  background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);
+@media(min-width:768px){.hero-features{grid-template-columns:repeat(4,1fr)}}
+.hero-feat{
+  padding:1rem 1.1rem;border-radius:12px;text-align:left;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(6px);transition:background .25s,border-color .25s;
 }
+.hero-feat:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22)}
+.hero-feat i{color:var(--accent);font-size:1.15rem;margin-bottom:.5rem;display:block}
+.hero-feat strong{display:block;font-size:.82rem;color:var(--white);margin-bottom:.15rem}
+.hero-feat span{font-size:.72rem;color:rgba(255,255,255,.72);line-height:1.4}
+.hero-scroll{
+  position:relative;z-index:2;text-align:center;padding-bottom:1.25rem;
+  color:rgba(255,255,255,.5);font-size:.75rem;
+}
+.hero-scroll i{display:block;margin-top:.25rem;animation:scrollHint 2s ease infinite}
+@keyframes scrollHint{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* Sections */
 section.block{padding:5rem 0}
@@ -356,6 +375,7 @@ footer a:hover{color:var(--white)}
   .reveal{opacity:1;transform:none;transition:none}
   .btn:hover,.svc-card:hover,.g-item:hover img{transform:none}
   .wa-float:hover{transform:none}
+  .hero-scroll i{animation:none}
 }
 </style>
 </head>
@@ -399,7 +419,7 @@ footer a:hover{color:var(--white)}
 <section class="hero" id="top">
   <div class="hero-media" aria-hidden="true">
     <img
-      src="https://images.unsplash.com/photo-1593113598333-c026886bc2f2?w=1920&q=85&auto=format&fit=crop"
+      src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1920&fit=crop"
       alt=""
       width="1920" height="1280"
       fetchpriority="high"
@@ -408,8 +428,8 @@ footer a:hover{color:var(--white)}
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap hero-body">
-    <div class="hero-grid">
-      <div class="hero-copy">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
         <p class="hero-loc"><i class="fa-solid fa-location-dot"></i> Abomey-Calavi • Bénin</p>
         <h1>Des bâtiments plus beaux, plus confortables et plus durables.</h1>
         <p class="lead">TDJP SERVICES accompagne particuliers, entreprises et institutions dans leurs travaux de rénovation, peinture, étanchéité, froid et climatisation.</p>
@@ -418,19 +438,32 @@ footer a:hover{color:var(--white)}
           <a href="#services" class="btn btn-ghost">Découvrir nos services</a>
           <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="btn btn-wa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         </div>
-        <div class="hero-pills">
-          <span>Rénovation</span>
-          <span>Peinture</span>
-          <span>Étanchéité</span>
-          <span>Froid &amp; Climatisation</span>
+        <div class="hero-features">
+          <div class="hero-feat">
+            <i class="fa-solid fa-hammer"></i>
+            <strong>Rénovation</strong>
+            <span>Remise en état des bâtiments</span>
+          </div>
+          <div class="hero-feat">
+            <i class="fa-solid fa-paint-roller"></i>
+            <strong>Peinture</strong>
+            <span>Finitions intérieures &amp; extérieures</span>
+          </div>
+          <div class="hero-feat">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Étanchéité</strong>
+            <span>Protection contre l'humidité</span>
+          </div>
+          <div class="hero-feat">
+            <i class="fa-solid fa-snowflake"></i>
+            <strong>Froid &amp; Clim</strong>
+            <span>Installation &amp; entretien</span>
+          </div>
         </div>
       </div>
-      <aside class="hero-card reveal">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80&auto=format&fit=crop" alt="Chantier de rénovation — visuel de démonstration" loading="lazy" width="800" height="600">
-        <p>Entreprise spécialisée dans les travaux de rénovation, finition, protection et confort des bâtiments à Abomey-Calavi.</p>
-      </aside>
     </div>
   </div>
+  <div class="hero-scroll">Défiler <i class="fa-solid fa-chevron-down"></i></div>
 </section>
 
 <section class="block" id="apropos">
@@ -441,7 +474,7 @@ footer a:hover{color:var(--white)}
     </div>
     <div class="about-grid">
       <div class="about-img reveal">
-        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80&auto=format&fit=crop" alt="Travaux de bâtiment — visuel de démonstration" loading="lazy" width="900" height="675">
+        <img src="https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?auto=compress&cs=tinysrgb&w=900&fit=crop" alt="Chantier de rénovation — visuel de démonstration" loading="lazy" width="900" height="675">
       </div>
       <div class="about-text reveal">
         <p><strong>TDJP SERVICES</strong> (TOUCHE DIVINE DE JUVENAL &amp; PRICETTE SERVICES) est une entreprise béninoise polyvalente intervenant dans la rénovation, la finition, la protection des bâtiments et les solutions de froid et climatisation.</p>
@@ -472,7 +505,7 @@ footer a:hover{color:var(--white)}
         </div>
       </article>
       <article class="svc-card reveal">
-        <img src="https://images.unsplash.com/photo-1581578731542-5ddfca641cbf?w=800&q=80&auto=format&fit=crop" alt="Travaux de peinture — visuel de démonstration" loading="lazy" width="800" height="500">
+        <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop" alt="Travaux de peinture — visuel de démonstration" loading="lazy" width="800" height="500">
         <div class="svc-body">
           <div class="svc-icon"><i class="fa-solid fa-paint-roller"></i></div>
           <h3>Peinture</h3>
@@ -490,7 +523,7 @@ footer a:hover{color:var(--white)}
         </div>
       </article>
       <article class="svc-card reveal">
-        <img src="https://images.unsplash.com/photo-1631545806608-187a5e3f7a47?w=800&q=80&auto=format&fit=crop" alt="Installation climatisation — visuel de démonstration" loading="lazy" width="800" height="500">
+        <img src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop" alt="Installation climatisation — visuel de démonstration" loading="lazy" width="800" height="500">
         <div class="svc-body">
           <div class="svc-icon"><i class="fa-solid fa-snowflake"></i></div>
           <h3>Froid &amp; Climatisation</h3>
@@ -518,11 +551,11 @@ footer a:hover{color:var(--white)}
     </div>
     <div class="gallery reveal" id="gallery">
       <figure class="g-item" data-cat="renovation">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&auto=format&fit=crop" alt="Bâtiment rénové — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Maison rénovée — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Rénovation</span><h3>Remise en état de bâtiment</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="peinture">
-        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d3588?w=600&q=80&auto=format&fit=crop" alt="Peinture intérieure — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Peinture intérieure — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Peinture</span><h3>Finitions intérieures</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="etancheite">
@@ -530,19 +563,19 @@ footer a:hover{color:var(--white)}
         <figcaption class="g-overlay"><span>Étanchéité</span><h3>Protection contre l'humidité</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="climatisation">
-        <img src="https://images.unsplash.com/photo-1581094790569-966731148de2?w=600&q=80&auto=format&fit=crop" alt="Technicien climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/6476586/pexels-photo-6476586.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Technicien climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Climatisation</span><h3>Installation climatisation</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="renovation">
-        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&auto=format&fit=crop" alt="Façade de bâtiment — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Façade de maison — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Rénovation</span><h3>Travaux de façade</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="peinture">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80&auto=format&fit=crop" alt="Peinture extérieure — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/14377464/pexels-photo-14377464.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Peinture extérieure — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Peinture</span><h3>Peinture extérieure</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="climatisation">
-        <img src="https://images.unsplash.com/photo-1631545806608-187a5e3f7a47?w=600&q=80&auto=format&fit=crop" alt="Équipement de climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
+        <img src="https://images.pexels.com/photos/36901577/pexels-photo-36901577.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop" alt="Équipement de climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
         <figcaption class="g-overlay"><span>Climatisation</span><h3>Entretien équipements</h3></figcaption>
       </figure>
       <figure class="g-item" data-cat="etancheite">
