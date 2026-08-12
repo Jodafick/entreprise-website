@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDJP SERVICES | Rénovation, Peinture, Étanchéité, Froid &amp; Climatisation</title>
+<meta name="description" content="TDJP SERVICES accompagne particuliers, entreprises et institutions à Abomey-Calavi dans leurs travaux de rénovation, peinture, étanchéité, froid et climatisation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TDJP SERVICES | Rénovation, Peinture, Étanchéité, Froid &amp; Climatisation">
+<meta property="og:description" content="TDJP SERVICES accompagne particuliers, entreprises et institutions à Abomey-Calavi dans leurs travaux de rénovation, peinture, étanchéité, froid et climatisation.">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" type="image/png" href="tdjp-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+<style>
+:root{
+  --header-h:4.75rem;
+  --navy:#1a3560;
+  --navy-soft:#243f6e;
+  --navy-rgb:26,53,96;
+  --purple:#6d4c9a;
+  --text:#2d3748;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --white:#ffffff;
+  --surface:#f8fafc;
+  --accent:#e8751a;
+  --accent-hover:#cf6610;
+  --accent-soft:#fff7ed;
+  --wa:#16a34a;
+  --wa-hover:#15803d;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --display:'Libre Baskerville',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,100% - 2rem);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Header */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);
+  transition:background .3s,box-shadow .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+.site-header.on-hero{background:rgba(var(--navy-rgb),.45);backdrop-filter:blur(10px);border-bottom-color:rgba(255,255,255,.1)}
+.site-header.solid{background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(var(--navy-rgb),.05)}
+.header-inner{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem;min-width:0}
+.brand-logo{width:3rem;height:3rem;object-fit:contain;flex-shrink:0;border-radius:50%}
+.brand-text-wrap{min-width:0}
+.brand-name{font-weight:700;font-size:.95rem;letter-spacing:.04em;color:var(--white);line-height:1.15}
+.brand-tagline{font-size:.62rem;color:rgba(255,255,255,.75);margin-top:.1rem;display:none}
+.site-header.solid .brand-name{color:var(--navy)}
+.site-header.solid .brand-tagline{color:var(--muted)}
+@media(min-width:480px){.brand-tagline{display:block}}
+
+.nav-main{display:none;align-items:center;gap:1.75rem}
+@media(min-width:1024px){.nav-main{display:flex}}
+.nav-main a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.9);transition:color .2s}
+.site-header.solid .nav-main a{color:var(--muted)}
+.nav-main a:hover,.site-header.solid .nav-main a:hover{color:var(--accent)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.65rem 1.2rem;border-radius:8px;font-size:.875rem;font-weight:600;
+  border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-fill{background:var(--accent);color:var(--white);box-shadow:0 4px 14px rgba(232,117,26,.25)}
+.btn-fill:hover{background:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.site-header.solid .btn-ghost{color:var(--navy);border-color:var(--line)}
+.site-header.solid .btn-ghost:hover{background:var(--surface)}
+.btn-dark{background:var(--navy);color:var(--white)}
+.btn-dark:hover{background:var(--navy-soft)}
+.btn-wa{background:var(--wa);color:var(--white)}
+.btn-wa:hover{background:var(--wa-hover)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:var(--white)}
+
+.nav-actions{display:flex;align-items:center;gap:.65rem}
+.menu-btn{
+  width:2.75rem;height:2.75rem;border-radius:8px;border:1px solid rgba(255,255,255,.35);
+  background:transparent;color:var(--white);cursor:pointer;font-size:1.1rem;display:grid;place-items:center;
+}
+.site-header.solid .menu-btn{border-color:var(--line);color:var(--navy)}
+@media(min-width:1024px){.menu-btn{display:none}}
+@media(max-width:1023px){.nav-actions .nav-cta{display:none}}
+
+.mobile-nav{position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none}
+.mobile-nav.open{visibility:visible;pointer-events:auto}
+.mobile-nav .shade{position:absolute;inset:0;background:rgba(var(--navy-rgb),.6);opacity:0;transition:opacity .3s}
+.mobile-nav.open .shade{opacity:1}
+.mobile-nav .sheet{
+  position:absolute;top:0;right:0;width:min(320px,100%);height:100%;
+  background:var(--white);padding:calc(var(--header-h) + 1rem) 1.25rem 2rem;
+  transform:translateX(100%);transition:transform .35s ease;
+  display:flex;flex-direction:column;gap:.25rem;overflow-y:auto;
+}
+.mobile-nav.open .sheet{transform:translateX(0)}
+.mobile-nav a{padding:.85rem 1rem;border-radius:8px;font-weight:600;color:var(--navy)}
+.mobile-nav a:hover{background:var(--surface)}
+.mobile-nav .btn-fill{margin-top:1rem;width:100%}
+body.no-scroll{overflow:hidden}
+
+/* Hero */
+.hero{position:relative;min-height:100dvh;min-height:100vh;display:flex;flex-direction:column;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:0;background:var(--navy)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,rgba(var(--navy-rgb),.88) 0%,rgba(var(--navy-rgb),.72) 45%,rgba(var(--navy-rgb),.55) 100%);
+}
+.hero-body{position:relative;z-index:2;flex:1;display:flex;align-items:center;padding:calc(var(--header-h) + 2rem) 0 3rem}
+.hero-grid{display:grid;gap:2.5rem;align-items:center;width:100%}
+@media(min-width:992px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+.hero-copy{color:var(--white);max-width:640px}
+.hero-loc{
+  display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  padding:.4rem .85rem;border-radius:999px;margin-bottom:1.25rem;
+}
+.hero-loc i{color:var(--accent);font-size:.7rem}
+.hero-copy h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(2rem,5vw,3.25rem);line-height:1.12;letter-spacing:-.01em;
+}
+.hero-copy .lead{margin-top:1rem;font-size:1.05rem;color:rgba(255,255,255,.88);max-width:34rem}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.hero-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:1.5rem;backdrop-filter:blur(8px);
+}
+.hero-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;margin-bottom:1rem}
+.hero-card p{font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.55}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.hero-pills span{
+  font-size:.72rem;font-weight:600;padding:.35rem .75rem;border-radius:999px;
+  background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);
+}
+
+/* Sections */
+section.block{padding:5rem 0}
+.block-muted{background:var(--surface)}
+.sec-head{text-align:center;max-width:620px;margin:0 auto 2.75rem}
+.sec-head span{
+  display:block;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;
+}
+.sec-head h2{font-family:var(--display);font-size:clamp(1.75rem,3vw,2.35rem);color:var(--navy);font-weight:700}
+.sec-head p{margin-top:.65rem;color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+.about-grid{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 20px 50px rgba(var(--navy-rgb),.12)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-text p{color:var(--muted);margin-bottom:1rem}
+.about-text p:last-of-type{margin-bottom:1.5rem}
+.zone-note{
+  margin-top:1.5rem;padding:1rem 1.15rem;border-radius:10px;
+  background:var(--accent-soft);border:1px solid #fed7aa;font-size:.85rem;color:#9a3412;
+}
+.zone-note strong{color:var(--navy)}
+
+/* Services */
+.svc-grid{display:grid;gap:1.25rem}
+@media(min-width:768px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+.svc-card{
+  border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--white);
+  transition:transform .3s,box-shadow .3s;
+}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(var(--navy-rgb),.1)}
+.svc-card img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .5s}
+.svc-card:hover img{transform:scale(1.04)}
+.svc-body{padding:1.5rem}
+.svc-icon{
+  width:2.75rem;height:2.75rem;border-radius:10px;background:var(--accent-soft);
+  color:var(--accent);display:grid;place-items:center;font-size:1.1rem;margin-bottom:1rem;
+}
+.svc-body h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.svc-body p{font-size:.9rem;color:var(--muted);margin-bottom:1rem}
+.svc-body .btn{padding:.5rem 1rem;font-size:.8rem}
+
+/* Gallery */
+.gallery-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2rem}
+.filter-btn{
+  padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);background:var(--white);
+  font:inherit;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;
+}
+.filter-btn.active,.filter-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.gallery{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:768px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:992px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.g-item{
+  position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;
+  border:1px solid var(--line);
+}
+.g-item.hidden{display:none}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.08)}
+.g-overlay{
+  position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--navy-rgb),.85),transparent 60%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1rem;
+  opacity:0;transition:opacity .3s;
+}
+.g-item:hover .g-overlay{opacity:1}
+.g-overlay span{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.g-overlay h3{font-size:.9rem;font-weight:700;color:var(--white);margin-top:.25rem}
+.demo-note{
+  margin-top:2rem;text-align:center;font-size:.82rem;color:var(--muted);
+  padding:.85rem 1rem;border-radius:8px;background:var(--white);border:1px dashed var(--line);
+}
+
+/* Why */
+.why-grid{display:grid;gap:1.25rem}
+@media(min-width:768px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:992px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+.why-card{
+  padding:1.75rem 1.5rem;border-radius:16px;background:var(--white);border:1px solid var(--line);
+  transition:box-shadow .3s,border-color .3s;
+}
+.why-card:hover{box-shadow:0 12px 32px rgba(var(--navy-rgb),.08);border-color:rgba(var(--navy-rgb),.15)}
+.why-card i{
+  width:2.75rem;height:2.75rem;border-radius:10px;background:var(--navy);color:var(--white);
+  display:grid;place-items:center;font-size:1rem;margin-bottom:1rem;
+}
+.why-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.why-card p{font-size:.875rem;color:var(--muted)}
+
+/* Timeline */
+.timeline{position:relative;max-width:900px;margin:0 auto}
+.timeline::before{
+  content:'';position:absolute;left:1.25rem;top:0;bottom:0;width:2px;background:var(--line);
+}
+@media(min-width:768px){
+  .timeline::before{left:50%;transform:translateX(-50%)}
+}
+.t-step{position:relative;padding-left:3.5rem;padding-bottom:2.5rem}
+@media(min-width:768px){
+  .t-step{padding-left:0;padding-right:0;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+  .t-step:nth-child(even) .t-content{grid-column:2}
+  .t-step:nth-child(even) .t-num{grid-column:1;grid-row:1;justify-self:end;margin-right:-1.25rem}
+  .t-step:nth-child(odd) .t-num{grid-column:1;justify-self:end;margin-right:-1.25rem}
+  .t-step:nth-child(odd) .t-content{grid-column:2}
+}
+.t-num{
+  position:absolute;left:0;top:0;width:2.5rem;height:2.5rem;border-radius:50%;
+  background:var(--accent);color:var(--white);font-weight:700;font-size:.85rem;
+  display:grid;place-items:center;z-index:1;box-shadow:0 0 0 4px var(--white);
+}
+@media(min-width:768px){.t-num{position:relative;margin-right:0}}
+.t-content{
+  background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.5rem;
+}
+.t-content h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.t-content p{font-size:.875rem;color:var(--muted)}
+
+/* Clients */
+.client-grid{display:grid;gap:1.25rem}
+@media(min-width:768px){.client-grid{grid-template-columns:repeat(3,1fr)}}
+.client-card{
+  padding:2rem 1.5rem;border-radius:16px;background:var(--white);border:1px solid var(--line);
+  text-align:center;transition:transform .3s,box-shadow .3s;
+}
+.client-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(var(--navy-rgb),.08)}
+.client-card i{font-size:1.75rem;color:var(--accent);margin-bottom:1rem}
+.client-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.client-card p{font-size:.875rem;color:var(--muted)}
+
+/* CTA band */
+.cta-band{
+  padding:3.5rem 2rem;border-radius:20px;text-align:center;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-soft) 100%);
+  color:var(--white);position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(232,117,26,.2),transparent 70%);pointer-events:none;
+}
+.cta-band h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);position:relative}
+.cta-band p{margin-top:.75rem;color:rgba(255,255,255,.8);max-width:32rem;margin-inline:auto;position:relative}
+.cta-band .hero-btns{justify-content:center;margin-top:1.5rem;position:relative}
+
+/* Form */
+.form-section{display:grid;gap:2.5rem}
+@media(min-width:992px){.form-section{grid-template-columns:1fr 1.2fr;align-items:start}}
+.form-info h3{font-family:var(--display);font-size:1.5rem;color:var(--navy);margin-bottom:.75rem}
+.form-info p{color:var(--muted);margin-bottom:1rem;font-size:.925rem}
+.form-info ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.form-info li{display:flex;gap:.65rem;font-size:.9rem;color:var(--text)}
+.form-info li i{color:var(--accent);margin-top:.15rem}
+.form-panel{
+  border:1px solid var(--line);border-radius:16px;padding:2rem;background:var(--white);
+  box-shadow:0 8px 30px rgba(var(--navy-rgb),.06);
+}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
+input,select,textarea{
+  width:100%;padding:.75rem .9rem;border:1px solid var(--line);border-radius:8px;
+  font:inherit;margin-bottom:1rem;background:var(--white);
+}
+input:focus,select:focus,textarea:focus{outline:2px solid rgba(232,117,26,.3);border-color:var(--accent)}
+input.error,select.error,textarea.error{border-color:#dc2626}
+.field-error{font-size:.75rem;color:#dc2626;margin:-.65rem 0 .75rem;display:none}
+.field-error.show{display:block}
+.form-row{display:grid;gap:1rem}
+@media(min-width:520px){.form-row.two{grid-template-columns:1fr 1fr}}
+.form-done{
+  display:none;margin-top:1rem;padding:1rem;background:#f0fdf4;color:#166534;
+  border-radius:8px;font-size:.9rem;border:1px solid #bbf7d0;
+}
+.form-done.show{display:block}
+
+/* Contact */
+.contact-grid{display:grid;gap:2rem;margin-top:2rem}
+@media(min-width:768px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
+.contact-card{
+  padding:1.75rem;border-radius:16px;background:var(--white);border:1px solid var(--line);height:100%;
+}
+.contact-card i{color:var(--accent);font-size:1.25rem;margin-bottom:.75rem}
+.contact-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.contact-card p,.contact-card a{font-size:.9rem;color:var(--muted)}
+.contact-card a{font-weight:600;color:var(--navy)}
+.contact-card a:hover{color:var(--accent)}
+
+/* Footer */
+footer{background:var(--navy);color:rgba(255,255,255,.75);padding:3rem 0 1.5rem;font-size:.875rem}
+.footer-grid{display:grid;gap:2rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+footer h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.85rem}
+footer a{display:block;color:rgba(255,255,255,.65);margin-bottom:.4rem;transition:color .2s}
+footer a:hover{color:var(--white)}
+.footer-brand img{width:3.5rem;height:3.5rem;object-fit:contain;border-radius:50%;margin-bottom:.75rem}
+.footer-copy{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed;bottom:1.25rem;right:1.25rem;z-index:90;
+  width:3.5rem;height:3.5rem;border-radius:50%;background:var(--wa);color:var(--white);
+  display:grid;place-items:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(22,163,74,.4);
+  transition:transform .2s,background .2s;
+}
+.wa-float:hover{transform:scale(1.08);background:var(--wa-hover)}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover,.svc-card:hover,.g-item:hover img{transform:none}
+  .wa-float:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header on-hero" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <img src="tdjp-logo.png" alt="TDJP SERVICES" class="brand-logo" width="48" height="48">
+      <span class="brand-text-wrap">
+        <span class="brand-name">TDJP SERVICES</span>
+        <span class="brand-tagline">Travaux • Rénovation • Confort</span>
+      </span>
+    </a>
+    <nav class="nav-main" aria-label="Navigation principale">
+      <a href="#top">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#devis" class="btn btn-fill nav-cta">Demander un devis</a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="shade" id="menuShade"></div>
+  <nav class="sheet" aria-label="Menu mobile">
+    <a href="#top" class="mlink">Accueil</a>
+    <a href="#services" class="mlink">Services</a>
+    <a href="#realisations" class="mlink">Réalisations</a>
+    <a href="#apropos" class="mlink">À propos</a>
+    <a href="#contact" class="mlink">Contact</a>
+    <a href="#devis" class="btn btn-fill mlink">Demander un devis</a>
+  </nav>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-media" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1593113598333-c026886bc2f2?w=1920&q=85&auto=format&fit=crop"
+      alt=""
+      width="1920" height="1280"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-body">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-loc"><i class="fa-solid fa-location-dot"></i> Abomey-Calavi • Bénin</p>
+        <h1>Des bâtiments plus beaux, plus confortables et plus durables.</h1>
+        <p class="lead">TDJP SERVICES accompagne particuliers, entreprises et institutions dans leurs travaux de rénovation, peinture, étanchéité, froid et climatisation.</p>
+        <div class="hero-btns">
+          <a href="#devis" class="btn btn-fill">Demander un devis</a>
+          <a href="#services" class="btn btn-ghost">Découvrir nos services</a>
+          <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="btn btn-wa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="hero-pills">
+          <span>Rénovation</span>
+          <span>Peinture</span>
+          <span>Étanchéité</span>
+          <span>Froid &amp; Climatisation</span>
+        </div>
+      </div>
+      <aside class="hero-card reveal">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80&auto=format&fit=crop" alt="Chantier de rénovation — visuel de démonstration" loading="lazy" width="800" height="600">
+        <p>Entreprise spécialisée dans les travaux de rénovation, finition, protection et confort des bâtiments à Abomey-Calavi.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="apropos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Présentation</span>
+      <h2>Votre partenaire pour vos travaux de bâtiment</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80&auto=format&fit=crop" alt="Travaux de bâtiment — visuel de démonstration" loading="lazy" width="900" height="675">
+      </div>
+      <div class="about-text reveal">
+        <p><strong>TDJP SERVICES</strong> (TOUCHE DIVINE DE JUVENAL &amp; PRICETTE SERVICES) est une entreprise béninoise polyvalente intervenant dans la rénovation, la finition, la protection des bâtiments et les solutions de froid et climatisation.</p>
+        <p>Nous accompagnons les particuliers, les entreprises et les institutions dans leurs projets, avec une attention portée à la qualité des travaux, au professionnalisme et à la durabilité des solutions mises en œuvre.</p>
+        <p>Que ce soit pour une remise en état, des finitions, la protection contre l'humidité ou l'installation d'équipements de confort thermique, notre équipe vous accompagne à chaque étape.</p>
+        <a href="#services" class="btn btn-dark">En savoir plus</a>
+        <p class="zone-note"><strong>Zone d'activité :</strong> Abomey-Calavi, Bénin — secteur Womey / Godomey-Togoudo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block block-muted" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Expertise</span>
+      <h2>Nos domaines d'expertise</h2>
+      <p>Quatre pôles complémentaires pour répondre aux besoins de votre bâtiment.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop" alt="Travaux de rénovation — visuel de démonstration" loading="lazy" width="800" height="500">
+        <div class="svc-body">
+          <div class="svc-icon"><i class="fa-solid fa-hammer"></i></div>
+          <h3>Rénovation</h3>
+          <p>Travaux de rénovation et remise en état des bâtiments.</p>
+          <a href="#devis" class="btn btn-outline">Demander un devis</a>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1581578731542-5ddfca641cbf?w=800&q=80&auto=format&fit=crop" alt="Travaux de peinture — visuel de démonstration" loading="lazy" width="800" height="500">
+        <div class="svc-body">
+          <div class="svc-icon"><i class="fa-solid fa-paint-roller"></i></div>
+          <h3>Peinture</h3>
+          <p>Travaux de peinture intérieure, extérieure et finitions.</p>
+          <a href="#devis" class="btn btn-outline">Demander un devis</a>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop" alt="Travaux d'étanchéité — visuel de démonstration" loading="lazy" width="800" height="500">
+        <div class="svc-body">
+          <div class="svc-icon"><i class="fa-solid fa-droplet"></i></div>
+          <h3>Étanchéité</h3>
+          <p>Solutions destinées à protéger les bâtiments contre les problèmes d'humidité et d'infiltration.</p>
+          <a href="#devis" class="btn btn-outline">Demander un devis</a>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1631545806608-187a5e3f7a47?w=800&q=80&auto=format&fit=crop" alt="Installation climatisation — visuel de démonstration" loading="lazy" width="800" height="500">
+        <div class="svc-body">
+          <div class="svc-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <h3>Froid &amp; Climatisation</h3>
+          <p>Installation, entretien et interventions liées aux équipements de froid et de climatisation.</p>
+          <a href="#devis" class="btn btn-outline">Demander un devis</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="realisations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Portfolio</span>
+      <h2>Nos réalisations</h2>
+      <p>Galerie visuelle illustrant nos domaines d'intervention.</p>
+    </div>
+    <div class="gallery-filters reveal" role="tablist" aria-label="Filtrer les réalisations">
+      <button type="button" class="filter-btn active" data-filter="all">Tout</button>
+      <button type="button" class="filter-btn" data-filter="renovation">Rénovation</button>
+      <button type="button" class="filter-btn" data-filter="peinture">Peinture</button>
+      <button type="button" class="filter-btn" data-filter="etancheite">Étanchéité</button>
+      <button type="button" class="filter-btn" data-filter="climatisation">Climatisation</button>
+    </div>
+    <div class="gallery reveal" id="gallery">
+      <figure class="g-item" data-cat="renovation">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&auto=format&fit=crop" alt="Bâtiment rénové — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Rénovation</span><h3>Remise en état de bâtiment</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="peinture">
+        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d3588?w=600&q=80&auto=format&fit=crop" alt="Peinture intérieure — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Peinture</span><h3>Finitions intérieures</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="etancheite">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80&auto=format&fit=crop" alt="Protection du bâtiment — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Étanchéité</span><h3>Protection contre l'humidité</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="climatisation">
+        <img src="https://images.unsplash.com/photo-1581094790569-966731148de2?w=600&q=80&auto=format&fit=crop" alt="Technicien climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Climatisation</span><h3>Installation climatisation</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="renovation">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&auto=format&fit=crop" alt="Façade de bâtiment — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Rénovation</span><h3>Travaux de façade</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="peinture">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80&auto=format&fit=crop" alt="Peinture extérieure — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Peinture</span><h3>Peinture extérieure</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="climatisation">
+        <img src="https://images.unsplash.com/photo-1631545806608-187a5e3f7a47?w=600&q=80&auto=format&fit=crop" alt="Équipement de climatisation — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Climatisation</span><h3>Entretien équipements</h3></figcaption>
+      </figure>
+      <figure class="g-item" data-cat="etancheite">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Travaux de toiture — visuel de démonstration" loading="lazy" width="600" height="450">
+        <figcaption class="g-overlay"><span>Étanchéité</span><h3>Étanchéité toiture</h3></figcaption>
+      </figure>
+    </div>
+    <p class="demo-note">Visuels de démonstration — à remplacer par les réalisations de TDJP SERVICES.</p>
+  </div>
+</section>
+
+<section class="block block-muted" id="pourquoi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Confiance</span>
+      <h2>Pourquoi nous faire confiance ?</h2>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <i class="fa-solid fa-layer-group"></i>
+        <h3>Polyvalence</h3>
+        <p>Plusieurs expertises réunies pour répondre à différents besoins du bâtiment.</p>
+      </article>
+      <article class="why-card reveal">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>Accompagnement</h3>
+        <p>Une approche adaptée aux besoins de chaque client.</p>
+      </article>
+      <article class="why-card reveal">
+        <i class="fa-solid fa-star"></i>
+        <h3>Qualité</h3>
+        <p>Une attention portée à la qualité des travaux et aux finitions.</p>
+      </article>
+      <article class="why-card reveal">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Durabilité</h3>
+        <p>Des solutions pensées pour durer et protéger les bâtiments.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="processus">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Méthode</span>
+      <h2>Comment se déroule votre projet ?</h2>
+    </div>
+    <div class="timeline">
+      <article class="t-step reveal">
+        <div class="t-num">01</div>
+        <div class="t-content"><h3>Échange</h3><p>Comprendre votre besoin.</p></div>
+      </article>
+      <article class="t-step reveal">
+        <div class="t-num">02</div>
+        <div class="t-content"><h3>Évaluation</h3><p>Analyser les travaux à réaliser.</p></div>
+      </article>
+      <article class="t-step reveal">
+        <div class="t-num">03</div>
+        <div class="t-content"><h3>Proposition</h3><p>Définir les travaux et la solution adaptée.</p></div>
+      </article>
+      <article class="t-step reveal">
+        <div class="t-num">04</div>
+        <div class="t-content"><h3>Intervention</h3><p>Réaliser les travaux.</p></div>
+      </article>
+      <article class="t-step reveal">
+        <div class="t-num">05</div>
+        <div class="t-content"><h3>Suivi</h3><p>Assurer le suivi du projet.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block block-muted" id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Clients</span>
+      <h2>Des solutions pour différents besoins</h2>
+    </div>
+    <div class="client-grid">
+      <article class="client-card reveal">
+        <i class="fa-solid fa-house"></i>
+        <h3>Particuliers</h3>
+        <p>Rénovation, peinture, climatisation et amélioration du confort.</p>
+      </article>
+      <article class="client-card reveal">
+        <i class="fa-solid fa-building"></i>
+        <h3>Entreprises</h3>
+        <p>Travaux et maintenance pour les locaux professionnels.</p>
+      </article>
+      <article class="client-card reveal">
+        <i class="fa-solid fa-landmark"></i>
+        <h3>Institutions</h3>
+        <p>Interventions adaptées aux bâtiments et infrastructures institutionnels.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap reveal">
+    <div class="cta-band">
+      <h2>Un projet de rénovation ou d'installation ?</h2>
+      <p>Décrivez-nous votre besoin et notre équipe pourra vous orienter vers la solution adaptée.</p>
+      <div class="hero-btns">
+        <a href="#devis" class="btn btn-fill">Demander un devis</a>
+        <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="btn btn-wa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Nous contacter sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block block-muted" id="devis">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Devis</span>
+      <h2>Demandez votre devis</h2>
+      <p>Remplissez le formulaire ci-dessous — nous vous recontacterons.</p>
+    </div>
+    <div class="form-section">
+      <div class="form-info reveal">
+        <h3>Parlez-nous de votre projet</h3>
+        <p>Indiquez le type de prestation souhaitée et décrivez votre besoin. Notre équipe, dirigée par <strong>Juvénal KOUKONOU</strong>, pourra vous orienter.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Réponse rapide par téléphone ou WhatsApp</li>
+          <li><i class="fa-solid fa-check"></i> Accompagnement personnalisé</li>
+          <li><i class="fa-solid fa-check"></i> Intervention à Abomey-Calavi et environs</li>
+        </ul>
+        <a href="tel:+2290196745872" class="btn btn-dark" style="margin-top:1rem"><i class="fa-solid fa-phone"></i> +229 01 96 74 58 72</a>
+      </div>
+      <div class="form-panel reveal">
+        <form id="devisForm" novalidate>
+          <div class="form-row two">
+            <div>
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" required autocomplete="name">
+              <p class="field-error" data-for="nom">Veuillez indiquer votre nom.</p>
+            </div>
+            <div>
+              <label for="tel">Téléphone *</label>
+              <input type="tel" id="tel" name="tel" required autocomplete="tel">
+              <p class="field-error" data-for="tel">Veuillez indiquer un numéro valide.</p>
+            </div>
+          </div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <p class="field-error" data-for="email">Veuillez indiquer un email valide.</p>
+          <div class="form-row two">
+            <div>
+              <label for="clientType">Type de client *</label>
+              <select id="clientType" name="clientType" required>
+                <option value="">Sélectionner</option>
+                <option value="particulier">Particulier</option>
+                <option value="entreprise">Entreprise</option>
+                <option value="institution">Institution</option>
+              </select>
+              <p class="field-error" data-for="clientType">Veuillez sélectionner un type.</p>
+            </div>
+            <div>
+              <label for="prestation">Type de prestation *</label>
+              <select id="prestation" name="prestation" required>
+                <option value="">Sélectionner</option>
+                <option value="renovation">Rénovation</option>
+                <option value="peinture">Peinture</option>
+                <option value="etancheite">Étanchéité</option>
+                <option value="climatisation">Froid &amp; Climatisation</option>
+                <option value="autre">Autre</option>
+              </select>
+              <p class="field-error" data-for="prestation">Veuillez sélectionner une prestation.</p>
+            </div>
+          </div>
+          <label for="localisation">Localisation *</label>
+          <input type="text" id="localisation" name="localisation" required placeholder="Ex. Godomey-Togoudo, Abomey-Calavi">
+          <p class="field-error" data-for="localisation">Veuillez indiquer la localisation.</p>
+          <label for="besoin">Description du besoin *</label>
+          <textarea id="besoin" name="besoin" rows="4" required placeholder="Décrivez votre projet..."></textarea>
+          <p class="field-error" data-for="besoin">Veuillez décrire votre besoin.</p>
+          <button type="submit" class="btn btn-fill" style="width:100%">Envoyer ma demande</button>
+          <p class="form-done" id="formDone" role="status">Votre demande a été enregistrée. Nous vous contacterons prochainement.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span>Contact</span>
+      <h2>Parlons de votre projet</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-card">
+        <i class="fa-solid fa-building"></i>
+        <h3>TDJP SERVICES</h3>
+        <p>TOUCHE DIVINE DE JUVENAL &amp; PRICETTE SERVICES</p>
+      </div>
+      <div class="contact-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Localisation</h3>
+        <p>Abomey-Calavi, Bénin<br>Womey / Godomey-Togoudo</p>
+      </div>
+      <div class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Téléphone</h3>
+        <p><a href="tel:+2290196745872">+229 01 96 74 58 72</a></p>
+        <p style="margin-top:.75rem"><a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="btn btn-wa" target="_blank" rel="noopener noreferrer" style="display:inline-flex"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img src="tdjp-logo.png" alt="TDJP SERVICES" width="56" height="56">
+      <strong style="color:#fff;font-size:1.05rem;display:block">TDJP SERVICES</strong>
+      <p style="margin-top:.5rem;max-width:18rem;font-size:.85rem">Travaux de rénovation, peinture, étanchéité, froid et climatisation à Abomey-Calavi.</p>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <a href="#top">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#services">Rénovation</a>
+      <a href="#services">Peinture</a>
+      <a href="#services">Étanchéité</a>
+      <a href="#services">Froid &amp; Climatisation</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="#">Abomey-Calavi, Bénin</a>
+      <a href="tel:+2290196745872">+229 01 96 74 58 72</a>
+      <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+  <p class="footer-copy wrap">© 2026 TDJP SERVICES. Tous droits réservés.</p>
+</footer>
+
+<a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Contacter TDJP SERVICES sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+const WA='https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations.';
+
+/* Header scroll */
+const header=document.getElementById('siteHeader');
+const hero=document.querySelector('.hero');
+function updateHeader(){
+  const past=hero.getBoundingClientRect().bottom<=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h'))+8;
+  header.classList.toggle('solid',past);
+  header.classList.toggle('on-hero',!past);
+}
+updateHeader();
+addEventListener('scroll',updateHeader,{passive:true});
+addEventListener('resize',updateHeader);
+
+/* Mobile menu */
+const mobileNav=document.getElementById('mobileNav');
+const menuBtn=document.getElementById('menuBtn');
+function setMenu(open){
+  mobileNav.classList.toggle('open',open);
+  mobileNav.setAttribute('aria-hidden',open?'false':'true');
+  menuBtn.setAttribute('aria-expanded',open?'true':'false');
+  document.body.classList.toggle('no-scroll',open);
+}
+menuBtn.addEventListener('click',()=>setMenu(!mobileNav.classList.contains('open')));
+document.getElementById('menuShade').addEventListener('click',()=>setMenu(false));
+document.querySelectorAll('.mlink').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+/* Scroll reveal */
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+/* Gallery filter */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.g-item').forEach(item=>{
+      item.classList.toggle('hidden',f!=='all'&&item.dataset.cat!==f);
+    });
+  });
+});
+
+/* Form validation */
+const form=document.getElementById('devisForm');
+function showError(id,show){
+  const input=document.getElementById(id);
+  const err=document.querySelector(`.field-error[data-for="${id}"]`);
+  if(input)input.classList.toggle('error',show);
+  if(err)err.classList.toggle('show',show);
+  return !show;
+}
+function validPhone(v){return /^[\d\s+()-]{8,}$/.test(v.trim());}
+function validEmail(v){return !v.trim()||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());}
+
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  let ok=true;
+  ok=showError('nom',!form.nom.value.trim())&&ok;
+  ok=showError('tel',!validPhone(form.tel.value))&&ok;
+  ok=showError('email',!validEmail(form.email.value))&&ok;
+  ok=showError('clientType',!form.clientType.value)&&ok;
+  ok=showError('prestation',!form.prestation.value)&&ok;
+  ok=showError('localisation',!form.localisation.value.trim())&&ok;
+  ok=showError('besoin',!form.besoin.value.trim())&&ok;
+  if(ok){
+    document.getElementById('formDone').classList.add('show');
+    form.reset();
+    setTimeout(()=>document.getElementById('formDone').classList.remove('show'),6000);
+  }
+});
+form.querySelectorAll('input,select,textarea').forEach(el=>{
+  el.addEventListener('input',()=>showError(el.id,false));
+  el.addEventListener('change',()=>showError(el.id,false));
+});
+</script>
+</body>
+</html>

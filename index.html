@@ -237,6 +237,24 @@
   .card:has(.card-icon--cagie):hover::before {
     background: linear-gradient(90deg, #1a2b56, #e3a33a);
   }
+  .card-icon--tdjp {
+    background: linear-gradient(135deg, rgba(26, 53, 96, 0.35), rgba(109, 76, 154, 0.2));
+    border-color: rgba(26, 53, 96, 0.4);
+    padding: 2px;
+    overflow: hidden;
+  }
+  .card-icon--tdjp img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .card:has(.card-icon--tdjp):hover {
+    border-color: rgba(232, 117, 26, 0.45);
+  }
+  .card:has(.card-icon--tdjp):hover::before {
+    background: linear-gradient(90deg, #1a3560, #e8751a);
+  }
   .card-icon--lss {
     background: linear-gradient(135deg, rgba(0,152,184,0.35), rgba(0,196,232,0.15));
     border-color: rgba(0,196,232,0.35);
@@ -442,6 +460,24 @@
         <span class="tag">Logistique</span>
         <span class="tag">Fret aérien</span>
         <span class="tag">E-commerce</span>
+      </div>
+    </a>
+
+    <a href="tdjp.html" class="card">
+      <div class="card-top">
+        <div class="card-icon card-icon--tdjp" aria-hidden="true">
+          <img src="tdjp-logo.png" alt="" width="32" height="32" />
+        </div>
+        <div class="card-arrow">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <h2>TDJP SERVICES</h2>
+      <p class="card-loc">Abomey-Calavi · Bénin</p>
+      <p class="card-desc">Rénovation, peinture bâtiment, étanchéité, froid et climatisation.</p>
+      <div class="card-tags">
+        <span class="tag">BTP</span>
+        <span class="tag">Rénovation</span>
       </div>
     </a>
 
