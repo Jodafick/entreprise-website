@@ -84,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .btn-wa:hover{background:var(--wa-hover)}
 .btn-fb{background:#1877f2;color:var(--white)}
 .btn-fb:hover{background:#166fe5}
-.social-links{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.75rem}
+.btn i{color:inherit;margin:0;line-height:1;flex-shrink:0}
 .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
 .btn-outline:hover{background:var(--navy);color:var(--white)}
 
@@ -349,12 +349,30 @@ input.error,select.error,textarea.error{border-color:#dc2626}
 .contact-card{
   padding:1.75rem;border-radius:16px;background:var(--white);border:1px solid var(--line);height:100%;
 }
-.contact-card i{color:var(--accent);font-size:1.25rem;margin-bottom:.75rem}
+.contact-card > i{color:var(--accent);font-size:1.25rem;margin-bottom:.75rem;display:block;line-height:1}
 .contact-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
 .contact-card p{font-size:.9rem;color:var(--muted)}
 .contact-card p a{font-size:.9rem;font-weight:600;color:var(--navy)}
 .contact-card p a:hover{color:var(--accent)}
-.social-links .btn{color:var(--white)}
+.social-links{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:.75rem;align-items:stretch}
+.social-links .btn{
+  color:var(--white);
+  line-height:1;
+  min-height:2.75rem;
+  padding:.7rem 1rem;
+  font-size:.8125rem;
+}
+.social-links .btn i{
+  color:var(--white);
+  margin:0;
+  font-size:1rem;
+  line-height:1;
+  width:1rem;
+  flex-shrink:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
 .social-links .btn-wa:hover{color:var(--white);background:var(--wa-hover)}
 .social-links .btn-fb:hover{color:var(--white);background:#166fe5}
 
@@ -812,8 +830,8 @@ footer a:hover{color:var(--white)}
       <strong style="color:#fff;font-size:1.05rem;display:block">TDJP SERVICES</strong>
       <p style="margin-top:.5rem;max-width:18rem;font-size:.85rem">Travaux de rénovation, peinture, étanchéité, froid et climatisation à Abomey-Calavi.</p>
       <div class="footer-social">
-        <a href="https://www.facebook.com/tdjpservices/" target="_blank" rel="noopener noreferrer" aria-label="TDJP SERVICES sur Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." target="_blank" rel="noopener noreferrer" aria-label="TDJP SERVICES sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/tdjpservices/" class="soc-fb" target="_blank" rel="noopener noreferrer" aria-label="TDJP SERVICES sur Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/22996745872?text=Bonjour%20TDJP%20SERVICES%2C%20je%20souhaiterais%20avoir%20des%20informations%20concernant%20vos%20prestations." class="soc-wa" target="_blank" rel="noopener noreferrer" aria-label="TDJP SERVICES sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
     <div>
